@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Bu sayfa bilerek gizli: asla indekslenmez, asla listelenmez. -->
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="googlebot" content="noindex, nofollow" />
+
+  <meta name="theme-color" content="#06030c" />
+  <title>Proje Frezya</title>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🌸%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/frezya/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════ ARKA PLAN KATMANLARI ══════════════════ -->
+  <div class="nebula" id="nebula" aria-hidden="true">
+    <div class="nebula__blob nebula__blob--1"></div>
+    <div class="nebula__blob nebula__blob--2"></div>
+    <div class="nebula__blob nebula__blob--3"></div>
+  </div>
+  <canvas id="galaxy" aria-hidden="true"></canvas>
+  <canvas id="meadow" aria-hidden="true"></canvas>
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div id="flash" aria-hidden="true"></div>
+
+  <!-- ══════════════════ INTRO · AÇILIŞ ══════════════════ -->
+  <div id="intro" class="overlay">
+    <div class="terminal" aria-hidden="true">
+      <p class="terminal__line" id="tLine1"></p>
+      <p class="terminal__line terminal__line--title" id="tLine2"></p>
+      <p class="terminal__line" id="tLine3"></p>
+
+      <div class="loader" id="loader">
+        <div class="loader__bar"><div class="loader__fill" id="loaderFill"></div></div>
+        <div class="loader__meta">
+          <span class="loader__pct" id="loaderPct">0%</span>
+          <span class="loader__msg" id="loaderMsg"></span>
+        </div>
+      </div>
+    </div>
+    <button id="skipBtn" class="skip" type="button">geç ›</button>
+  </div>
+
+  <!-- ══════════════════ İKİNCİ SAHNE · 404 ══════════════════ -->
+  <div id="scene404" class="overlay overlay--dormant">
+    <div class="s404" id="s404Main">
+      <div class="s404__code">404</div>
+      <p class="s404__desc">Aradığın sayfa mevcut değil.</p>
+      <p class="s404__wait" id="s404Wait">Bekle.</p>
+    </div>
+    <div class="s404 maybe" id="maybe1">
+      <p class="maybe__soft">Belki de...</p>
+      <p class="maybe__strong">Aradığım bir sayfa değildi.</p>
+    </div>
+    <div class="s404 maybe" id="maybe2">
+      <p class="maybe__soft">Belki de...</p>
+      <p class="maybe__strong">Aradığım biriydi.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════ ANA DENEYİM ══════════════════ -->
+  <main id="experience" class="experience" hidden>
+
+    <!-- Açılış -->
+    <section class="hero">
+      <p class="hero__eyebrow">internetin gizli bir köşesi</p>
+      <h1 class="hero__title">Proje <em>Frezya</em></h1>
+      <p class="hero__sub">yalnızca tek bir kişi için yapıldı</p>
+      <div class="scroll-hint" aria-hidden="true">
+        <div class="scroll-hint__mouse"><span></span></div>
+        <p class="scroll-hint__label">kaydır</p>
+      </div>
+    </section>
+
+    <!-- Mektup -->
+    <section class="section">
+      <article class="card" id="letterCard">
+        <h2 class="card__name"><span id="letterName"></span></h2>
+        <div class="card__body" id="letterBody"></div>
+        <p class="card__sign" id="letterSign">— Galip</p>
+        <p class="card__hint" id="letterHint">hemen görmek için karta dokun</p>
+      </article>
+    </section>
+
+    <!-- Gizli his -->
+    <section class="section">
+      <blockquote class="secret reveal">
+        <p>İnternette milyarlarca sayfa var.</p>
+        <p>Ama bu sayfa yalnızca bir kişi için yapıldı.</p>
+        <p>Eğer buradaysan...</p>
+        <p class="secret__accent">Çünkü onu <span>senin</span> bulmanı istedim.</p>
+      </blockquote>
+    </section>
+
+    <!-- Final kalbi -->
+    <section class="section section--heart">
+      <button id="heart" class="heart reveal" type="button" aria-label="küçük bir hediye — dokun">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"  stop-color="#a78bfa" />
+              <stop offset="60%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#f2a6d8" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#heartGrad)" d="M12 21s-6.7-4.3-9.3-8C.6 9.9 2 6 5.5 5 7.7 4.4 9.9 5.4 12 7.6 14.1 5.4 16.3 4.4 18.5 5 22 6 23.4 9.9 21.3 13c-2.6 3.7-9.3 8-9.3 8z"/>
+        </svg>
+      </button>
+      <p class="heart__whisper reveal" id="heartWhisper">kalbe dokun</p>
+
+      <div id="finalText" class="final" hidden>
+        <p>Belki bugün bizim hikâyemiz değil.</p>
+        <p>Ama belki...</p>
+        <p>Bir gün...</p>
+        <p class="final__accent">Bu sayfa bir hikâyenin başlangıcı olur.</p>
+      </div>
+    </section>
+
+    <!-- Alt kısım -->
+    <footer class="foot">
+      <button id="whyBtn" class="chip" type="button">🌸 Neden Frezya?</button>
+      <p class="foot__gm">G <span>✦</span> M</p>
+      <p class="foot__note">hazır şablon yok &middot; hazır kod yok &middot; sadece niyet</p>
+    </footer>
+  </main>
+
+  <!-- ══════════════════ SABİT · MÜZİK ══════════════════ -->
+  <button id="audioBtn" class="audio-btn" type="button" hidden>
+    <span class="audio-btn__icon" aria-hidden="true">🎵</span>
+    <span class="audio-btn__label" id="audioLabel">Şarkımızı çal</span>
+    <span class="audio-btn__eq" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+  <!-- song.mp3 veya song.mp4 — hangisi varsa tarayıcı onu çalar -->
+  <audio id="song" preload="none" loop>
+    <source src="/frezya/assets/song.mp3" type="audio/mpeg" />
+    <source src="/frezya/assets/song.mp4" type="audio/mp4" />
+  </audio>
+
+  <!-- ══════════════════ MODAL · NEDEN FREZYA ══════════════════ -->
+  <div id="whyModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="whyTitle">
+    <div class="modal__card">
+      <div class="modal__icon" aria-hidden="true">🌸</div>
+      <h3 class="modal__title" id="whyTitle">Neden Frezya?</h3>
+      <p class="modal__text">
+        Frezya çiçeği güveni, içtenliği, dostluğu ve güzel başlangıçları simgeler.
+      </p>
+      <p class="modal__text modal__text--dim">
+        Bu sayfaya adını bu yüzden verdim: <em>Proje Frezya</em>.
+      </p>
+      <button class="chip modal__close" type="button" data-close>kapat</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════ MODAL · GİZLİ SÜRPRİZ ══════════════════ -->
+  <div id="eggModal" class="modal" hidden role="dialog" aria-modal="true">
+    <div class="modal__card">
+      <div class="modal__icon" aria-hidden="true">✦</div>
+      <h3 class="modal__title">Son sırrı buldun.</h3>
+      <p class="modal__text">Belki de merakın, seni özel yapan şeylerden biridir.</p>
+      <button class="chip modal__close" type="button" data-close>aramızda kalsın</button>
+    </div>
+  </div>
+
+  <noscript>
+    <p style="position:fixed;inset:0;display:grid;place-items:center;color:#f4f1ff;font-family:serif;padding:2rem;text-align:center;">
+      Bu küçük evrenin parlamak için JavaScript'e ihtiyacı var. Lütfen etkinleştir. ✦
+    </p>
+  </noscript>
+
+  <script src="/frezya/script.js"></script>
+</body>
+</html>

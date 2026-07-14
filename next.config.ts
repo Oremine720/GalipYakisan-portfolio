@@ -16,6 +16,10 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
   },
+  // /frezya klasörü (public/frezya) için temiz URL — mevcut route'ları etkilemez
+  async rewrites() {
+    return [{ source: "/frezya", destination: "/frezya/index.html" }];
+  },
 };
 
 export default nextConfig;
