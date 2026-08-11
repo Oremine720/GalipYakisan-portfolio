@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { Menu, X, GraduationCap } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Hakkımda", href: "#about" },
@@ -39,74 +40,76 @@ export default function Navbar() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-[9990] transition-all duration-500 ${
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed inset-x-0 top-0 z-[9990] transition-all duration-500 ${
           scrolled
-            ? "py-3 bg-[#080808]/80 backdrop-blur-xl border-b border-white/5"
-            : "py-5 bg-transparent"
+            ? "border-b border-white/[0.06] bg-[#08080a]/80 py-3 backdrop-blur-xl"
+            : "border-b border-transparent py-5"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6">
           {/* Logo */}
-          <motion.a
-            href="#"
+          <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2.5 group"
+            className="group flex items-center gap-2.5"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-sm font-bold text-white shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all duration-300">
-              G
-            </div>
-            <span className="text-white font-semibold text-sm tracking-tight">
-              galip<span className="text-indigo-400">.com</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-md border border-white/12 bg-white/[0.03] text-[11px] font-semibold tracking-tight text-zinc-200 transition-colors group-hover:border-white/25">
+              GY
             </span>
-          </motion.a>
+            <span className="text-sm font-medium tracking-tight text-zinc-200">
+              Galip Yakışan
+            </span>
+          </button>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => handleNavClick(item.href)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  activeSection === item.href.replace("#", "")
-                    ? "text-white bg-white/10"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="hidden items-center gap-0.5 md:flex">
+            {NAV_ITEMS.map((item) => {
+              const active = activeSection === item.href.replace("#", "");
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item.href)}
+                  className={`rounded-lg px-3 py-1.5 text-sm transition-colors duration-200 ${
+                    active
+                      ? "text-white"
+                      : "text-zinc-500 hover:text-zinc-200"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+            <Link
+              href="/kpss"
+              className="ml-1 flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-indigo-300 transition-colors duration-200 hover:text-indigo-200"
+            >
+              <GraduationCap size={14} /> KPSS
+            </Link>
           </div>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <motion.a
+          <div className="hidden md:block">
+            <a
               href="mailto:galipyakisan@gmail.com"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium transition-all duration-200 shadow-lg shadow-indigo-600/20"
+              className="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-400"
             >
               İletişim
-            </motion.a>
+            </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-zinc-400 hover:text-white transition-colors"
+            className="p-1.5 text-zinc-400 transition-colors hover:text-white md:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Menü"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -117,30 +120,37 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-16 inset-x-4 z-[9989] glass rounded-2xl p-4 md:hidden"
+            className="fixed inset-x-4 top-16 z-[9989] rounded-2xl border border-white/[0.08] bg-[#0d0d10]/95 p-3 backdrop-blur-xl md:hidden"
           >
             {NAV_ITEMS.map((item, i) => (
               <motion.button
                 key={item.label}
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: i * 0.04 }}
                 onClick={() => handleNavClick(item.href)}
-                className="w-full text-left px-4 py-3 rounded-xl text-zinc-300 hover:text-white hover:bg-white/5 text-sm font-medium transition-all duration-200"
+                className="w-full rounded-xl px-4 py-3 text-left text-sm text-zinc-300 transition-colors hover:bg-white/5 hover:text-white"
               >
                 {item.label}
               </motion.button>
             ))}
-            <div className="mt-3 pt-3 border-t border-white/5">
+            <Link
+              href="/kpss"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-2 rounded-xl px-4 py-3 text-left text-sm text-indigo-300 transition-colors hover:bg-white/5"
+            >
+              <GraduationCap size={15} /> KPSS Çalışma
+            </Link>
+            <div className="mt-2 border-t border-white/[0.06] pt-2">
               <a
                 href="mailto:galipyakisan@gmail.com"
-                className="block w-full text-center px-4 py-3 rounded-xl bg-indigo-600 text-white text-sm font-medium"
+                className="block w-full rounded-xl bg-indigo-500 px-4 py-3 text-center text-sm font-medium text-white"
               >
-                İletişime Geç
+                İletişime geç
               </a>
             </div>
           </motion.div>

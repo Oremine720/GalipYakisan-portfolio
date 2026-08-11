@@ -3,55 +3,52 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Github, ExternalLink, ArrowUpRight, Star } from "lucide-react";
+import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "@/lib/data";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 });
   const [filter, setFilter] = useState<"all" | "featured">("all");
 
-  const displayed = filter === "featured"
-    ? PROJECTS.filter((p) => p.featured)
-    : PROJECTS;
+  const displayed =
+    filter === "featured" ? PROJECTS.filter((p) => p.featured) : PROJECTS;
 
   return (
     <section id="projects" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-10 flex flex-wrap items-end justify-between gap-6"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-white/10 text-xs text-zinc-400 font-mono mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            03. projeler
+          <div>
+            <span className="overline">03 — İşler</span>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+              Seçili projeler
+            </h2>
+            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
+              Geliştirdiğim uygulamalar ve yazılım projeleri.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Projelerim
-          </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto mb-8">
-            Geliştirdiğim uygulamalar ve yazılım projeleri.
-          </p>
 
           {/* Filter */}
-          <div className="inline-flex items-center gap-1 p-1 rounded-xl glass border border-white/5">
+          <div className="inline-flex items-center gap-1 rounded-full border border-white/10 p-1">
             {[
               { label: "Tümü", value: "all" },
-              { label: "Öne Çıkanlar", value: "featured" },
+              { label: "Öne çıkanlar", value: "featured" },
             ].map((f) => (
               <button
                 key={f.value}
                 onClick={() => setFilter(f.value as typeof filter)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors duration-200 ${
                   filter === f.value
-                    ? "bg-white/10 text-white"
-                    : "text-zinc-500 hover:text-zinc-300"
+                    ? "bg-white text-zinc-900"
+                    : "text-zinc-400 hover:text-white"
                 }`}
               >
                 {f.label}
@@ -60,124 +57,107 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Projects grid */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid */}
+        <motion.div layout className="grid gap-4 md:grid-cols-2">
           <AnimatePresence mode="popLayout">
-            {displayed.map((project, i) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                whileHover={{ y: -6 }}
-                className="group relative glass rounded-2xl border border-white/5 overflow-hidden"
-              >
-                {/* Gradient header */}
-                <div className={`relative h-40 bg-gradient-to-br ${project.gradient} opacity-80`}>
-                  {/* Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center text-5xl">
-                    {project.icon}
-                  </div>
-                  {/* Shimmer */}
-                  <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  {/* Status badge */}
-                  <div className="absolute top-3 right-3">
-                    <span
-                      className="px-2 py-1 rounded-md text-[10px] font-semibold"
-                      style={{
-                        backgroundColor: `${project.statusColor}20`,
-                        color: project.statusColor,
-                        border: `1px solid ${project.statusColor}40`,
-                      }}
-                    >
-                      {project.status}
+            {displayed.map((project, i) => {
+              const done = project.status === "Completed";
+              return (
+                <motion.a
+                  key={project.id}
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  layout
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.4, delay: i * 0.06, ease: EASE }}
+                  className="group relative flex flex-col rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6 transition-colors duration-300 hover:border-white/[0.16] hover:bg-white/[0.028]"
+                >
+                  {/* Top meta */}
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="font-mono text-xs text-zinc-600">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                  </div>
-                  {/* Featured star */}
-                  {project.featured && (
-                    <div className="absolute top-3 left-3">
-                      <Star size={14} className="text-yellow-400 fill-yellow-400" />
+                    <div className="flex items-center gap-3">
+                      {project.featured && (
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-indigo-400">
+                          Öne çıkan
+                        </span>
+                      )}
+                      <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full ${
+                            done ? "bg-emerald-400/80" : "bg-amber-400/80"
+                          }`}
+                        />
+                        {done ? "Tamamlandı" : "Geliştiriliyor"}
+                      </span>
                     </div>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <div className="mb-1">
-                    <span className="text-[10px] font-mono text-zinc-600">{project.year}</span>
                   </div>
-                  <h3 className="text-base font-semibold text-white mb-1 group-hover:text-indigo-300 transition-colors">
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-indigo-300">
                     {project.title}
                   </h3>
-                  <p className="text-xs text-indigo-400 mb-3">{project.subtitle}</p>
-                  <p className="text-sm text-zinc-500 leading-relaxed mb-4 line-clamp-3">
+                  <p className="mt-0.5 text-sm text-zinc-500">{project.subtitle}</p>
+
+                  {/* Description */}
+                  <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-zinc-500">
                     {project.description}
                   </p>
 
-                  {/* Tech tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
+                  {/* Tech */}
+                  <div className="mt-5 flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 rounded-md bg-white/5 text-zinc-400 text-[10px] font-mono border border-white/5"
+                        className="rounded-md border border-white/[0.07] px-2 py-0.5 font-mono text-[10px] text-zinc-400"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  {/* Links */}
-                  <div className="flex items-center gap-3 pt-3 border-t border-white/5">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-white transition-colors"
-                    >
+                  {/* Footer */}
+                  <div className="mt-6 flex items-center gap-4 border-t border-white/[0.06] pt-4">
+                    <span className="flex items-center gap-1.5 text-xs text-zinc-500 transition-colors group-hover:text-white">
                       <Github size={13} />
-                      Kaynak Kodu
-                    </a>
+                      Kaynak kodu
+                    </span>
                     {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
-                      >
+                      <span className="flex items-center gap-1.5 text-xs text-indigo-400">
                         <ExternalLink size={13} />
                         Demo
-                      </a>
+                      </span>
                     )}
-                    <div className="ml-auto">
-                      <ArrowUpRight
-                        size={14}
-                        className="text-zinc-700 group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                      />
-                    </div>
+                    <ArrowUpRight
+                      size={15}
+                      className="ml-auto text-zinc-700 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-indigo-400"
+                    />
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.a>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-10"
+          transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
+          className="mt-8"
         >
           <a
             href="https://github.com/Oremine720"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass glass-hover border border-white/10 text-zinc-300 hover:text-white text-sm font-medium transition-all duration-200"
+            className="inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-white"
           >
-            <Github size={16} />
-            GitHub&apos;da Daha Fazlasını Gör
+            <Github size={15} />
+            GitHub&apos;da tüm projeleri gör
             <ArrowUpRight size={14} />
           </a>
         </motion.div>

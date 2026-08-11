@@ -1,0 +1,1125 @@
+{
+  "version": 1,
+  "examType": "kpss_onlisans",
+  "subjects": [
+    {
+      "id": "turkce",
+      "name": "Türkçe",
+      "icon": "menu_book",
+      "colorSeed": "#2E7D5B",
+      "topics": [
+        {
+          "id": "turkce.dil_bilgisi",
+          "name": "Dil Bilgisi",
+          "subTopics": [
+            {
+              "id": "turkce.dil_bilgisi.ses_bilgisi",
+              "name": "Ses Bilgisi",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Ünsüz yumuşaması, ünsüz benzeşmesi ve ünlü düşmesi olaylarını örnek sözcüklerde tanır.",
+                "Kaynaştırma harflerini ve ulama olayını ayırt eder.",
+                "Büyük ve küçük ünlü uyumuna uyan ve uymayan sözcükleri belirler."
+              ],
+              "scenarioDomains": ["günlük konuşma", "haber dili", "edebî metin"],
+              "commonMisconceptions": [
+                "Kaynaştırma harfini yapım eki sanma",
+                "Alıntı sözcüklerde ünlü uyumu aramaya çalışma",
+                "Ünsüz yumuşamasını ünsüz benzeşmesiyle karıştırma"
+              ],
+              "generationNotes": "Sözcükler güncel Türkçe olmalı; arkaik veya çok teknik sözcük kullanma. Ses olayı sözcüğün hangi hecesinde gerçekleştiği açıkça izlenebilmeli."
+            },
+            {
+              "id": "turkce.dil_bilgisi.sozcukte_yapi",
+              "name": "Sözcükte Yapı",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "Basit, türemiş ve birleşik sözcükleri ayırt eder.",
+                "Yapım eki ile çekim ekini işlevine göre ayırt eder.",
+                "Bir sözcükteki ekleri sırasıyla çözümler."
+              ],
+              "scenarioDomains": ["günlük konuşma", "edebî metin", "bilgilendirici metin"],
+              "commonMisconceptions": [
+                "Çekim ekini yapım eki sanma",
+                "Birleşik sözcüğü türemiş sözcük sanma",
+                "İyelik ekiyle üçüncü tekil kişi ekini karıştırma"
+              ],
+              "generationNotes": "Seçilen sözcük tek bir doğru çözümlemeye izin vermeli; birden fazla okuması olan sözcüklerden kaçın."
+            },
+            {
+              "id": "turkce.dil_bilgisi.sozcuk_turleri",
+              "name": "Sözcük Türleri",
+              "blueprintWeight": 0.08,
+              "kazanimlar": [
+                "İsim, sıfat, zamir, zarf, edat, bağlaç ve ünlemi cümle içindeki işlevine göre belirler.",
+                "Sıfat ile zarfı, niteledikleri ögeye bakarak ayırt eder.",
+                "Edat, bağlaç ve ünlemin cümleye kattığı anlamı açıklar."
+              ],
+              "scenarioDomains": ["günlük konuşma", "edebî metin", "haber dili"],
+              "commonMisconceptions": [
+                "Sıfatı zarf sanma (fiili mi ismi mi nitelediğini karıştırma)",
+                "'ile' sözcüğünün edat mı bağlaç mı olduğunu ayırt edememe",
+                "İşaret sıfatını işaret zamiriyle karıştırma"
+              ],
+              "generationNotes": "Sorulan sözcük cümlede tek bir türde kullanılmalı; bağlama göre değişen ikircikli örneklerden kaçın."
+            },
+            {
+              "id": "turkce.dil_bilgisi.cumlenin_ogeleri",
+              "name": "Cümlenin Ögeleri",
+              "blueprintWeight": 0.07,
+              "kazanimlar": [
+                "Yüklem, özne, nesne, dolaylı tümleç ve zarf tümlecini belirler.",
+                "Belirtili ve belirtisiz nesneyi ayırt eder.",
+                "Ara sözü ve ögelerin yerini değiştirmenin anlama etkisini açıklar."
+              ],
+              "scenarioDomains": ["günlük konuşma", "bilgilendirici metin", "edebî metin"],
+              "commonMisconceptions": [
+                "Dolaylı tümleci zarf tümleciyle karıştırma",
+                "Belirtisiz nesneyi özne sanma",
+                "Yüklemi bulmadan öge aramaya başlama"
+              ],
+              "generationNotes": "Cümle tek yüklemli ve öge sınırları net olmalı; devrik cümle kullanılacaksa öge sınırları yine de tartışmasız kalmalı."
+            },
+            {
+              "id": "turkce.dil_bilgisi.yazim_kurallari",
+              "name": "Yazım Kuralları",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "Büyük harflerin kullanıldığı yerleri kurallara göre belirler.",
+                "Birleşik sözcüklerin bitişik veya ayrı yazılışını ayırt eder.",
+                "'de/da' ve 'ki' eklerinin yazımını işlevine göre belirler."
+              ],
+              "scenarioDomains": ["resmî yazışma", "haber dili", "günlük konuşma"],
+              "commonMisconceptions": [
+                "Bağlaç olan 'de'yi bulunma durumu ekiyle karıştırma",
+                "Yön adlarının ne zaman büyük harfle başladığını karıştırma",
+                "Sayıların yazımında sıra sayısı noktasını atlama"
+              ],
+              "generationNotes": "TDK yazım kılavuzuna uygun ol. Tek bir yazım hatası içeren cümle sorulmalı; birden fazla hata bulunan seçenek kurma."
+            },
+            {
+              "id": "turkce.dil_bilgisi.noktalama",
+              "name": "Noktalama İşaretleri",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Virgül, noktalı virgül, iki nokta ve üç noktanın işlevlerini ayırt eder.",
+                "Kesme işaretinin kullanıldığı ve kullanılmadığı yerleri belirler.",
+                "Noktalama değişikliğinin cümle anlamını nasıl değiştirdiğini açıklar."
+              ],
+              "scenarioDomains": ["edebî metin", "resmî yazışma", "haber dili"],
+              "commonMisconceptions": [
+                "Özne ile yüklem arasına virgül koyma",
+                "Kurum adlarına gelen eklerde kesme işareti kullanma",
+                "Noktalı virgül ile virgülün işlevini karıştırma"
+              ],
+              "generationNotes": "Noktalama farkının anlamı gerçekten değiştirdiği örnekler tercih edilmeli; süs niteliğinde işaret sorma."
+            }
+          ]
+        },
+        {
+          "id": "turkce.anlam_bilgisi",
+          "name": "Anlam Bilgisi",
+          "subTopics": [
+            {
+              "id": "turkce.anlam_bilgisi.sozcukte_anlam",
+              "name": "Sözcükte Anlam",
+              "blueprintWeight": 0.09,
+              "kazanimlar": [
+                "Gerçek, mecaz, yan ve terim anlamı ayırt eder.",
+                "Bir sözcüğün cümledeki anlamını bağlamdan çıkarır.",
+                "Eş anlamlı, zıt anlamlı ve eş sesli sözcükleri belirler."
+              ],
+              "scenarioDomains": ["edebî metin", "günlük konuşma", "bilimsel metin"],
+              "commonMisconceptions": [
+                "Yan anlamı mecaz anlam sanma",
+                "Terim anlamı gerçek anlamla karıştırma",
+                "Eş sesliliği çok anlamlılıkla karıştırma"
+              ],
+              "generationNotes": "Sözcüğün bağlamdaki anlamı tek olmalı. Sözlükten alıntı gibi görünen kuru tanımlar yerine gerçek kullanım cümleleri kur."
+            },
+            {
+              "id": "turkce.anlam_bilgisi.cumlede_anlam",
+              "name": "Cümlede Anlam",
+              "blueprintWeight": 0.09,
+              "kazanimlar": [
+                "Neden-sonuç, amaç-sonuç, koşul ve karşılaştırma anlamlarını belirler.",
+                "Öznel ve nesnel yargıları ayırt eder.",
+                "Örtülü anlamı ve cümleden çıkarılabilecek kesin yargıyı belirler."
+              ],
+              "scenarioDomains": ["haber dili", "deneme", "günlük konuşma"],
+              "commonMisconceptions": [
+                "Neden-sonuç ile amaç-sonuç ilişkisini karıştırma",
+                "Cümlede söylenmeyen ama makul olan bir yargıyı 'kesinlikle çıkar' sanma",
+                "Öznel bir yargıyı nesnel sanma"
+              ],
+              "generationNotes": "'Kesin olarak çıkarılabilir' soruluyorsa doğru seçenek cümleden mantıksal zorunlulukla çıkmalı; makul çıkarım yeterli değildir."
+            },
+            {
+              "id": "turkce.anlam_bilgisi.deyim_atasozu",
+              "name": "Deyim ve Atasözleri",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Deyim ile atasözünü işlev ve yapı bakımından ayırt eder.",
+                "Bir deyimin cümledeki anlamını bağlamdan belirler.",
+                "Atasözünün verdiği öğüdü açıklar."
+              ],
+              "scenarioDomains": ["günlük konuşma", "halk anlatısı", "edebî metin"],
+              "commonMisconceptions": [
+                "Deyimi atasözü sanma (öğüt verip vermediğine bakmama)",
+                "Deyimin gerçek anlamını mecaz anlamı yerine alma",
+                "Biçimce benzeyen iki deyimin anlamını karıştırma"
+              ],
+              "generationNotes": "Yaygın kullanılan, bölgesel olmayan deyim ve atasözleri seç. Uydurma deyim kesinlikle kullanma."
+            }
+          ]
+        },
+        {
+          "id": "turkce.paragraf",
+          "name": "Paragraf",
+          "subTopics": [
+            {
+              "id": "turkce.paragraf.paragrafta_anlam",
+              "name": "Paragrafta Anlam",
+              "blueprintWeight": 0.18,
+              "kazanimlar": [
+                "Paragrafın ana düşüncesini belirler.",
+                "Yardımcı düşünceleri ve paragraftan çıkarılamayacak yargıyı ayırt eder.",
+                "Yazarın tutumunu ve anlatımdaki bakış açısını belirler."
+              ],
+              "scenarioDomains": ["deneme", "bilimsel popüler metin", "gezi yazısı", "eleştiri"],
+              "commonMisconceptions": [
+                "Paragrafta geçen ama ana düşünce olmayan bir ayrıntıyı ana düşünce sanma",
+                "Doğru ama paragrafta söylenmemiş bir yargıyı seçme",
+                "Yazarın aktardığı görüşü yazarın kendi görüşü sanma"
+              ],
+              "generationNotes": "Paragraf uzunluğu zorluğa göre ölçeklenmeli (Kolay 60-90, Orta 90-130, Zor 130-170, Çok Zor 150-220 sözcük). Çeldiriciler 'doğru ama sorulmayan' ifadelere yakın olmalı."
+            },
+            {
+              "id": "turkce.paragraf.paragraf_yapisi",
+              "name": "Paragrafın Yapısı",
+              "blueprintWeight": 0.12,
+              "kazanimlar": [
+                "Paragrafın giriş, gelişme ve sonuç bölümlerini belirler.",
+                "Karışık verilen cümleleri anlamlı bir paragraf oluşturacak şekilde sıralar.",
+                "Paragrafın akışını bozan cümleyi bulur."
+              ],
+              "scenarioDomains": ["bilgilendirici metin", "deneme", "haber dili"],
+              "commonMisconceptions": [
+                "Bağlayıcı ifadeye (ancak, bu nedenle) bakmadan sıralama yapma",
+                "Konuya en yakın cümleyi giriş cümlesi sanma",
+                "Akışı bozan cümle yerine konuyu daraltan cümleyi seçme"
+              ],
+              "generationNotes": "Sıralama sorularında tek bir doğru sıra olmalı; bağlayıcı ifadeler ve zamir göndermeleri sırayı tartışmasız kılmalı."
+            },
+            {
+              "id": "turkce.paragraf.anlatim_bicimleri",
+              "name": "Anlatım Biçimleri ve Düşünceyi Geliştirme Yolları",
+              "blueprintWeight": 0.10,
+              "kazanimlar": [
+                "Açıklayıcı, tartışmacı, betimleyici ve öyküleyici anlatımı ayırt eder.",
+                "Tanımlama, örneklendirme, karşılaştırma, tanık gösterme ve sayısal verilerden yararlanmayı belirler.",
+                "Bir paragrafta birden çok geliştirme yolunun birlikte kullanıldığını fark eder."
+              ],
+              "scenarioDomains": ["deneme", "eleştiri", "bilimsel popüler metin", "anı"],
+              "commonMisconceptions": [
+                "Betimlemeyi öykülemeyle karıştırma (olay var mı yok mu ayrımını yapmama)",
+                "Tanık göstermeyi örneklendirme sanma",
+                "Tartışmacı anlatımı açıklayıcı anlatım sanma"
+              ],
+              "generationNotes": "Paragrafta sorulan anlatım biçimi baskın olmalı; birden fazla biçim eşit ağırlıktaysa soru geçersizdir."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "matematik",
+      "name": "Matematik",
+      "icon": "calculate",
+      "colorSeed": "#2A5C9A",
+      "topics": [
+        {
+          "id": "matematik.temel_kavramlar",
+          "name": "Temel Kavramlar",
+          "subTopics": [
+            {
+              "id": "matematik.temel_kavramlar.sayi_kumeleri",
+              "name": "Sayı Kümeleri ve Temel İşlemler",
+              "blueprintWeight": 0.08,
+              "kazanimlar": [
+                "Doğal, tam, rasyonel, irrasyonel ve gerçek sayı kümelerini ayırt eder.",
+                "Tek-çift, pozitif-negatif sayıların işlem özelliklerini kullanır.",
+                "İşlem önceliğini doğru uygular."
+              ],
+              "scenarioDomains": ["saf sayısal", "günlük ölçüm", "tablo yorumu"],
+              "commonMisconceptions": [
+                "Sıfırı pozitif veya negatif sayma",
+                "Ardışık tek sayıların farkını 1 sanma",
+                "Negatif sayının çift kuvvetini negatif bulma"
+              ],
+              "generationNotes": "Nihai cevap tam sayı veya basit kesir olmalı. Zorluk adım sayısından gelmeli, sayıların çirkinliğinden değil."
+            }
+          ]
+        },
+        {
+          "id": "matematik.sayilar",
+          "name": "Sayılar",
+          "subTopics": [
+            {
+              "id": "matematik.sayilar.bolunebilme",
+              "name": "Bölünebilme Kuralları",
+              "blueprintWeight": 0.08,
+              "kazanimlar": [
+                "2, 3, 4, 5, 6, 8, 9, 10 ve 11 ile bölünebilme kurallarını uygular.",
+                "Bölme algoritmasında bölünen, bölen, bölüm ve kalan ilişkisini kurar.",
+                "Kalan bulma problemlerinde modüler düşünmeyi kullanır."
+              ],
+              "scenarioDomains": ["saf sayısal", "paylaştırma", "sıralama"],
+              "commonMisconceptions": [
+                "Kalanın bölenden küçük olması gerektiğini gözden kaçırma",
+                "3 ve 9 kurallarını karıştırma",
+                "Bölünebilme kurallarını çarpımda ayrı ayrı uygulamaya çalışma"
+              ],
+              "generationNotes": "Verilen sayı basamak sayısı makul olmalı (en fazla 5-6 basamak). Hesap makinesi gerektirmemeli."
+            },
+            {
+              "id": "matematik.sayilar.ebob_ekok",
+              "name": "EBOB - EKOK",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "İki veya üç sayının EBOB ve EKOK değerini bulur.",
+                "EBOB ve EKOK'un çarpımının sayıların çarpımına eşitliğini kullanır.",
+                "Paylaştırma ve tekrar eden olay problemlerinde uygun kavramı seçer."
+              ],
+              "scenarioDomains": ["paylaştırma", "zaman çizelgesi", "kesme-parçalama"],
+              "commonMisconceptions": [
+                "Problemde EBOB gerekirken EKOK kullanma",
+                "EBOB·EKOK = a·b eşitliğini ikiden fazla sayı için de geçerli sanma",
+                "Asal çarpanlara ayırmada üsleri yanlış seçme"
+              ],
+              "generationNotes": "Problem cümlesi EBOB mu EKOK mu gerektiğini açıkça belli etmeli ama doğrudan söylememeli — ayrım öğrencinin yapacağı çıkarım olmalı."
+            },
+            {
+              "id": "matematik.sayilar.rasyonel_sayilar",
+              "name": "Rasyonel Sayılar ve Ondalık Gösterim",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "Rasyonel sayılarla dört işlem yapar.",
+                "Devirli ondalık gösterimi rasyonel sayıya çevirir.",
+                "Rasyonel sayıları sıralar ve karşılaştırır."
+              ],
+              "scenarioDomains": ["saf sayısal", "ölçü birimi", "oran karşılaştırma"],
+              "commonMisconceptions": [
+                "Kesirlerde paydaları doğrudan toplama",
+                "Negatif kesirlerde sıralamayı ters yapma",
+                "Devirli ondalığı sonlu ondalık sanma"
+              ],
+              "generationNotes": "Paydalar küçük tutulmalı; sadeleştirme sonrası cevap basit kesir olmalı."
+            },
+            {
+              "id": "matematik.sayilar.basamak_kavrami",
+              "name": "Basamak Kavramı",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Bir sayının basamak değeri ile sayı değerini ayırt eder.",
+                "Basamakları verilen sayıyı çözümler ve yeniden kurar.",
+                "Rakamları yer değiştiren sayılar arasındaki farkı hesaplar."
+              ],
+              "scenarioDomains": ["saf sayısal", "şifre-kod", "sıralama"],
+              "commonMisconceptions": [
+                "Basamak değeri ile sayı değerini karıştırma",
+                "İlk basamağın sıfır olamayacağını gözden kaçırma",
+                "İki basamaklı sayıyı 10a+b yerine a+b olarak yazma"
+              ],
+              "generationNotes": "Rakamların farklı olup olmadığı açıkça belirtilmeli; belirsizlik bırakma."
+            }
+          ]
+        },
+        {
+          "id": "matematik.problemler",
+          "name": "Problemler",
+          "subTopics": [
+            {
+              "id": "matematik.problemler.sayi_problemleri",
+              "name": "Sayı Problemleri",
+              "blueprintWeight": 0.09,
+              "kazanimlar": [
+                "Sözel olarak verilen durumu denklem hâline getirir.",
+                "Ardışık sayı ilişkilerini kullanır.",
+                "İki bilinmeyenli denklem sistemini çözer."
+              ],
+              "scenarioDomains": ["günlük alışveriş", "yaş-sayı ilişkisi", "paylaştırma"],
+              "commonMisconceptions": [
+                "'-den fazla' ile '-in fazlası' ifadelerini karıştırma",
+                "Ardışık çift sayıları x, x+1 olarak yazma",
+                "Kurulan denklemde bilinmeyeni yanlış büyüklüğe atama"
+              ],
+              "generationNotes": "Sonuç tam sayı olmalı. Problem metni tek bir denklem kurulumuna izin vermeli."
+            },
+            {
+              "id": "matematik.problemler.yas_problemleri",
+              "name": "Yaş Problemleri",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Yaş farkının zamanla değişmediğini kullanır.",
+                "Geçmiş ve gelecek zaman ifadelerini denkleme çevirir.",
+                "Yaşları toplamı verilen durumları çözer."
+              ],
+              "scenarioDomains": ["aile", "okul", "iş yeri"],
+              "commonMisconceptions": [
+                "Yaş farkının zamanla değiştiğini sanma",
+                "'x yıl sonra' ifadesini tek kişiye uygulayıp diğerini unutma",
+                "Yaşlar oranını fark gibi kullanma"
+              ],
+              "generationNotes": "Yaşlar gerçekçi aralıkta olmalı. Türkçe isim havuzu dönüşümlü kullanılmalı."
+            },
+            {
+              "id": "matematik.problemler.hiz_problemleri",
+              "name": "Hız - Zaman - Yol Problemleri",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "Yol = hız × zaman bağıntısını kullanır.",
+                "Birbirine doğru ve aynı yönde hareket durumlarını çözümler.",
+                "Ortalama hızı doğru hesaplar."
+              ],
+              "scenarioDomains": ["şehirlerarası yolculuk", "yürüyüş", "araç takibi"],
+              "commonMisconceptions": [
+                "Ortalama hızı iki hızın aritmetik ortalaması sanma",
+                "Birim dönüşümünü (km/sa ↔ m/sn) atlama",
+                "Zıt yönde hareket ederken hızları çıkarma"
+              ],
+              "generationNotes": "Birimler tutarlı olmalı ve sonuç tam sayı çıkmalı. Hesap makinesi gerektirmemeli."
+            },
+            {
+              "id": "matematik.problemler.isci_havuz",
+              "name": "İşçi ve Havuz Problemleri",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Birim zamandaki iş miktarını hesaplar.",
+                "Birlikte çalışma durumunda toplam iş hızını bulur.",
+                "Dolan ve boşalan musluk durumlarını çözümler."
+              ],
+              "scenarioDomains": ["inşaat", "havuz-musluk", "üretim atölyesi"],
+              "commonMisconceptions": [
+                "Süreleri doğrudan toplama",
+                "Boşaltan musluğu pozitif alma",
+                "İşçi sayısı ile süre arasındaki ters orantıyı doğru orantı sanma"
+              ],
+              "generationNotes": "Süreler ortak katı olan sayılar seçilmeli ki sonuç kesirli çıkmasın."
+            },
+            {
+              "id": "matematik.problemler.yuzde_kar_zarar",
+              "name": "Yüzde, Kâr - Zarar Problemleri",
+              "blueprintWeight": 0.08,
+              "kazanimlar": [
+                "Yüzde artış ve azalışı hesaplar.",
+                "Maliyet, satış fiyatı ve kâr oranı arasındaki ilişkiyi kurar.",
+                "Ardışık yüzde değişimlerinin bileşik etkisini bulur."
+              ],
+              "scenarioDomains": ["alışveriş", "indirim kampanyası", "esnaf hesabı"],
+              "commonMisconceptions": [
+                "Ardışık yüzde değişimleri doğrudan toplama (%20 artış + %20 azalış = başa dönüş sanma)",
+                "Kâr oranını satış fiyatı üzerinden hesaplama (maliyet üzerinden olmalı)",
+                "Yüzde azalışta yeni değeri değil eski değeri temel alma"
+              ],
+              "generationNotes": "Yüzdeler 5'in katları olmalı; sonuç tam sayı TL çıkmalı. Ardışık değişim tuzağı Zor seviyede kullanılmalı."
+            },
+            {
+              "id": "matematik.problemler.karisim_oran",
+              "name": "Karışım ve Oran - Orantı",
+              "blueprintWeight": 0.04,
+              "kazanimlar": [
+                "Doğru ve ters orantıyı ayırt ederek uygular.",
+                "Karışımlarda saf madde miktarını korur.",
+                "Karışıma ekleme ve çıkarma durumlarını çözümler."
+              ],
+              "scenarioDomains": ["alkol-su karışımı", "tuzlu su", "boya karışımı", "hurç-paylaştırma"],
+              "commonMisconceptions": [
+                "Karışıma su eklendiğinde saf madde miktarının da arttığını sanma",
+                "Ters orantıda çarpımı değil oranı sabit tutma",
+                "Yüzdelik derişimleri doğrudan ortalama alma"
+              ],
+              "generationNotes": "Derişim yüzdeleri tam sayı olmalı; sonuç tam litre/kg çıkmalı."
+            }
+          ]
+        },
+        {
+          "id": "matematik.kumeler",
+          "name": "Kümeler",
+          "subTopics": [
+            {
+              "id": "matematik.kumeler.kume_islemleri",
+              "name": "Küme İşlemleri",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "Birleşim, kesişim, fark ve tümleyen işlemlerini uygular.",
+                "İki ve üç kümeli Venn şeması problemlerini çözer.",
+                "Eleman sayısı bağıntılarını kullanır."
+              ],
+              "scenarioDomains": ["anket sonucu", "kulüp üyeliği", "ders seçimi"],
+              "commonMisconceptions": [
+                "s(A∪B) hesabında kesişimi iki kez sayma",
+                "'Yalnız A' ile 'A' ifadelerini karıştırma",
+                "Hiçbirini seçmeyenleri toplam dışında bırakma"
+              ],
+              "generationNotes": "Venn şeması gerektiren sorularda tüm sayısal veriler metin içinde verilmeli; şekil referansı kullanılmamalı."
+            }
+          ]
+        },
+        {
+          "id": "matematik.fonksiyonlar",
+          "name": "Fonksiyonlar",
+          "subTopics": [
+            {
+              "id": "matematik.fonksiyonlar.fonksiyon_kavrami",
+              "name": "Fonksiyon Kavramı",
+              "blueprintWeight": 0.05,
+              "kazanimlar": [
+                "Fonksiyonun tanım, değer ve görüntü kümesini belirler.",
+                "Verilen kuralda fonksiyon değeri hesaplar.",
+                "Bileşke ve ters fonksiyonu bulur."
+              ],
+              "scenarioDomains": ["saf sayısal", "ücret hesabı", "dönüşüm tablosu"],
+              "commonMisconceptions": [
+                "f(g(x)) ile g(f(x)) sırasını karıştırma",
+                "Ters fonksiyonu 1/f(x) sanma",
+                "Tanım kümesi kısıtını gözden kaçırma"
+              ],
+              "generationNotes": "Fonksiyon kuralı birinci veya ikinci dereceden olmalı; sonuç tam sayı çıkmalı."
+            }
+          ]
+        },
+        {
+          "id": "matematik.geometri",
+          "name": "Geometri",
+          "subTopics": [
+            {
+              "id": "matematik.geometri.ucgenler",
+              "name": "Üçgenler",
+              "blueprintWeight": 0.07,
+              "kazanimlar": [
+                "Üçgende açı-kenar bağıntılarını kullanır.",
+                "Pisagor bağıntısını ve özel üçgenleri uygular.",
+                "Üçgenin alanını farklı yollarla hesaplar."
+              ],
+              "scenarioDomains": ["saf geometrik", "arazi ölçümü", "merdiven-duvar"],
+              "commonMisconceptions": [
+                "Üçgen eşitsizliğini kontrol etmeden kenar uzunluğu kabul etme",
+                "Pisagor'u dik olmayan üçgende uygulama",
+                "Yükseklik ile kenarortayı karıştırma"
+              ],
+              "generationNotes": "Şekil gerektiren sorularda tüm ölçüler metinde açıkça verilmeli; 'yukarıdaki şekilde' ifadesi KULLANILMAMALI. Sonuçlar tam sayı veya basit köklü olmalı."
+            },
+            {
+              "id": "matematik.geometri.dortgenler",
+              "name": "Dörtgenler ve Çokgenler",
+              "blueprintWeight": 0.06,
+              "kazanimlar": [
+                "Kare, dikdörtgen, paralelkenar, yamuk ve eşkenar dörtgenin özelliklerini kullanır.",
+                "Dörtgenlerin alan ve çevre bağıntılarını uygular.",
+                "Çokgenlerin iç ve dış açıları toplamını hesaplar."
+              ],
+              "scenarioDomains": ["saf geometrik", "oda-halı ölçümü", "bahçe çitleme"],
+              "commonMisconceptions": [
+                "Paralelkenarın alanını kenarların çarpımı sanma",
+                "Yamuk alanında yüksekliği yan kenarla karıştırma",
+                "Dış açılar toplamını kenar sayısına bağlı sanma"
+              ],
+              "generationNotes": "Ölçüler metinde tam verilmeli, şekil referansı olmamalı. Sonuç tam sayı olmalı."
+            },
+            {
+              "id": "matematik.geometri.cember_daire",
+              "name": "Çember ve Daire",
+              "blueprintWeight": 0.03,
+              "kazanimlar": [
+                "Çemberde merkez ve çevre açı ilişkisini kullanır.",
+                "Daire ve daire diliminin alanını hesaplar.",
+                "Teğet uzunluğu bağıntılarını uygular."
+              ],
+              "scenarioDomains": ["saf geometrik", "dairesel pist", "pizza-dilim"],
+              "commonMisconceptions": [
+                "Çevre açıyı merkez açıya eşit alma",
+                "Daire diliminde açı oranını yarıçap oranı sanma",
+                "Çevre ile alan formüllerini karıştırma"
+              ],
+              "generationNotes": "π değeri gerekiyorsa 3 olarak verilmeli ve bu açıkça belirtilmeli. Sonuç tam sayı çıkmalı."
+            },
+            {
+              "id": "matematik.geometri.analitik",
+              "name": "Analitik Geometri",
+              "blueprintWeight": 0.03,
+              "kazanimlar": [
+                "İki nokta arası uzaklığı ve orta noktayı bulur.",
+                "Doğrunun eğimini ve denklemini yazar.",
+                "Paralel ve dik doğruların eğim ilişkisini kullanır."
+              ],
+              "scenarioDomains": ["saf analitik", "harita koordinatı", "rota planlama"],
+              "commonMisconceptions": [
+                "Dik doğruların eğimlerinin çarpımını +1 sanma",
+                "Eğimi Δx/Δy olarak hesaplama",
+                "Orta nokta formülünde çıkarma kullanma"
+              ],
+              "generationNotes": "Koordinatlar tam sayı olmalı; sonuç tam sayı veya basit kesir çıkmalı."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "tarih",
+      "name": "Tarih",
+      "icon": "account_balance",
+      "colorSeed": "#A85B2B",
+      "topics": [
+        {
+          "id": "tarih.turk_tarihi",
+          "name": "İslamiyet Öncesi ve İlk Türk-İslam Devletleri",
+          "subTopics": [
+            {
+              "id": "tarih.turk_tarihi.islamiyet_oncesi",
+              "name": "İslamiyet Öncesi Türk Tarihi",
+              "blueprintWeight": 0.12,
+              "kazanimlar": [
+                "Orta Asya'da kurulan ilk Türk devletlerini kuruluş sırasına göre bilir.",
+                "Göktürk ve Uygur devletlerinin kültürel katkılarını açıklar.",
+                "Orhun Yazıtları'nın tarihsel önemini değerlendirir."
+              ],
+              "scenarioDomains": ["devlet yönetimi", "kültürel miras", "göç ve yerleşme"],
+              "commonMisconceptions": [
+                "İlk Türk devletini Göktürkler sanma (Asya Hun Devleti'ni atlama)",
+                "Uygurların yerleşik hayata geçen ilk Türk topluluğu olduğunu gözden kaçırma",
+                "Orhun Yazıtları'nı Uygurlara ait sanma"
+              ],
+              "generationNotes": "Tarihsel bilgi kesin ve tartışmasız olmalı. Tartışmalı yorumlardan kaçın. Kolay = tek olgu, Zor = nedensel zincir."
+            },
+            {
+              "id": "tarih.turk_tarihi.ilk_turk_islam",
+              "name": "İlk Türk-İslam Devletleri",
+              "blueprintWeight": 0.10,
+              "kazanimlar": [
+                "Karahanlı, Gazneli ve Büyük Selçuklu devletlerinin özelliklerini karşılaştırır.",
+                "Malazgirt Savaşı'nın sonuçlarını değerlendirir.",
+                "Türklerin İslamiyet'i kabul sürecini açıklar."
+              ],
+              "scenarioDomains": ["devlet yönetimi", "askerî tarih", "kültürel etkileşim"],
+              "commonMisconceptions": [
+                "İlk Müslüman Türk devletini Gazneliler sanma (Karahanlılar'ı atlama)",
+                "Malazgirt ile Miryokefalon savaşlarının sonuçlarını karıştırma",
+                "Türkçeyi resmî dil yapan ilk devleti yanlış belirleme"
+              ],
+              "generationNotes": "Tarih ve yer bilgileri doğrulanabilir olmalı. Kronolojik sıralama soruları için tarihler net olmalı."
+            }
+          ]
+        },
+        {
+          "id": "tarih.osmanli",
+          "name": "Osmanlı Tarihi",
+          "subTopics": [
+            {
+              "id": "tarih.osmanli.kurulus_yukselme",
+              "name": "Kuruluş ve Yükselme Dönemi",
+              "blueprintWeight": 0.14,
+              "kazanimlar": [
+                "Osmanlı Devleti'nin kuruluşunu hazırlayan koşulları açıklar.",
+                "İstanbul'un fethinin nedenlerini ve sonuçlarını değerlendirir.",
+                "Yükselme dönemi padişahlarının fetih politikalarını karşılaştırır."
+              ],
+              "scenarioDomains": ["askerî tarih", "devlet yönetimi", "ekonomi ve ticaret"],
+              "commonMisconceptions": [
+                "Osmanlı'nın ilk başkentini İstanbul sanma (Söğüt-Bursa-Edirne sırasını atlama)",
+                "Kapıkulu ocaklarının kuruluş dönemini yanlış belirleme",
+                "Yavuz ve Kanuni dönemi fetihlerini karıştırma"
+              ],
+              "generationNotes": "Padişah-olay eşleşmeleri kesin doğru olmalı. Tarihler yaygın kabul gören değerler olmalı."
+            },
+            {
+              "id": "tarih.osmanli.duraklama_gerileme",
+              "name": "Duraklama ve Gerileme Dönemi",
+              "blueprintWeight": 0.12,
+              "kazanimlar": [
+                "Duraklamanın iç ve dış nedenlerini ayırt eder.",
+                "Karlofça ve Pasarofça antlaşmalarının sonuçlarını değerlendirir.",
+                "Lale Devri'nin yenilik hareketlerini açıklar."
+              ],
+              "scenarioDomains": ["diplomasi", "askerî tarih", "toplumsal değişim"],
+              "commonMisconceptions": [
+                "Karlofça'yı ilk toprak kaybı antlaşması olarak görmeme veya tersini sanma",
+                "Duraklama nedenlerini yalnızca askerî görme",
+                "Lale Devri'ni Tanzimat'la karıştırma"
+              ],
+              "generationNotes": "Antlaşma-sonuç eşleşmeleri kesin olmalı. Çok Zor seviyede yaygın ama yanlış bir ön kabulün elenmesi gerekmeli."
+            },
+            {
+              "id": "tarih.osmanli.dagilma_donemi",
+              "name": "Dağılma Dönemi ve I. Dünya Savaşı",
+              "blueprintWeight": 0.10,
+              "kazanimlar": [
+                "Tanzimat ve Islahat fermanlarının getirdiklerini karşılaştırır.",
+                "I. ve II. Meşrutiyet'in özelliklerini ayırt eder.",
+                "Osmanlı'nın I. Dünya Savaşı'na giriş nedenlerini ve cephelerini açıklar."
+              ],
+              "scenarioDomains": ["anayasal gelişmeler", "diplomasi", "askerî tarih"],
+              "commonMisconceptions": [
+                "Tanzimat ile Islahat fermanlarının içeriğini karıştırma",
+                "Kanun-i Esasi'yi II. Meşrutiyet'e ait sanma",
+                "Osmanlı'nın savaştığı cepheleri yanlış eşleştirme"
+              ],
+              "generationNotes": "Ferman içerikleri ve tarihler kesin olmalı. Cephe-ülke eşleşmeleri doğrulanabilir olmalı."
+            }
+          ]
+        },
+        {
+          "id": "tarih.inkilap",
+          "name": "Kurtuluş Savaşı ve İnkılaplar",
+          "subTopics": [
+            {
+              "id": "tarih.inkilap.kurtulus_savasi",
+              "name": "Kurtuluş Savaşı",
+              "blueprintWeight": 0.16,
+              "kazanimlar": [
+                "Kongrelerin aldığı kararları ve önemini açıklar.",
+                "Cephelerdeki savaşları kronolojik sırayla ve sonuçlarıyla bilir.",
+                "Mudanya ve Lozan'ın hükümlerini değerlendirir."
+              ],
+              "scenarioDomains": ["askerî tarih", "diplomasi", "ulusal egemenlik"],
+              "commonMisconceptions": [
+                "Erzurum ve Sivas kongrelerinin kararlarını karıştırma",
+                "Sakarya ve Başkomutanlık savaşlarının sırasını yanlış bilme",
+                "Mudanya'yı barış antlaşması sanma (ateşkes olduğunu atlama)"
+              ],
+              "generationNotes": "Kronoloji ve karar içerikleri kesin doğru olmalı. En sık sorulan konu olduğu için kalite çıtası yüksek tutulmalı."
+            },
+            {
+              "id": "tarih.inkilap.inkilaplar",
+              "name": "Atatürk İlke ve İnkılapları",
+              "blueprintWeight": 0.16,
+              "kazanimlar": [
+                "Siyasi, hukuki, eğitim, ekonomik ve toplumsal alandaki inkılapları sınıflandırır.",
+                "Atatürk ilkelerini ve bütünleyici ilkeleri açıklar.",
+                "İnkılapların hangi ilkeyle doğrudan ilişkili olduğunu belirler."
+              ],
+              "scenarioDomains": ["hukuk reformu", "eğitim reformu", "toplumsal değişim", "ekonomi politikası"],
+              "commonMisconceptions": [
+                "Bir inkılabı yanlış ilkeyle eşleştirme (özellikle laiklik-halkçılık)",
+                "Tevhid-i Tedrisat ile Harf İnkılabının tarihlerini karıştırma",
+                "Bütünleyici ilkeleri temel ilke sanma"
+              ],
+              "generationNotes": "İnkılap-ilke eşleştirmeleri resmî müfredata uygun olmalı. Tarihler kesin verilmeli."
+            },
+            {
+              "id": "tarih.inkilap.cagdas_turk_dunya",
+              "name": "Çağdaş Türk ve Dünya Tarihi",
+              "blueprintWeight": 0.10,
+              "kazanimlar": [
+                "II. Dünya Savaşı'nın nedenlerini ve Türkiye'ye etkisini açıklar.",
+                "Soğuk Savaş dönemi ve Türkiye'nin dış politikasını değerlendirir.",
+                "Çok partili hayata geçiş sürecini açıklar."
+              ],
+              "scenarioDomains": ["uluslararası ilişkiler", "iç politika", "ekonomi politikası"],
+              "commonMisconceptions": [
+                "Türkiye'nin II. Dünya Savaşı'na fiilen girdiğini sanma",
+                "NATO ve Birleşmiş Milletler üyelik tarihlerini karıştırma",
+                "Çok partili hayata ilk geçiş denemesini 1946 sanma"
+              ],
+              "generationNotes": "Tarih ve üyelik bilgileri doğrulanabilir olmalı. Siyasi olarak yansız kalınmalı."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "cografya",
+      "name": "Coğrafya",
+      "icon": "public",
+      "colorSeed": "#2E6E70",
+      "topics": [
+        {
+          "id": "cografya.fiziki",
+          "name": "Türkiye'nin Fiziki Coğrafyası",
+          "subTopics": [
+            {
+              "id": "cografya.fiziki.cografi_konum",
+              "name": "Türkiye'nin Coğrafi Konumu",
+              "blueprintWeight": 0.12,
+              "kazanimlar": [
+                "Türkiye'nin matematik ve özel konumunun sonuçlarını açıklar.",
+                "Enlem ve boylamın iklim ve yerel saate etkisini değerlendirir.",
+                "Türkiye'nin komşularını ve sınır özelliklerini bilir."
+              ],
+              "scenarioDomains": ["harita yorumu", "iklim etkisi", "saat farkı hesabı"],
+              "commonMisconceptions": [
+                "Enlemin etkisini boylamın etkisiyle karıştırma",
+                "Türkiye'nin tek saat dilimi kullanmasını matematik konumla açıklayamama",
+                "Özel konum ile matematik konum sonuçlarını karıştırma"
+              ],
+              "generationNotes": "Koordinat değerleri gerçek olmalı (36°-42° kuzey, 26°-45° doğu). Saat hesabı soruları tam sayı sonuç vermeli."
+            },
+            {
+              "id": "cografya.fiziki.yer_sekilleri",
+              "name": "Yer Şekilleri ve Yeryüzü Şekillendiren Süreçler",
+              "blueprintWeight": 0.16,
+              "kazanimlar": [
+                "Türkiye'nin dağ, ova ve platolarını bölgelere göre belirler.",
+                "İç ve dış kuvvetlerin oluşturduğu yer şekillerini ayırt eder.",
+                "Yer şekillerinin yerleşme ve ulaşıma etkisini açıklar."
+              ],
+              "scenarioDomains": ["harita yorumu", "yerleşme deseni", "ulaşım planlaması"],
+              "commonMisconceptions": [
+                "Karstik şekilleri buzul şekilleriyle karıştırma",
+                "İç kuvvetlerin oluşturduğu şekli dış kuvvetlere bağlama",
+                "Delta ovasını taban seviyesi ovasıyla karıştırma"
+              ],
+              "generationNotes": "Coğrafi adlar ve konumlar doğru olmalı. Şekil referansı kullanılmamalı; tüm veri metinde olmalı."
+            },
+            {
+              "id": "cografya.fiziki.iklim_bitki",
+              "name": "İklim ve Bitki Örtüsü",
+              "blueprintWeight": 0.16,
+              "kazanimlar": [
+                "Türkiye'de görülen iklim tiplerini ve dağılışını açıklar.",
+                "Sıcaklık ve yağış dağılışını etkileyen faktörleri belirler.",
+                "İklim tipleriyle doğal bitki örtüsünü eşleştirir."
+              ],
+              "scenarioDomains": ["iklim verisi yorumu", "tarım ürünü dağılışı", "turizm mevsimi"],
+              "commonMisconceptions": [
+                "Akdeniz iklimi ile Karadeniz iklimini yağış rejimi bakımından karıştırma",
+                "Yükseltinin sıcaklığa etkisini enlemle karıştırma",
+                "Maki ile bozkır bitki örtüsünü yanlış eşleştirme"
+              ],
+              "generationNotes": "İklim verileri gerçekçi olmalı. Tablo gerekiyorsa tablo metin içine satır satır yazılmalı, dış referans verilmemeli."
+            }
+          ]
+        },
+        {
+          "id": "cografya.beseri",
+          "name": "Beşerî ve Ekonomik Coğrafya",
+          "subTopics": [
+            {
+              "id": "cografya.beseri.nufus_yerlesme",
+              "name": "Nüfus ve Yerleşme",
+              "blueprintWeight": 0.14,
+              "kazanimlar": [
+                "Türkiye'de nüfusun dağılışını etkileyen faktörleri açıklar.",
+                "Nüfus piramidini yorumlar ve nüfus politikalarını değerlendirir.",
+                "Kır ve kent yerleşmelerinin özelliklerini karşılaştırır."
+              ],
+              "scenarioDomains": ["nüfus verisi yorumu", "göç", "kentleşme"],
+              "commonMisconceptions": [
+                "Nüfus yoğunluğu ile nüfus miktarını karıştırma",
+                "Aritmetik yoğunluk ile tarımsal yoğunluğu ayırt edememe",
+                "Göçün yalnızca ekonomik nedenli olduğunu sanma"
+              ],
+              "generationNotes": "Nüfus verileri gerçekçi büyüklüklerde olmalı. Yoğunluk hesabı gerektiren sorular tam sayı sonuç vermeli."
+            },
+            {
+              "id": "cografya.beseri.tarim_hayvancilik",
+              "name": "Tarım ve Hayvancılık",
+              "blueprintWeight": 0.12,
+              "kazanimlar": [
+                "Türkiye'de yetiştirilen başlıca tarım ürünlerini ve yetişme koşullarını bilir.",
+                "Tarım ürünlerinin bölgelere göre dağılışını açıklar.",
+                "Hayvancılık türlerini ve dağılışını iklimle ilişkilendirir."
+              ],
+              "scenarioDomains": ["ürün dağılışı", "iklim-tarım ilişkisi", "kırsal ekonomi"],
+              "commonMisconceptions": [
+                "Çay ve fındığın yetişme koşullarını karıştırma",
+                "Pamuğu Karadeniz Bölgesi'ne yerleştirme",
+                "Küçükbaş hayvancılığın bozkır alanlarla ilişkisini kuramama"
+              ],
+              "generationNotes": "Ürün-bölge eşleşmeleri kesin doğru olmalı. Yetişme koşulları (sıcaklık, yağış) gerçekçi verilmeli."
+            },
+            {
+              "id": "cografya.beseri.sanayi_madencilik",
+              "name": "Sanayi ve Madencilik",
+              "blueprintWeight": 0.11,
+              "kazanimlar": [
+                "Türkiye'deki başlıca sanayi kollarını ve merkezlerini bilir.",
+                "Maden yataklarının dağılışını ve kullanım alanlarını açıklar.",
+                "Sanayinin kuruluş yerini etkileyen faktörleri değerlendirir."
+              ],
+              "scenarioDomains": ["sanayi merkezi", "maden dağılışı", "enerji üretimi"],
+              "commonMisconceptions": [
+                "Bor ve krom yataklarının konumlarını karıştırma",
+                "Demir-çelik sanayisinin kuruluş yerini yanlış belirleme",
+                "Hammadde yakınlığını her sanayi kolu için belirleyici sanma"
+              ],
+              "generationNotes": "Maden-şehir eşleşmeleri doğrulanabilir olmalı. Güncel üretim rakamları yerine yapısal bilgiler sorulmalı."
+            },
+            {
+              "id": "cografya.beseri.ulasim_turizm",
+              "name": "Ulaşım, Ticaret ve Turizm",
+              "blueprintWeight": 0.11,
+              "kazanimlar": [
+                "Türkiye'deki ulaşım sistemlerini ve gelişimini açıklar.",
+                "Turizm çeşitlerini ve merkezlerini bilir.",
+                "Dış ticaretin yapısını ve ticaret ortaklarını değerlendirir."
+              ],
+              "scenarioDomains": ["ulaşım ağı", "turizm merkezi", "dış ticaret"],
+              "commonMisconceptions": [
+                "Yer şekillerinin demiryolu ulaşımına etkisini gözden kaçırma",
+                "Termal turizm ile kış turizmi merkezlerini karıştırma",
+                "İhracat ve ithalat kalemlerini ters bilme"
+              ],
+              "generationNotes": "Turizm merkezleri ve ulaşım hatları gerçek olmalı. Güncel istatistik yerine yapısal bilgi sorulmalı."
+            },
+            {
+              "id": "cografya.beseri.bolgeler",
+              "name": "Türkiye'nin Coğrafi Bölgeleri",
+              "blueprintWeight": 0.08,
+              "kazanimlar": [
+                "Yedi coğrafi bölgeyi ve bölümlerini bilir.",
+                "Bölgelerin ayırt edici özelliklerini karşılaştırır.",
+                "Bölgelerin ekonomik faaliyetlerini iklim ve yer şekilleriyle ilişkilendirir."
+              ],
+              "scenarioDomains": ["bölge karşılaştırma", "ekonomik faaliyet", "iklim farkı"],
+              "commonMisconceptions": [
+                "Bölge sınırlarını il sınırlarıyla karıştırma",
+                "En kalabalık ile en yoğun bölgeyi karıştırma",
+                "Bölüm adlarını yanlış bölgeye atama"
+              ],
+              "generationNotes": "Bölge ve bölüm adları resmî sınıflandırmaya uygun olmalı."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "vatandaslik",
+      "name": "Vatandaşlık",
+      "icon": "gavel",
+      "colorSeed": "#7A4A9E",
+      "topics": [
+        {
+          "id": "vatandaslik.hukuk",
+          "name": "Hukuk Bilgisi",
+          "subTopics": [
+            {
+              "id": "vatandaslik.hukuk.hukuk_baslangici",
+              "name": "Hukukun Temel Kavramları",
+              "blueprintWeight": 0.16,
+              "kazanimlar": [
+                "Hukuk kurallarını diğer sosyal düzen kurallarından ayırt eder.",
+                "Kamu hukuku ve özel hukuk dallarını sınıflandırır.",
+                "Hak ehliyeti ile fiil ehliyetini ayırt eder."
+              ],
+              "scenarioDomains": ["günlük hukuki durum", "sözleşme", "kurumsal işleyiş"],
+              "commonMisconceptions": [
+                "Ceza hukukunu özel hukuk dalı sanma",
+                "Hak ehliyeti ile fiil ehliyetini karıştırma",
+                "Ahlak kuralı ile hukuk kuralını yaptırım açısından ayırt edememe"
+              ],
+              "generationNotes": "Hukuki kavramlar yürürlükteki mevzuata uygun olmalı. Somut örnek üzerinden sorulmalı."
+            },
+            {
+              "id": "vatandaslik.hukuk.anayasa_kavramlari",
+              "name": "Anayasa ve Devletin Temel Nitelikleri",
+              "blueprintWeight": 0.18,
+              "kazanimlar": [
+                "Anayasanın üstünlüğü ve bağlayıcılığı ilkesini açıklar.",
+                "Türkiye Cumhuriyeti'nin nitelikleri olan ilkeleri bilir.",
+                "Kuvvetler ayrılığı ilkesini açıklar."
+              ],
+              "scenarioDomains": ["anayasal düzen", "kurumsal işleyiş", "temel ilkeler"],
+              "commonMisconceptions": [
+                "Değiştirilemez maddeleri yanlış sayma",
+                "Sosyal devlet ile hukuk devleti ilkelerini karıştırma",
+                "Kuvvetler ayrılığını kuvvetler birliği gibi yorumlama"
+              ],
+              "generationNotes": "1982 Anayasası'nın güncel hâline uygun olmalı. Madde numaraları verilecekse doğru olmalı."
+            },
+            {
+              "id": "vatandaslik.hukuk.temel_haklar",
+              "name": "Temel Hak ve Ödevler",
+              "blueprintWeight": 0.18,
+              "kazanimlar": [
+                "Kişi hakları, sosyal-ekonomik haklar ve siyasi hakları sınıflandırır.",
+                "Temel hakların sınırlandırılma ölçütlerini açıklar.",
+                "Vatandaşlık ödevlerini bilir."
+              ],
+              "scenarioDomains": ["hak ihlali örneği", "günlük hukuki durum", "kamu düzeni"],
+              "commonMisconceptions": [
+                "Eğitim hakkını kişi hakkı sanma (sosyal hak olduğunu atlama)",
+                "Seçme-seçilme hakkını sosyal hak kategorisine koyma",
+                "Temel hakların hiçbir koşulda sınırlanamayacağını sanma"
+              ],
+              "generationNotes": "Hak sınıflandırmaları anayasal düzenlemeye uygun olmalı. Somut senaryo üzerinden sorulmalı."
+            }
+          ]
+        },
+        {
+          "id": "vatandaslik.devlet_yapisi",
+          "name": "Devletin Yapısı",
+          "subTopics": [
+            {
+              "id": "vatandaslik.devlet_yapisi.yasama",
+              "name": "Yasama",
+              "blueprintWeight": 0.14,
+              "kazanimlar": [
+                "TBMM'nin görev ve yetkilerini bilir.",
+                "Milletvekili seçilme koşullarını ve yasama dokunulmazlığını açıklar.",
+                "Kanun yapım sürecini sıralar."
+              ],
+              "scenarioDomains": ["yasama süreci", "kurumsal işleyiş", "seçim"],
+              "commonMisconceptions": [
+                "Milletvekili seçilme yaşını yanlış bilme",
+                "Yasama sorumsuzluğu ile dokunulmazlığı karıştırma",
+                "Kanun teklifi ile kanun tasarısını ayırt edememe"
+              ],
+              "generationNotes": "Güncel anayasal düzenlemeye uygun olmalı; 2017 değişiklikleri sonrası yapı esas alınmalı."
+            },
+            {
+              "id": "vatandaslik.devlet_yapisi.yurutme",
+              "name": "Yürütme",
+              "blueprintWeight": 0.14,
+              "kazanimlar": [
+                "Cumhurbaşkanının görev ve yetkilerini bilir.",
+                "Cumhurbaşkanlığı kararnamesinin hukuki niteliğini açıklar.",
+                "Merkezî ve taşra teşkilatının yapısını bilir."
+              ],
+              "scenarioDomains": ["yürütme işlemi", "kurumsal işleyiş", "idari yapı"],
+              "commonMisconceptions": [
+                "Cumhurbaşkanlığı kararnamesi ile yönetmeliği karıştırma",
+                "Cumhurbaşkanı seçilme koşullarını yanlış bilme",
+                "Merkezden yönetim ile yerinden yönetimi karıştırma"
+              ],
+              "generationNotes": "2017 anayasa değişiklikleri sonrası cumhurbaşkanlığı hükûmet sistemi esas alınmalı."
+            },
+            {
+              "id": "vatandaslik.devlet_yapisi.yargi",
+              "name": "Yargı",
+              "blueprintWeight": 0.12,
+              "kazanimlar": [
+                "Yargı kollarını ve yüksek mahkemeleri bilir.",
+                "Anayasa Mahkemesinin görevlerini açıklar.",
+                "Bireysel başvuru yolunu değerlendirir."
+              ],
+              "scenarioDomains": ["yargı süreci", "kurumsal işleyiş", "hak arama"],
+              "commonMisconceptions": [
+                "Yargıtay ile Danıştay'ın görev alanlarını karıştırma",
+                "Anayasa Mahkemesini temyiz mercii sanma",
+                "İdari yargı ile adli yargı ayrımını yapamama"
+              ],
+              "generationNotes": "Mahkeme adları ve görev alanları güncel yapıya uygun olmalı."
+            }
+          ]
+        },
+        {
+          "id": "vatandaslik.uluslararasi",
+          "name": "Uluslararası Kuruluşlar",
+          "subTopics": [
+            {
+              "id": "vatandaslik.uluslararasi.kuruluslar",
+              "name": "Uluslararası Kuruluşlar",
+              "blueprintWeight": 0.08,
+              "kazanimlar": [
+                "BM, NATO, AB ve diğer kuruluşların amaçlarını bilir.",
+                "Türkiye'nin üyesi olduğu kuruluşları ve üyelik tarihlerini bilir.",
+                "Kuruluşların organlarını ve işlevlerini ayırt eder."
+              ],
+              "scenarioDomains": ["uluslararası ilişkiler", "kurumsal yapı", "üyelik süreci"],
+              "commonMisconceptions": [
+                "Avrupa Konseyi ile Avrupa Birliğini karıştırma",
+                "Türkiye'nin AB üyesi olduğunu sanma",
+                "BM Güvenlik Konseyi daimî üyelerini yanlış sayma"
+              ],
+              "generationNotes": "Kuruluş adları, kuruluş tarihleri ve üyelik durumları doğru olmalı. Siyasi olarak yansız kalınmalı."
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "guncel_bilgiler",
+      "name": "Güncel Bilgiler",
+      "icon": "newspaper",
+      "colorSeed": "#B0873A",
+      "topics": [
+        {
+          "id": "guncel_bilgiler.gundem",
+          "name": "Gündem",
+          "subTopics": [
+            {
+              "id": "guncel_bilgiler.gundem.turkiye",
+              "name": "Türkiye Gündemi",
+              "blueprintWeight": 0.30,
+              "kazanimlar": [
+                "Türkiye'de son dönemde gerçekleşen önemli olayları bilir.",
+                "Ulusal düzeydeki kurumsal ve idari gelişmeleri takip eder.",
+                "Türkiye'nin ev sahipliği yaptığı önemli organizasyonları bilir."
+              ],
+              "scenarioDomains": ["kurumsal gelişme", "organizasyon", "altyapı projesi"],
+              "commonMisconceptions": [
+                "Benzer adlı iki kurumu karıştırma",
+                "Olayın gerçekleştiği yılı bir yıl kaydırma",
+                "Proje adını yanlış şehirle eşleştirme"
+              ],
+              "generationNotes": "KRİTİK: Bilgi kesme tarihinden en az 6 ay öncesine ait, kalıcılığı kesinleşmiş olaylar sorulmalı. Çok yeni veya tartışmalı gelişmeler KULLANILMAMALI. Siyasi olarak kesinlikle yansız kalınmalı; partiler veya siyasetçiler hakkında değerlendirme içeren soru üretilmemeli."
+            },
+            {
+              "id": "guncel_bilgiler.gundem.dunya",
+              "name": "Dünya Gündemi",
+              "blueprintWeight": 0.25,
+              "kazanimlar": [
+                "Uluslararası düzeyde önemli gelişmeleri bilir.",
+                "Uluslararası organizasyonların ev sahibi ülkelerini bilir.",
+                "Küresel ölçekli anlaşma ve zirveleri takip eder."
+              ],
+              "scenarioDomains": ["uluslararası zirve", "organizasyon", "küresel anlaşma"],
+              "commonMisconceptions": [
+                "Zirve ev sahibi ülkeyi yanlış bilme",
+                "Anlaşma adlarını karıştırma",
+                "Organizasyon yılını kaydırma"
+              ],
+              "generationNotes": "KRİTİK: Bilgi kesme tarihinden en az 6 ay öncesi. Çatışma, savaş veya insani kriz konularında taraf tutan ifade KULLANILMAMALI; yalnızca tarafsız, doğrulanabilir olgular sorulmalı."
+            }
+          ]
+        },
+        {
+          "id": "guncel_bilgiler.genel_kultur",
+          "name": "Genel Kültür",
+          "subTopics": [
+            {
+              "id": "guncel_bilgiler.genel_kultur.kurumlar",
+              "name": "Kurumlar ve Kısaltmalar",
+              "blueprintWeight": 0.25,
+              "kazanimlar": [
+                "Ulusal ve uluslararası kurumların kısaltmalarının açılımını bilir.",
+                "Kurumların görev alanlarını eşleştirir.",
+                "Kurumların bağlı olduğu üst yapıyı bilir."
+              ],
+              "scenarioDomains": ["kurumsal yapı", "kısaltma açılımı", "görev alanı"],
+              "commonMisconceptions": [
+                "Benzer kısaltmalı iki kurumu karıştırma (örn. TÜİK-TÜBİTAK)",
+                "Kurumun bağlı olduğu bakanlığı yanlış bilme",
+                "Uluslararası kısaltmanın Türkçe açılımını yanlış verme"
+              ],
+              "generationNotes": "Kurum adları ve kısaltmalar resmî kullanıma uygun olmalı. Kalıcı kurumsal bilgiler tercih edilmeli."
+            },
+            {
+              "id": "guncel_bilgiler.genel_kultur.spor_kultur_sanat",
+              "name": "Spor, Kültür ve Sanat",
+              "blueprintWeight": 0.20,
+              "kazanimlar": [
+                "Önemli spor organizasyonlarını ve sonuçlarını bilir.",
+                "UNESCO Dünya Mirası listesindeki Türkiye varlıklarını bilir.",
+                "Önemli kültür-sanat ödüllerini ve sahiplerini bilir."
+              ],
+              "scenarioDomains": ["spor organizasyonu", "kültürel miras", "sanat ödülü"],
+              "commonMisconceptions": [
+                "Dünya Mirası listesindeki varlığı yanlış şehirle eşleştirme",
+                "Organizasyon yılını veya ev sahibini karıştırma",
+                "Ödül adını yanlış kategoriye atama"
+              ],
+              "generationNotes": "UNESCO listesi ve organizasyon sonuçları doğrulanabilir olmalı. Bilgi kesme tarihinden en az 6 ay öncesi tercih edilmeli."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -5,80 +5,61 @@ import { useInView } from "react-intersection-observer";
 import { Award, ExternalLink, CheckCircle } from "lucide-react";
 import { CERTIFICATES } from "@/lib/data";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export default function Certificates() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <section id="certificates" className="section-padding relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-white/10 text-xs text-zinc-400 font-mono mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
-            06. sertifikalar
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Sertifikalar
+          <span className="overline">06 — Sertifikalar</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+            Eğitimler &amp; sertifikalar
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto">
-            Tamamladığım eğitimler ve kazandığım sertifikalar.
-          </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {CERTIFICATES.map((cert, i) => (
             <motion.div
               key={cert.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -4, scale: 1.02 }}
-              className="glass glass-hover rounded-2xl border border-white/5 p-6 group relative overflow-hidden"
+              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+              className="group rounded-2xl border border-white/[0.07] bg-white/[0.015] p-5 transition-colors duration-200 hover:border-white/[0.16]"
             >
-              {/* BG glow */}
-              <div
-                className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-300"
-                style={{ backgroundColor: cert.color }}
-              />
-
-              <div className="relative">
-                {/* Icon */}
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4 transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundColor: `${cert.color}20` }}
-                >
-                  {cert.icon}
+              <div className="mb-4 flex items-start justify-between">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-indigo-400">
+                  <Award size={17} />
                 </div>
+                <CheckCircle size={15} className="text-emerald-400/70" />
+              </div>
 
-                {/* Verified badge */}
-                <div className="absolute top-0 right-0">
-                  <CheckCircle size={16} className="text-green-400" />
-                </div>
+              <h3 className="text-sm font-semibold leading-snug text-white">
+                {cert.title}
+              </h3>
+              <p className="mt-1 text-xs text-zinc-500">{cert.issuer}</p>
 
-                <h3 className="text-sm font-semibold text-white mb-1.5 leading-snug">
-                  {cert.title}
-                </h3>
-                <p className="text-xs text-zinc-500 mb-3">{cert.issuer}</p>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <Award size={12} style={{ color: cert.color }} />
-                    <span className="text-xs font-mono" style={{ color: cert.color }}>
-                      {cert.date}
-                    </span>
-                  </div>
+              <div className="mt-4 flex items-center justify-between border-t border-white/[0.06] pt-3">
+                <span className="font-mono text-xs text-zinc-500">{cert.date}</span>
+                {cert.credentialUrl && cert.credentialUrl !== "#" && (
                   <a
                     href={cert.credentialUrl}
-                    className="flex items-center gap-1 text-[11px] text-zinc-600 hover:text-zinc-400 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-[11px] text-zinc-500 transition-colors hover:text-white"
                   >
                     Görüntüle <ExternalLink size={10} />
                   </a>
-                </div>
+                )}
               </div>
             </motion.div>
           ))}

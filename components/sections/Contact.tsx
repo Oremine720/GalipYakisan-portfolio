@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/data";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 // EmailJS config — .env.local dosyasından al
 const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
 const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? "";
@@ -24,8 +26,9 @@ const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 export default function Contact() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,121 +61,117 @@ export default function Contact() {
       label: "E-posta",
       value: PERSONAL_INFO.email,
       href: `mailto:${PERSONAL_INFO.email}`,
-      color: "#6366f1",
     },
     {
       icon: Github,
       label: "GitHub",
       value: "github.com/Oremine720",
       href: PERSONAL_INFO.github,
-      color: "#f8f8f8",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "galip-yakışan",
+      value: "galip-yakisan",
       href: PERSONAL_INFO.linkedin,
-      color: "#0077B5",
     },
     {
       icon: MapPin,
       label: "Konum",
       value: PERSONAL_INFO.location,
       href: null,
-      color: "#f59e0b",
     },
   ];
 
+  const inputClass =
+    "w-full rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200 focus:border-indigo-500/60 focus:bg-white/[0.03] focus:outline-none";
+
   return (
     <section id="contact" className="section-padding relative">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px]" />
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-purple-600/5 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-white/10 text-xs text-zinc-400 font-mono mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            07. iletişim
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            İletişime Geç
+          <span className="overline">07 — İletişim</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+            Birlikte çalışalım
           </h2>
-          <p className="text-zinc-400 max-w-xl mx-auto">
+          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
             Staj, iş teklifi veya freelance proje için bana ulaşabilirsin.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Left: Contact info */}
+        <div className="grid gap-10 md:grid-cols-2">
+          {/* Left: info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-5"
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15, ease: EASE }}
+            className="space-y-3"
           >
-            <div className="glass rounded-2xl border border-white/5 p-6 mb-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+            <div className="mb-6 rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6">
+              <div className="mb-2.5 flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                 </span>
-                <span className="text-green-400 text-sm font-medium">Şu an müsaitim</span>
+                <span className="text-sm font-medium text-emerald-400">
+                  Şu an müsaitim
+                </span>
               </div>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Staj fırsatları, tam zamanlı pozisyonlar ve freelance projeler için
-                aktif olarak iş görüşmesi yapıyorum. En geç 24 saat içinde geri dönerim.
+              <p className="text-sm leading-relaxed text-zinc-500">
+                Staj, tam zamanlı pozisyon ve freelance projeler için aktif
+                olarak görüşüyorum. En geç 24 saat içinde geri dönerim.
               </p>
             </div>
 
             {CONTACT_ITEMS.map((item, i) => (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, x: -20 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.07 }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.25 + i * 0.06 }}
               >
                 {item.href ? (
                   <a
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-4 p-4 glass glass-hover rounded-xl border border-white/5 group"
+                    rel={
+                      item.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="group flex items-center gap-4 rounded-xl border border-white/[0.07] bg-white/[0.015] p-4 transition-colors duration-200 hover:border-white/[0.16] hover:bg-white/[0.03]"
                   >
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: `${item.color}20` }}
-                    >
-                      <item.icon size={16} style={{ color: item.color }} />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-zinc-400 transition-colors group-hover:text-indigo-400">
+                      <item.icon size={15} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs text-zinc-600 mb-0.5">{item.label}</div>
-                      <div className="text-sm text-zinc-300 truncate group-hover:text-white transition-colors">
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[11px] text-zinc-600">
+                        {item.label}
+                      </div>
+                      <div className="truncate text-sm text-zinc-300 transition-colors group-hover:text-white">
                         {item.value}
                       </div>
                     </div>
                     <ArrowUpRight
                       size={14}
-                      className="text-zinc-700 group-hover:text-zinc-400 transition-colors shrink-0"
+                      className="shrink-0 text-zinc-700 transition-colors group-hover:text-zinc-400"
                     />
                   </a>
                 ) : (
-                  <div className="flex items-center gap-4 p-4 glass rounded-xl border border-white/5">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: `${item.color}20` }}
-                    >
-                      <item.icon size={16} style={{ color: item.color }} />
+                  <div className="flex items-center gap-4 rounded-xl border border-white/[0.07] bg-white/[0.015] p-4">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-zinc-400">
+                      <item.icon size={15} />
                     </div>
                     <div>
-                      <div className="text-xs text-zinc-600 mb-0.5">{item.label}</div>
+                      <div className="text-[11px] text-zinc-600">
+                        {item.label}
+                      </div>
                       <div className="text-sm text-zinc-300">{item.value}</div>
                     </div>
                   </div>
@@ -181,93 +180,91 @@ export default function Contact() {
             ))}
           </motion.div>
 
-          {/* Right: Contact form */}
+          {/* Right: form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.25, ease: EASE }}
           >
             <form
               onSubmit={handleSubmit}
-              className="glass rounded-2xl border border-white/5 p-6 space-y-4"
+              className="space-y-4 rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6"
             >
               <div>
-                <label className="block text-xs text-zinc-500 font-mono mb-2">
-                  {'// adın'}
-                </label>
+                <label className="overline mb-2 block">Adın</label>
                 <input
                   type="text"
                   required
                   value={form.name}
-                  onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                  placeholder="John Doe"
-                  className="w-full bg-white/3 border border-white/8 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/5 transition-all duration-200"
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, name: e.target.value }))
+                  }
+                  placeholder="Adın Soyadın"
+                  className={inputClass}
                 />
               </div>
 
               <div>
-                <label className="block text-xs text-zinc-500 font-mono mb-2">
-                  {'// e-posta'}
-                </label>
+                <label className="overline mb-2 block">E-posta</label>
                 <input
                   type="email"
                   required
                   value={form.email}
-                  onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-                  placeholder="john@example.com"
-                  className="w-full bg-white/3 border border-white/8 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/5 transition-all duration-200"
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, email: e.target.value }))
+                  }
+                  placeholder="ornek@mail.com"
+                  className={inputClass}
                 />
               </div>
 
               <div>
-                <label className="block text-xs text-zinc-500 font-mono mb-2">
-                  {'// mesajın'}
-                </label>
+                <label className="overline mb-2 block">Mesajın</label>
                 <textarea
                   required
                   value={form.message}
-                  onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                  onChange={(e) =>
+                    setForm((f) => ({ ...f, message: e.target.value }))
+                  }
                   placeholder="Merhaba Galip, seninle konuşmak istiyorum..."
                   rows={5}
-                  className="w-full bg-white/3 border border-white/8 rounded-xl px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50 focus:bg-white/5 transition-all duration-200 resize-none"
+                  className={`${inputClass} resize-none`}
                 />
               </div>
 
-              <motion.button
+              <button
                 type="submit"
                 disabled={status === "sending" || status === "sent"}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-sm font-semibold transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed shadow-lg shadow-indigo-600/20"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-400 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {status === "sending" ? (
                   <>
-                    <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                     Gönderiliyor...
                   </>
                 ) : status === "sent" ? (
                   <>
                     <CheckCircle size={16} />
-                    Mesaj Gönderildi!
+                    Mesaj gönderildi
                   </>
                 ) : status === "error" ? (
                   <>
                     <AlertCircle size={16} />
-                    Hata! Tekrar dene
+                    Hata — tekrar dene
                   </>
                 ) : (
                   <>
                     <Send size={16} />
-                    Mesaj Gönder
+                    Mesaj gönder
                   </>
                 )}
-              </motion.button>
+              </button>
 
-              <p className="text-center text-xs text-zinc-700">
-                Ya da direkt e-posta gönder:{" "}
+              <p className="text-center text-xs text-zinc-600">
+                Ya da direkt:{" "}
                 <a
                   href="mailto:galipyakisan@gmail.com"
-                  className="text-indigo-500 hover:text-indigo-400 transition-colors"
+                  className="text-indigo-400 transition-colors hover:text-indigo-300"
                 >
                   galipyakisan@gmail.com
                 </a>

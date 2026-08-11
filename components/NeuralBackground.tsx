@@ -14,7 +14,8 @@ interface Node {
   color: string;
 }
 
-const COLORS = ["#6366f1", "#8b5cf6", "#06b6d4"];
+// Single desaturated indigo — ambient, not a feature
+const COLORS = ["#6366f1"];
 
 export default function NeuralBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -201,7 +202,7 @@ export default function NeuralBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 0, opacity: 0.7 }}
+      style={{ zIndex: 0, opacity: 0.28 }}
       aria-hidden="true"
     />
   );

@@ -4,31 +4,34 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Target, Rocket, Code2, Brain, GraduationCap, MapPin } from "lucide-react";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const HIGHLIGHTS = [
   {
     icon: Code2,
     title: "Full Stack Developer",
-    desc: "C#, ASP.NET Core ve React ile end-to-end uygulama geliştirme",
-    color: "#6366f1",
+    desc: "C#, ASP.NET Core ve React ile uçtan uca uygulama geliştirme.",
   },
   {
     icon: Brain,
     title: "AI Enthusiast",
-    desc: "Yapay zeka teknolojilerini projelere entegre etme tutkusu",
-    color: "#8b5cf6",
+    desc: "Yapay zeka teknolojilerini projelere entegre etme tutkusu.",
   },
   {
     icon: Target,
     title: "Problem Solver",
-    desc: "Analitik düşünce ile karmaşık sorunlara kalıcı çözümler",
-    color: "#06b6d4",
+    desc: "Analitik düşünceyle karmaşık sorunlara kalıcı çözümler.",
   },
   {
     icon: Rocket,
     title: "Kariyer Hedefi",
-    desc: "DGS ile Yazılım Mühendisliğine geçiş ve sektörde değer yaratma",
-    color: "#f59e0b",
+    desc: "DGS ile Yazılım Mühendisliğine geçiş ve sektörde değer üretme.",
   },
+];
+
+const LANGUAGES = [
+  { lang: "Türkçe", level: "Ana dil" },
+  { lang: "İngilizce", level: "B1 — Orta" },
 ];
 
 export default function About() {
@@ -36,94 +39,77 @@ export default function About() {
 
   return (
     <section id="about" className="section-padding relative">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Section header */}
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Header */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6, ease: EASE }}
+          className="mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-white/10 text-xs text-zinc-400 font-mono mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-            01. hakkımda
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ben Kimim?
+          <span className="overline">01 — Hakkımda</span>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+            Ben kimim?
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            Kod yazan, problem çözen ve teknolojiye tutkuyla bağlı bir geliştirici.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid gap-14 md:grid-cols-[1.1fr_1fr] md:items-start">
           {/* Left: Text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-6"
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.15, ease: EASE }}
+            className="space-y-5"
           >
-            <div className="space-y-4">
-              <p className="text-zinc-300 leading-relaxed text-base">
-                Yazılım geliştirme ve algoritmik problem çözme süreçleri, profesyonel gelişimimin
-                temel odak noktasını oluşturmaktadır. Özellikle{" "}
-                <span className="text-indigo-400 font-medium">C#, React</span> ve{" "}
-                <span className="text-indigo-400 font-medium">yapay zeka teknolojileri</span>{" "}
-                ağırlıklı olmak üzere, yazılım mimarisi gerektiren her alanda çalışmaya yüksek
-                motivasyon duyuyorum.
-              </p>
-              <p className="text-zinc-400 leading-relaxed text-base">
-                Geliştirme süreçlerinde karşılaştığım teknik problemlerde, kapsamlı kaynak
-                araştırması yaparak analitik ve kalıcı çözümler üretmeyi prensip ediniyorum.
-              </p>
-              <p className="text-zinc-400 leading-relaxed text-base">
-                Temel kariyer hedefim;{" "}
-                <span className="text-purple-400 font-medium">DGS</span> ile eğitimimi{" "}
-                <span className="text-purple-400 font-medium">Yazılım Mühendisliği</span>{" "}
-                alanında tamamlayarak, sektörde değer üreten yetkin bir Full-Stack Developer
-                olmaktır.
-              </p>
-            </div>
+            <p className="text-[15px] leading-relaxed text-zinc-300">
+              Yazılım geliştirme ve algoritmik problem çözme, profesyonel
+              gelişimimin temel odak noktası. Özellikle{" "}
+              <span className="text-white">C#, React</span> ve{" "}
+              <span className="text-white">yapay zeka teknolojileri</span>{" "}
+              ağırlıklı olmak üzere, yazılım mimarisi gerektiren her alanda
+              çalışmaya yüksek motivasyon duyuyorum.
+            </p>
+            <p className="text-[15px] leading-relaxed text-zinc-500">
+              Karşılaştığım teknik problemlerde kapsamlı kaynak araştırması
+              yaparak analitik ve kalıcı çözümler üretmeyi prensip ediniyorum.
+            </p>
+            <p className="text-[15px] leading-relaxed text-zinc-500">
+              Kariyer hedefim; <span className="text-indigo-400">DGS</span> ile
+              eğitimimi <span className="text-indigo-400">Yazılım Mühendisliği</span>{" "}
+              alanında tamamlayarak sektörde değer üreten yetkin bir Full-Stack
+              Developer olmak.
+            </p>
 
             {/* Info pills */}
             <div className="flex flex-wrap gap-2 pt-2">
               {[
                 { icon: MapPin, text: "Burdur, Türkiye" },
-                { icon: GraduationCap, text: "MAKÜ — GPA: 3.76" },
+                { icon: GraduationCap, text: "MAKÜ — GPA 3.76" },
               ].map(({ icon: Icon, text }) => (
                 <div
                   key={text}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg glass border border-white/5 text-sm text-zinc-400"
+                  className="flex items-center gap-2 rounded-lg border border-white/[0.07] px-3 py-1.5 text-sm text-zinc-400"
                 >
-                  <Icon size={13} className="text-indigo-400" />
+                  <Icon size={13} className="text-zinc-500" />
                   {text}
                 </div>
               ))}
             </div>
 
-            {/* Languages */}
-            <div className="pt-2">
-              <p className="text-xs text-zinc-600 font-mono mb-2">{'// diller'}</p>
-              <div className="flex gap-3">
-                {[
-                  { lang: "Türkçe", level: "Ana Dil", pct: 100 },
-                  { lang: "İngilizce", level: "B1", pct: 55 },
-                ].map((l) => (
-                  <div key={l.lang} className="flex-1">
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-zinc-300">{l.lang}</span>
-                      <span className="text-zinc-600">{l.level}</span>
-                    </div>
-                    <div className="h-1 bg-zinc-800 rounded-full">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: `${l.pct}%` } : {}}
-                        transition={{ duration: 1, delay: 0.5 }}
-                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-500"
-                      />
-                    </div>
+            {/* Languages — honest, no fake bars */}
+            <div className="pt-3">
+              <p className="overline mb-3">Diller</p>
+              <div className="divide-y divide-white/[0.06] border-y border-white/[0.06]">
+                {LANGUAGES.map((l) => (
+                  <div
+                    key={l.lang}
+                    className="flex items-center justify-between py-2.5"
+                  >
+                    <span className="text-sm text-zinc-300">{l.lang}</span>
+                    <span className="font-mono text-xs text-zinc-500">
+                      {l.level}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -131,23 +117,22 @@ export default function About() {
           </motion.div>
 
           {/* Right: Highlight cards */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {HIGHLIGHTS.map((item, i) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="glass glass-hover rounded-2xl p-5 border border-white/5 group"
+                transition={{ duration: 0.5, delay: 0.25 + i * 0.08, ease: EASE }}
+                className="group rounded-2xl border border-white/[0.07] bg-white/[0.015] p-5 transition-colors duration-200 hover:border-white/[0.16]"
               >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundColor: `${item.color}20` }}
-                >
-                  <item.icon size={18} style={{ color: item.color }} />
+                <div className="mb-3.5 flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-indigo-400">
+                  <item.icon size={17} />
                 </div>
-                <h3 className="text-sm font-semibold text-white mb-1.5">{item.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{item.desc}</p>
+                <h3 className="text-sm font-semibold text-white">{item.title}</h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>

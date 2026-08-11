@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   phone: "",
   github: "https://github.com/Oremine720",
   githubUsername: "Oremine720",
-  linkedin: "https://linkedin.com/in/galip-yakışan",
+  linkedin: "https://www.linkedin.com/in/galip-yak%C4%B1%C5%9Fan-432a9b329",
   location: "Burdur, Türkiye",
   cvUrl: "/GalipCV.pdf",
   availableForWork: true,
@@ -244,7 +244,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/galip-yakışan",
+    url: "https://www.linkedin.com/in/galip-yak%C4%B1%C5%9Fan-432a9b329",
     icon: "linkedin",
   },
   {

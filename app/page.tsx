@@ -16,10 +16,6 @@ import Certificates from "@/components/sections/Certificates";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
-const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
-  ssr: false,
-});
-
 const NeuralBackground = dynamic(() => import("@/components/NeuralBackground"), {
   ssr: false,
 });
@@ -34,7 +30,6 @@ export default function Home() {
   return (
     <>
       <LoadingScreen />
-      {mounted && <CustomCursor />}
       {mounted && <NeuralBackground />}
       <ScrollProgress />
       <Navbar />

@@ -1,0 +1,825 @@
+{
+  "version": 1,
+  "packId": "kpss_onlisans_seed",
+  "_comment": "Ilk gun offline calisma icin uygulamayla gelen, elle gozden gecirilmis soru paketi. OSYM sorularindan kopyalanmamistir; yalnizca OSYM olcme mantigi ve soru tarzi modellenmistir. Ilk acilista bir kez yerel havuza aktarilir (bkz. SeedImporter). Guncellemeyle daha yuksek surumlu paket gelirse yalnizca yeni sorular eklenir. Test fixture’indan (assets/fixtures) ayridir ve bagimsiz surumlenir.",
+  "questions": [
+    {
+      "id": "seed-001",
+      "subTopicId": "turkce.dil_bilgisi.sozcukte_yapi",
+      "subjectId": "turkce",
+      "topicId": "turkce.dil_bilgisi",
+      "difficulty": "KOLAY",
+      "stem": "Aşağıdaki cümlelerin hangisinde altı çizili sözcük **türemiş** bir sözcüktür?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Çocuklar bahçede top oynuyordu.",
+          "isCorrect": false,
+          "explanation": "\"Top\" hiçbir yapım eki almamış, kök hâlinde bir sözcüktür; basit yapılıdır.",
+          "misconceptionTag": "basit_sozcugu_turemis_sanma"
+        },
+        {
+          "label": "B",
+          "text": "Sabah erkenden yola çıktık.",
+          "isCorrect": false,
+          "explanation": "\"Yol\" köküne gelen \"-a\" yönelme durumu ekidir; çekim ekidir, yeni sözcük türetmez.",
+          "misconceptionTag": "cekim_ekini_yapim_eki_sanma"
+        },
+        {
+          "label": "C",
+          "text": "Bu kitabın **yazarı** çok gençmiş.",
+          "isCorrect": true,
+          "explanation": "\"Yaz-\" fiil köküne getirilen \"-ar\" yapım ekiyle \"yazar\" adı türetilmiştir. Sonundaki \"-ı\" iyelik ekidir ama sözcük zaten yapım eki aldığı için türemiştir.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "D",
+          "text": "Masanın üstünde bir bardak duruyor.",
+          "isCorrect": false,
+          "explanation": "\"Bardak\" bugün tek parça hâlinde algılanan, kalıplaşmış basit bir sözcüktür; içindeki ses birimi işlek bir yapım eki değildir.",
+          "misconceptionTag": "kaliplasmis_sozcugu_turemis_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Hanımeli kokusu her yeri sarmıştı.",
+          "isCorrect": false,
+          "explanation": "\"Hanımeli\" iki sözcüğün birleşmesinden oluşur; türemiş değil **birleşik** sözcüktür.",
+          "misconceptionTag": "birlesik_sozcugu_turemis_sanma"
+        }
+      ],
+      "correctIndex": 2,
+      "solution": "1. Türemiş sözcük, bir köke **yapım eki** getirilerek oluşturulan sözcüktür.\n2. Şıkları tek tek inceleyelim:\n   • \"top\" → kök hâlinde, ek yok → basit\n   • \"yola\" → \"yol\" + \"-a\" (yönelme durumu) → çekim eki → basit\n   • \"yazarı\" → \"yaz-\" + \"-ar\" (yapım eki) → **türemiş** ✓\n   • \"bardak\" → kalıplaşmış, bölünemez → basit\n   • \"hanımeli\" → \"hanım\" + \"el\" → birleşik\n3. Yalnızca C şıkkında yapım eki bulunmaktadır.",
+      "hint": "Ekin sözcüğe yeni bir anlam mı kattığına, yoksa yalnızca cümledeki görevini mi belirlediğine bak.",
+      "learningNote": "Yapım eki yeni bir sözcük üretir ve sözlükte ayrı madde olur; çekim eki ise sözcüğün cümledeki görevini belirler, yeni sözcük yapmaz. Ayrım için şunu sor: \"Bu ek çıkarılınca anlam tamamen değişiyor mu?\"",
+      "testedKazanimlar": [
+        "Basit, türemiş ve birleşik sözcükleri ayırt eder.",
+        "Yapım eki ile çekim ekini işlevine göre ayırt eder."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-002",
+      "subTopicId": "turkce.dil_bilgisi.sozcuk_turleri",
+      "subjectId": "turkce",
+      "topicId": "turkce.dil_bilgisi",
+      "difficulty": "ORTA",
+      "stem": "\"Dün akşam eve geç geldiği için annesi ona kızmış.\"\n\nBu cümledeki altı çizili \"geç\" sözcüğünün türü aşağıdakilerden hangisidir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Zarf",
+          "isCorrect": true,
+          "explanation": "\"Geç\" burada \"geldiği\" fiilini niteliyor; \"ne zaman geldi?\" sorusuna yanıt verdiği için zaman zarfıdır.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "B",
+          "text": "Sıfat",
+          "isCorrect": false,
+          "explanation": "Sıfat bir ismi niteler. Burada \"geç\" bir isme değil, \"gelmek\" fiiline bağlıdır; bu yüzden sıfat değildir.",
+          "misconceptionTag": "sifati_zarf_ile_karistirma"
+        },
+        {
+          "label": "C",
+          "text": "Edat",
+          "isCorrect": false,
+          "explanation": "Edatlar tek başına anlamı olmayan, ancak başka sözcüklerle öbek kurunca anlam kazanan sözcüklerdir (gibi, için, kadar). \"Geç\" tek başına anlamlıdır.",
+          "misconceptionTag": "edat_baglac_karisikligi"
+        },
+        {
+          "label": "D",
+          "text": "İsim",
+          "isCorrect": false,
+          "explanation": "\"Geç\" burada bir varlığı karşılamıyor, bir eylemin zamanını belirtiyor. İsim olarak kullanılsaydı ek alıp öge olabilirdi.",
+          "misconceptionTag": "zarfi_isim_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Bağlaç",
+          "isCorrect": false,
+          "explanation": "Bağlaçlar sözcükleri veya cümleleri birbirine bağlar (ve, ama, fakat). \"Geç\" bağlama işlevi görmez.",
+          "misconceptionTag": "edat_baglac_karisikligi"
+        }
+      ],
+      "correctIndex": 0,
+      "solution": "1. Bir sözcüğün türünü belirlemek için **neyi nitelediğine** bakılır.\n2. \"Geç\" sözcüğü cümlede \"geldiği\" eylemine bağlıdır.\n3. Fiile sorulan \"ne zaman?\" sorusunun yanıtı olduğu için **zaman zarfı**dır.\n4. Aynı sözcük \"geç saatte\" biçiminde kullanılsaydı \"saat\" ismini niteleyeceği için **sıfat** olurdu. Tür, sözcüğün kendisinde değil cümledeki görevinde gizlidir.",
+      "hint": "Sözcüğün hemen sonrasına bak: bir isim mi geliyor, yoksa bir fiil mi?",
+      "learningNote": "Sıfat ile zarfı ayırmanın en güvenilir yolu, sözcüğün **neyi** nitelediğine bakmaktır: ismi niteliyorsa sıfat, fiili/sıfatı/başka bir zarfı niteliyorsa zarftır. Aynı sözcük farklı cümlelerde farklı türde olabilir.",
+      "testedKazanimlar": [
+        "Sıfat ile zarfı, niteledikleri ögeye bakarak ayırt eder."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-003",
+      "subTopicId": "turkce.anlam_bilgisi.cumlede_anlam",
+      "subjectId": "turkce",
+      "topicId": "turkce.anlam_bilgisi",
+      "difficulty": "ORTA",
+      "stem": "\"Yağmur yağdığı için maç ertelendi.\"\n\nBu cümledeki anlam ilişkisi aşağıdakilerin hangisinde vardır?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Sınavı kazanmak için gece gündüz çalıştı.",
+          "isCorrect": false,
+          "explanation": "Burada \"için\" **amaç** bildiriyor: çalışmanın hedefi sınavı kazanmak. Örnek cümlede ise bir **neden** var.",
+          "misconceptionTag": "neden_sonuc_amac_sonuc_karistirma"
+        },
+        {
+          "label": "B",
+          "text": "Hava soğuduğundan kalorifer yakıldı.",
+          "isCorrect": true,
+          "explanation": "\"Havanın soğuması\" kaloriferin yakılmasının nedenidir. Örnek cümledeki gibi gerçekleşmiş bir durum, başka bir durumu doğurmuştur.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "C",
+          "text": "Erken kalkarsan otobüsü kaçırmazsın.",
+          "isCorrect": false,
+          "explanation": "Bu cümlede **koşul (şart)** anlamı vardır; gerçekleşmiş bir neden değil, olası bir durum söz konusudur.",
+          "misconceptionTag": "kosul_nedeni_karistirma"
+        },
+        {
+          "label": "D",
+          "text": "Bu kitap ötekinden daha akıcı yazılmış.",
+          "isCorrect": false,
+          "explanation": "Bu cümlede **karşılaştırma** anlamı vardır; iki şey birbirine göre değerlendirilmektedir.",
+          "misconceptionTag": "karsilastirma_nedeni_karistirma"
+        },
+        {
+          "label": "E",
+          "text": "Çalışmasına rağmen istediği sonucu alamadı.",
+          "isCorrect": false,
+          "explanation": "Bu cümlede beklenenin tersinin gerçekleştiğini gösteren **karşıtlık** anlamı vardır.",
+          "misconceptionTag": "karsitlik_nedeni_karistirma"
+        }
+      ],
+      "correctIndex": 1,
+      "solution": "1. Örnek cümleyi çözümleyelim: \"Yağmur yağdığı için\" → gerçekleşmiş bir durum; \"maç ertelendi\" → bunun sonucu. Yani **neden-sonuç** ilişkisi vardır.\n2. Neden-sonuçta, neden **gerçekleşmiş**tir ve sonucu doğurmuştur.\n3. Şıklara bakalım:\n   • A: amaç-sonuç (henüz gerçekleşmemiş bir hedef)\n   • B: \"hava soğuduğundan\" → gerçekleşmiş neden, \"kalorifer yakıldı\" → sonuç ✓\n   • C: koşul\n   • D: karşılaştırma\n   • E: karşıtlık\n4. Doğru yanıt B'dir.",
+      "hint": "Cümledeki ilk yargı gerçekten olmuş bitmiş mi, yoksa hedeflenen bir şey mi?",
+      "learningNote": "Neden-sonuç ile amaç-sonucu ayırmak için şunu sor: \"Bu eylem **niçin** yapıldı?\" yanıtı bir hedefse amaç-sonuç, \"**neden** oldu?\" yanıtı gerçekleşmiş bir durumsa neden-sonuçtur. \"İçin\" edatı her ikisinde de geçebilir; ayrım anlamdadır, sözcükte değil.",
+      "testedKazanimlar": [
+        "Neden-sonuç, amaç-sonuç, koşul ve karşılaştırma anlamlarını belirler."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-004",
+      "subTopicId": "turkce.paragraf.paragrafta_anlam",
+      "subjectId": "turkce",
+      "topicId": "turkce.paragraf",
+      "difficulty": "ORTA",
+      "passage": "Bir kentin belleği yalnızca müzelerinde saklanmaz. Sokak adlarında, çeşme kitabelerinde, hatta kapı tokmaklarının biçiminde bile o kentin geçmişi okunur. Ne var ki bu ayrıntılar çoğu zaman koruma listelerine girmez; anıtsal yapılar titizlikle onarılırken, gündelik hayatın bu küçük tanıkları sessizce ortadan kalkar. Oysa bir kentin dokusunu asıl kuran, görkemli birkaç yapı değil, sayısız küçük ayrıntının birbirini tamamlamasıdır.",
+      "stem": "Bu parçada asıl anlatılmak istenen aşağıdakilerden hangisidir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Kentlerdeki anıtsal yapıların onarımı yeterince özenli yapılmamaktadır.",
+          "isCorrect": false,
+          "explanation": "Parçada anıtsal yapıların \"titizlikle onarıldığı\" söyleniyor; bu şık metinde söylenenin tam tersini iddia ediyor.",
+          "misconceptionTag": "metinde_soylenenin_tersini_secme"
+        },
+        {
+          "label": "B",
+          "text": "Müzeler, bir kentin geçmişini korumada en güvenilir kurumlardır.",
+          "isCorrect": false,
+          "explanation": "Parça müzelerin yetersizliğinden değil, belleğin yalnızca müzelerde olmadığından söz ediyor. Bu yargı metinden çıkarılamaz.",
+          "misconceptionTag": "metinde_soylenmemis_yargiyi_secme"
+        },
+        {
+          "label": "C",
+          "text": "Kentin kimliğini gündelik hayata ait küçük ayrıntılar oluşturur, bu nedenle korunmaları gerekir.",
+          "isCorrect": true,
+          "explanation": "Parçanın tümü bu düşünceye hizmet ediyor: küçük ayrıntılar belleği taşır, korunmazlar ve asıl dokuyu onlar kurar. Son cümle bu yargıyı açıkça özetliyor.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "D",
+          "text": "Sokak adları, bir kentin tarihini öğrenmenin en kolay yoludur.",
+          "isCorrect": false,
+          "explanation": "Sokak adları parçada yalnızca **bir örnek** olarak geçiyor. Ayrıntıyı ana düşünce yerine koymak sık yapılan bir hatadır.",
+          "misconceptionTag": "ayrintiyi_ana_dusunce_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Koruma listeleri hazırlanırken uzman görüşüne yeterince başvurulmamaktadır.",
+          "isCorrect": false,
+          "explanation": "Parçada koruma listelerinin **kapsamı** eleştiriliyor; nasıl hazırlandığına veya uzman görüşüne hiç değinilmiyor.",
+          "misconceptionTag": "metinde_soylenmemis_yargiyi_secme"
+        }
+      ],
+      "correctIndex": 2,
+      "solution": "1. Parçanın yapısını izleyelim:\n   • Giriş: Kentin belleği yalnızca müzelerde değildir.\n   • Gelişme: Sokak adları, kitabeler, kapı tokmakları da belleği taşır; ama korunmazlar.\n   • Sonuç: Kentin dokusunu asıl kuran, sayısız küçük ayrıntıdır.\n2. Ana düşünce, parçanın **tümünü** kapsayan yargıdır; tek bir cümleye veya örneğe dayanmaz.\n3. C şıkkı hem \"küçük ayrıntılar kimliği oluşturur\" hem de \"korunmalıdır\" yargılarını birleştirerek parçanın bütününü karşılar.\n4. Diğer şıklar ya metinde söylenmeyen (B, E), ya tersini söyleyen (A), ya da yalnızca bir ayrıntıyı öne çıkaran (D) ifadelerdir.",
+      "hint": "Parçadaki son cümle çoğu zaman yazarın vardığı yargıyı taşır; ana düşünceyi orada ara.",
+      "learningNote": "Ana düşünce sorularında en sık düşülen tuzak, **doğru ama parçada söylenmemiş** bir yargıyı seçmektir. Bir şıkkı işaretlemeden önce \"Bunu metnin neresinden çıkardım?\" diye sor; yanıtı gösteremiyorsan o şık yanlıştır.",
+      "testedKazanimlar": [
+        "Paragrafın ana düşüncesini belirler.",
+        "Yardımcı düşünceleri ve paragraftan çıkarılamayacak yargıyı ayırt eder."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-005",
+      "subTopicId": "turkce.dil_bilgisi.yazim_kurallari",
+      "subjectId": "turkce",
+      "topicId": "turkce.dil_bilgisi",
+      "difficulty": "KOLAY",
+      "stem": "Aşağıdaki cümlelerin hangisinde bir yazım yanlışı vardır?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Toplantıya katılacağını bana da söylemişti.",
+          "isCorrect": false,
+          "explanation": "Buradaki \"da\" bağlaçtır ve ayrı yazılmıştır; doğrudur. Bu şıkkı işaretleyen öğrenci, bağlaç olan \"da\"nın bitişik yazılması gerektiğini sanıyordur.",
+          "misconceptionTag": "baglac_dayi_bitisik_yazilmali_sanma"
+        },
+        {
+          "label": "B",
+          "text": "Yarın sabah Ankara'ya gideceğiz.",
+          "isCorrect": false,
+          "explanation": "Özel ada gelen durum eki kesme işaretiyle ayrılmıştır; doğrudur. Bu şıkkı işaretleyen öğrenci, özel adlara gelen eklerde kesme kullanılmayacağını sanıyordur.",
+          "misconceptionTag": "ozel_ada_kesme_gerekmez_sanma"
+        },
+        {
+          "label": "C",
+          "text": "Akşama doğru hava iyice soğumaya başladı.",
+          "isCorrect": false,
+          "explanation": "Cümlede yazım yanlışı yoktur. Bu şıkkı işaretleyen öğrenci, ünlü daralmasını \"-yor\" dışındaki eklerde de uygulanması gereken bir kural sanıyordur.",
+          "misconceptionTag": "unlu_daralmasini_gereksiz_uygulama"
+        },
+        {
+          "label": "D",
+          "text": "Sınavdan yüksek not aldığı için çok sevindi de ailesine haber vermeyi unuttu.",
+          "isCorrect": false,
+          "explanation": "Bağlaç olan \"de\" ayrı yazılmıştır; doğrudur. Bu şıkkı işaretleyen öğrenci, buradaki \"de\"yi bulunma durumu eki sanıyordur.",
+          "misconceptionTag": "baglac_deyi_bulunma_eki_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Kitabı okudum ama konusunu pek anlıyamadım.",
+          "isCorrect": true,
+          "explanation": "\"Anlıyamadım\" yanlıştır; doğrusu \"anlayamadım\"dır. Fiilin kökü \"anla-\" olduğu için geniş ünlü korunur; ünlü daralması burada geçerli değildir.",
+          "misconceptionTag": null
+        }
+      ],
+      "correctIndex": 4,
+      "solution": "1. Şıkları yazım kuralları açısından tek tek kontrol edelim.\n2. A ve D: Bağlaç olan \"da/de\" her zaman ayrı yazılır. İkisi de doğru.\n3. B: Özel adlara gelen çekim ekleri kesme işaretiyle ayrılır → \"Ankara'ya\" doğru.\n4. C: Cümlede belirgin bir yazım yanlışı bulunmuyor.\n5. E: \"anlıyamadım\" → Bu fiilin kökü \"anla-\"dır. Yeterlilik biçiminde \"anla- + -yabil- + -medi\" → **anlayamadım** olur. Ünlü daralması burada geçerli değildir.\n6. Yazım yanlışı E şıkkındadır.",
+      "hint": "Fiillerin köküne dön ve eki eklemeyi adım adım yeniden yap.",
+      "learningNote": "Ünlü daralması yalnızca \"-yor\" ekinden önce düzenli olarak görülür (anla- + -yor → anlıyor). Diğer eklerde kökteki geniş ünlü korunur: anlayacak, anlayamadım, anlayarak.",
+      "testedKazanimlar": [
+        "'de/da' ve 'ki' eklerinin yazımını işlevine göre belirler."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-006",
+      "subTopicId": "matematik.problemler.yuzde_kar_zarar",
+      "subjectId": "matematik",
+      "topicId": "matematik.problemler",
+      "difficulty": "ORTA",
+      "stem": "Bir esnaf, maliyeti 240 TL olan bir ürüne %25 kâr ekleyerek etiket fiyatını belirliyor. Kampanya döneminde ise etiket fiyatı üzerinden %20 indirim yapıyor.\n\nBuna göre esnaf, ürünü kampanya fiyatından sattığında ne kadar kâr elde eder?",
+      "options": [
+        {
+          "label": "A",
+          "text": "12 TL kâr eder.",
+          "isCorrect": false,
+          "explanation": "Bu sonuç, yüzdelerin doğrudan çıkarılmasıyla (%25 − %20 = %5 ve 240'ın %5'i = 12) bulunur. Ancak iki yüzde farklı tabanlar üzerinden hesaplandığı için böyle çıkarılamaz.",
+          "misconceptionTag": "ardisik_yuzdeleri_toplama_cikarma"
+        },
+        {
+          "label": "B",
+          "text": "Ne kâr ne zarar eder.",
+          "isCorrect": true,
+          "explanation": "Etiket fiyatı 300 TL, indirimli fiyat 240 TL olur. Satış fiyatı maliyete eşit olduğu için kâr da zarar da yoktur.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "C",
+          "text": "60 TL kâr eder.",
+          "isCorrect": false,
+          "explanation": "60 TL, yalnızca %25 kârın karşılığıdır. Bu, indirim hiç yapılmasaydı elde edilecek kârdır; kampanya indirimi hesaba katılmamış.",
+          "misconceptionTag": "indirimi_hesaba_katmama"
+        },
+        {
+          "label": "D",
+          "text": "15 TL zarar eder.",
+          "isCorrect": false,
+          "explanation": "Bu sonuç, indirimin maliyet üzerinden hesaplanmasıyla ortaya çıkar. Oysa indirim **etiket fiyatı** üzerinden yapılmaktadır.",
+          "misconceptionTag": "indirimi_maliyet_uzerinden_hesaplama"
+        },
+        {
+          "label": "E",
+          "text": "48 TL kâr eder.",
+          "isCorrect": false,
+          "explanation": "48 TL, etiket fiyatının %20'siyle karıştırılan bir ara değerdir; kâr miktarı değildir.",
+          "misconceptionTag": "ara_degeri_sonuc_sanma"
+        }
+      ],
+      "correctIndex": 1,
+      "solution": "1. **Etiket fiyatını bulalım.**\n   Maliyet = 240 TL, kâr oranı %25\n   Etiket fiyatı = 240 × 1,25 = **300 TL**\n\n2. **İndirimli satış fiyatını bulalım.**\n   İndirim, etiket fiyatı üzerinden %20'dir.\n   Satış fiyatı = 300 × 0,80 = **240 TL**\n\n3. **Kârı hesaplayalım.**\n   Kâr = Satış fiyatı − Maliyet = 240 − 240 = **0 TL**\n\n4. Esnaf ne kâr ne zarar eder.",
+      "hint": "%25 artış ve %20 indirim aynı sayı üzerinden hesaplanmıyor. Önce etiket fiyatını bul, indirimi ona uygula.",
+      "learningNote": "Ardışık yüzde değişimleri **toplanamaz veya çıkarılamaz**, çünkü her biri farklı bir taban üzerinden hesaplanır. %25 artıp %20 azalan bir değer başlangıç noktasına döner: 1,25 × 0,80 = 1,00. Bu tür sorularda her adımı ayrı ayrı çarpanla hesapla.",
+      "testedKazanimlar": [
+        "Yüzde artış ve azalışı hesaplar.",
+        "Ardışık yüzde değişimlerinin bileşik etkisini bulur."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-007",
+      "subTopicId": "matematik.sayilar.bolunebilme",
+      "subjectId": "matematik",
+      "topicId": "matematik.sayilar",
+      "difficulty": "ORTA",
+      "stem": "Üç basamaklı 4A6 sayısı 3 ile tam bölünebilmektedir.\n\nBuna göre A yerine yazılabilecek rakamların toplamı kaçtır?",
+      "options": [
+        {
+          "label": "A",
+          "text": "9",
+          "isCorrect": false,
+          "explanation": "Yalnızca bazı değerler bulunup toplanmış. Uygun rakamların tamamı (2, 5, 8) dikkate alınmamış.",
+          "misconceptionTag": "tum_uygun_degerleri_bulmama"
+        },
+        {
+          "label": "B",
+          "text": "12",
+          "isCorrect": false,
+          "explanation": "A = 0 değeri yanlışlıkla eklenmiş olabilir. 4 + 0 + 6 = 10, 10 sayısı 3'e tam bölünmez.",
+          "misconceptionTag": "gecersiz_degeri_dahil_etme"
+        },
+        {
+          "label": "C",
+          "text": "15",
+          "isCorrect": true,
+          "explanation": "Uygun rakamlar 2, 5 ve 8'dir. Toplamları 2 + 5 + 8 = 15'tir.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "D",
+          "text": "18",
+          "isCorrect": false,
+          "explanation": "Fazladan bir değer eklenmiş. 3'e bölünebilme kuralına uyan yalnızca üç rakam vardır.",
+          "misconceptionTag": "gecersiz_degeri_dahil_etme"
+        },
+        {
+          "label": "E",
+          "text": "10",
+          "isCorrect": false,
+          "explanation": "Bu, rakamların toplamı değil, A = 0 için elde edilen basamak toplamıdır. Soruda istenen A değerlerinin toplamıdır.",
+          "misconceptionTag": "istenen_degeri_yanlis_okuma"
+        }
+      ],
+      "correctIndex": 2,
+      "solution": "1. **3 ile bölünebilme kuralı:** Bir sayının rakamları toplamı 3'ün katıysa, o sayı 3'e tam bölünür.\n\n2. **Rakamlar toplamını yazalım.**\n   4 + A + 6 = **10 + A**\n\n3. **10 + A ifadesinin 3'ün katı olduğu durumları bulalım.**\n   A bir rakam olduğu için 0 ≤ A ≤ 9'dur.\n   • A = 2 → 12 ✓ (12 = 3 · 4)\n   • A = 5 → 15 ✓ (15 = 3 · 5)\n   • A = 8 → 18 ✓ (18 = 3 · 6)\n   Diğer değerler 3'ün katı vermez.\n\n4. **İstenen toplamı bulalım.**\n   2 + 5 + 8 = **15**",
+      "hint": "Önce rakamlar toplamını A cinsinden yaz, sonra hangi A değerlerinin bu toplamı 3'ün katı yaptığını dene.",
+      "learningNote": "3 ile bölünebilmede rakamlar toplamına bakılır; 9 ile bölünebilmede de aynı yöntem kullanılır ama toplamın 9'un katı olması gerekir. Bu tür sorularda A'nın **rakam** olduğunu (0–9 aralığı) unutma ve bulduğun tüm değerleri kontrol et.",
+      "testedKazanimlar": [
+        "2, 3, 4, 5, 6, 8, 9, 10 ve 11 ile bölünebilme kurallarını uygular."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-008",
+      "subTopicId": "matematik.problemler.hiz_problemleri",
+      "subjectId": "matematik",
+      "topicId": "matematik.problemler",
+      "difficulty": "ORTA",
+      "stem": "Bir araç A şehrinden B şehrine giderken ortalama 60 km/sa, aynı yoldan dönerken ise ortalama 40 km/sa hızla ilerlemiştir.\n\nBuna göre aracın gidiş-dönüş yolculuğundaki ortalama hızı kaç km/sa'tir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "45",
+          "isCorrect": false,
+          "explanation": "Bu değer, hesaplama sırasında yol veya süre oranlarının ters kurulmasıyla ortaya çıkar; doğru bağıntıyla uyuşmaz.",
+          "misconceptionTag": "orani_ters_kurma"
+        },
+        {
+          "label": "B",
+          "text": "48",
+          "isCorrect": true,
+          "explanation": "Toplam yolun toplam süreye bölünmesiyle bulunur. Eşit mesafeler için harmonik ortalama kullanılır: 2·60·40 / (60+40) = 48.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "C",
+          "text": "50",
+          "isCorrect": false,
+          "explanation": "Bu, iki hızın aritmetik ortalamasıdır: (60+40)/2 = 50. Ancak ortalama hız, hızların ortalaması değil, toplam yolun toplam süreye oranıdır. Yavaş gidilen bölümde daha çok zaman harcandığı için ortalama hız 50'nin altında kalır.",
+          "misconceptionTag": "ortalama_hizi_aritmetik_ortalama_sanma"
+        },
+        {
+          "label": "D",
+          "text": "52",
+          "isCorrect": false,
+          "explanation": "Aritmetik ortalamaya yakın, dayanağı olmayan bir değerdir.",
+          "misconceptionTag": "ortalama_hizi_aritmetik_ortalama_sanma"
+        },
+        {
+          "label": "E",
+          "text": "55",
+          "isCorrect": false,
+          "explanation": "Yüksek hıza fazla ağırlık verilmesiyle bulunur. Oysa yavaş gidilen bölüm daha uzun sürdüğü için ortalamayı aşağı çeker.",
+          "misconceptionTag": "yuksek_hiza_fazla_agirlik_verme"
+        }
+      ],
+      "correctIndex": 1,
+      "solution": "1. **Ortalama hız tanımı:** Ortalama hız = Toplam yol ÷ Toplam süre. Hızların ortalaması **değildir**.\n\n2. **Mesafeye bir değer verelim.** İki hızın ortak katı olan 120 km'yi seçmek işlemi kolaylaştırır.\n   Tek yön mesafesi = 120 km\n\n3. **Süreleri hesaplayalım.**\n   • Gidiş süresi = 120 ÷ 60 = 2 saat\n   • Dönüş süresi = 120 ÷ 40 = 3 saat\n   • Toplam süre = 2 + 3 = 5 saat\n\n4. **Toplam yolu bulalım.**\n   Toplam yol = 120 + 120 = 240 km\n\n5. **Ortalama hızı hesaplayalım.**\n   Ortalama hız = 240 ÷ 5 = **48 km/sa**\n\n6. Dikkat: Sonuç 50'den küçüktür, çünkü yavaş gidilen bölümde daha fazla zaman harcanmıştır.",
+      "hint": "Mesafeyi bilmiyorsan kendin seç — iki hızın ortak katı olan bir sayı işini kolaylaştırır.",
+      "learningNote": "Eşit mesafeler için ortalama hız, hızların **harmonik ortalamasıdır**: 2·v₁·v₂ / (v₁+v₂). Aritmetik ortalama almak en sık yapılan hatadır ve her zaman gerçek değerden büyük bir sonuç verir; çünkü yavaş gidilen bölüm yolculuğun daha uzun süresini kaplar.",
+      "testedKazanimlar": [
+        "Yol = hız × zaman bağıntısını kullanır.",
+        "Ortalama hızı doğru hesaplar."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-009",
+      "subTopicId": "matematik.kumeler.kume_islemleri",
+      "subjectId": "matematik",
+      "topicId": "matematik.kumeler",
+      "difficulty": "ORTA",
+      "stem": "30 kişilik bir sınıfta öğrencilerin 18'i matematik, 15'i fizik kursuna gitmektedir. 5 öğrenci ise bu kursların hiçbirine gitmemektedir.\n\nBuna göre her iki kursa birden giden öğrenci sayısı kaçtır?",
+      "options": [
+        {
+          "label": "A",
+          "text": "3",
+          "isCorrect": false,
+          "explanation": "Hiçbirine gitmeyen 5 öğrenci toplamdan düşülmeden hesap yapılırsa bu değer bulunur.",
+          "misconceptionTag": "hicbirine_gitmeyenleri_hesaba_katmama"
+        },
+        {
+          "label": "B",
+          "text": "5",
+          "isCorrect": false,
+          "explanation": "5 sayısı, hiçbir kursa gitmeyen öğrenci sayısıdır. Soruda istenen ise her ikisine birden gidenlerin sayısıdır.",
+          "misconceptionTag": "istenen_degeri_yanlis_okuma"
+        },
+        {
+          "label": "C",
+          "text": "10",
+          "isCorrect": false,
+          "explanation": "Kesişim doğru kurulmamış; bu değer bağıntıyı sağlamaz. Kontrol: 18 + 15 − 10 = 23 ≠ 25.",
+          "misconceptionTag": "kesisimi_yanlis_hesaplama"
+        },
+        {
+          "label": "D",
+          "text": "8",
+          "isCorrect": true,
+          "explanation": "En az bir kursa gidenler 25 kişidir. s(M∪F) = s(M) + s(F) − s(M∩F) bağıntısından 25 = 18 + 15 − s(M∩F) → s(M∩F) = 8 bulunur.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "E",
+          "text": "12",
+          "isCorrect": false,
+          "explanation": "Kesişim iki kez sayılmadan doğrudan çıkarma yapılırsa bu tür hatalı değerler ortaya çıkar.",
+          "misconceptionTag": "kesisimi_iki_kez_sayma"
+        }
+      ],
+      "correctIndex": 3,
+      "solution": "1. **En az bir kursa giden öğrenci sayısını bulalım.**\n   Toplam öğrenci = 30, hiçbirine gitmeyen = 5\n   s(M ∪ F) = 30 − 5 = **25**\n\n2. **Birleşim bağıntısını yazalım.**\n   s(M ∪ F) = s(M) + s(F) − s(M ∩ F)\n\n3. **Bilinenleri yerine koyalım.**\n   25 = 18 + 15 − s(M ∩ F)\n   25 = 33 − s(M ∩ F)\n\n4. **Kesişimi çözelim.**\n   s(M ∩ F) = 33 − 25 = **8**\n\n5. **Kontrol edelim:** Yalnız matematik = 18 − 8 = 10, yalnız fizik = 15 − 8 = 7, her ikisi = 8, hiçbiri = 5.\n   Toplam = 10 + 7 + 8 + 5 = 30 ✓",
+      "hint": "Önce en az bir kursa giden kaç kişi olduğunu bul; hiçbirine gitmeyenler birleşimin dışındadır.",
+      "learningNote": "s(A∪B) = s(A) + s(B) − s(A∩B) bağıntısındaki çıkarma, kesişimdeki elemanların iki kez sayılmasını önler. Bu tür problemlerde \"hiçbirine gitmeyenler\" birleşime dâhil değildir; onları önce toplamdan düşmek gerekir. Sonucu her zaman dört bölgeyi toplayarak doğrula.",
+      "testedKazanimlar": [
+        "İki ve üç kümeli Venn şeması problemlerini çözer.",
+        "Eleman sayısı bağıntılarını kullanır."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-010",
+      "subTopicId": "matematik.geometri.ucgenler",
+      "subjectId": "matematik",
+      "topicId": "matematik.geometri",
+      "difficulty": "ZOR",
+      "stem": "Dik kenar uzunlukları 15 cm ve 20 cm olan bir dik üçgende, hipotenüse ait yüksekliğin uzunluğu kaç cm'dir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "10",
+          "isCorrect": false,
+          "explanation": "Alan bağıntısı kurulurken hipotenüs uzunluğu yanlış hesaplanırsa bu değer bulunur.",
+          "misconceptionTag": "hipotenusu_yanlis_hesaplama"
+        },
+        {
+          "label": "B",
+          "text": "17,5",
+          "isCorrect": false,
+          "explanation": "Bu, iki dik kenarın aritmetik ortalamasıdır. Yükseklik ile kenar uzunlukları arasında böyle bir ilişki yoktur.",
+          "misconceptionTag": "yuksekligi_kenarlarin_ortalamasi_sanma"
+        },
+        {
+          "label": "C",
+          "text": "12",
+          "isCorrect": true,
+          "explanation": "Hipotenüs 25 cm, alan 150 cm²'dir. Alan hipotenüs üzerinden de yazılırsa 150 = (25 · h)/2 olur ve h = 12 cm bulunur.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "D",
+          "text": "15",
+          "isCorrect": false,
+          "explanation": "15 cm, üçgenin dik kenarlarından biridir. Yükseklik ile kenarortay veya kenar uzunluğu karıştırılmış.",
+          "misconceptionTag": "yuksekligi_kenar_ile_karistirma"
+        },
+        {
+          "label": "E",
+          "text": "12,5",
+          "isCorrect": false,
+          "explanation": "Bu, hipotenüsün yarısıdır ve dik üçgende hipotenüse ait **kenarortay** uzunluğudur; yükseklik değildir. Kolayca karıştırılan bir yakın değerdir.",
+          "misconceptionTag": "yuksekligi_kenarortay_ile_karistirma"
+        }
+      ],
+      "correctIndex": 2,
+      "solution": "1. **Hipotenüsü bulalım (Pisagor bağıntısı).**\n   c² = 15² + 20² = 225 + 400 = 625\n   c = √625 = **25 cm**\n\n2. **Üçgenin alanını dik kenarlardan hesaplayalım.**\n   Dik üçgende dik kenarlar birbirinin yüksekliğidir.\n   Alan = (15 · 20) / 2 = **150 cm²**\n\n3. **Aynı alanı hipotenüs ve ona ait yükseklikle yazalım.**\n   Alan = (hipotenüs · h) / 2\n   150 = (25 · h) / 2\n\n4. **h'yi çözelim.**\n   300 = 25 · h\n   h = 300 / 25 = **12 cm**\n\n5. **Kontrol:** Yükseklik hipotenüsten (25) ve her iki dik kenardan (15, 20) küçük olmalıdır. 12 < 15 ✓",
+      "hint": "Aynı üçgenin alanını iki farklı taban-yükseklik çiftiyle yazabilirsin; bu iki ifadeyi eşitle.",
+      "learningNote": "Dik üçgende alanı iki farklı yoldan yazmak güçlü bir tekniktir: dik kenarlarla ve hipotenüs-yükseklik çiftiyle. Buradan h = (a·b)/c bağıntısı çıkar. Ayrıca dik üçgende hipotenüse ait **kenarortay** her zaman hipotenüsün yarısıdır (burada 12,5) — bunu yükseklikle karıştırma.",
+      "testedKazanimlar": [
+        "Pisagor bağıntısını ve özel üçgenleri uygular.",
+        "Üçgenin alanını farklı yollarla hesaplar."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-011",
+      "subTopicId": "tarih.inkilap.kurtulus_savasi",
+      "subjectId": "tarih",
+      "topicId": "tarih.inkilap",
+      "difficulty": "ORTA",
+      "stem": "\"Millî sınırlar içinde vatan bir bütündür, parçalanamaz.\" kararı ilk kez alınmış; ayrıca bu kongrede toplanan temsilciler yalnızca bir bölgeyi değil, yurdun tamamını temsil etme iddiasını ortaya koymuştur.\n\nYukarıda özellikleri verilen kongre aşağıdakilerden hangisidir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Erzurum Kongresi",
+          "isCorrect": false,
+          "explanation": "Erzurum Kongresi bölgesel amaçlarla toplanmıştır; kararları ulusal nitelik taşısa da temsil bakımından Doğu Anadolu ile sınırlıdır.",
+          "misconceptionTag": "erzurum_sivas_kararlarini_karistirma"
+        },
+        {
+          "label": "B",
+          "text": "Sivas Kongresi",
+          "isCorrect": true,
+          "explanation": "Sivas Kongresi toplanış bakımından da alınan kararlar bakımından da ulusaldır; yurdun her yerinden gelen temsilcilerle toplanmış ve millî cemiyetleri tek çatı altında birleştirmiştir.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "C",
+          "text": "Balıkesir Kongresi",
+          "isCorrect": false,
+          "explanation": "Balıkesir Kongresi, Batı Anadolu'daki Yunan işgaline karşı toplanmış bölgesel bir kongredir.",
+          "misconceptionTag": "bolgesel_kongreyi_ulusal_sanma"
+        },
+        {
+          "label": "D",
+          "text": "Alaşehir Kongresi",
+          "isCorrect": false,
+          "explanation": "Alaşehir Kongresi de Batı Anadolu'ya yönelik, bölgesel nitelikli bir kongredir.",
+          "misconceptionTag": "bolgesel_kongreyi_ulusal_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Amasya Genelgesi",
+          "isCorrect": false,
+          "explanation": "Amasya Genelgesi bir kongre değil, Kurtuluş Savaşı'nın gerekçesini ve yöntemini duyuran bir genelgedir.",
+          "misconceptionTag": "genelgeyi_kongre_sanma"
+        }
+      ],
+      "correctIndex": 1,
+      "solution": "1. Soruda iki ölçüt veriliyor: **(a)** \"Millî sınırlar içinde vatan bir bütündür\" kararının alınması, **(b)** temsilcilerin yurdun tamamını temsil etmesi.\n\n2. **Erzurum Kongresi**, ulusal nitelikte kararlar almıştır ancak **toplanış bakımından bölgeseldir** — temsilciler Doğu Anadolu'dandır.\n\n3. **Sivas Kongresi**, hem toplanış hem karar bakımından **ulusaldır**. Yurdun her yerinden gelen temsilciler katılmış, millî cemiyetler \"Anadolu ve Rumeli Müdafaa-i Hukuk Cemiyeti\" adı altında birleştirilmiştir.\n\n4. Balıkesir ve Alaşehir kongreleri bölgeseldir; Amasya ise bir genelgedir.\n\n5. Her iki ölçütü birlikte karşılayan **Sivas Kongresi**'dir.",
+      "hint": "Kongrenin kararlarının niteliğine değil, **kimlerin temsil edildiğine** dikkat et.",
+      "learningNote": "Erzurum ve Sivas kongrelerini ayırmanın anahtarı şudur: Erzurum **toplanış bakımından bölgesel, kararları bakımından ulusal**; Sivas ise **her iki bakımdan da ulusaldır**. Sorularda hangi ölçütün sorulduğunu dikkatle oku.",
+      "testedKazanimlar": [
+        "Kongrelerin aldığı kararları ve önemini açıklar."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-012",
+      "subTopicId": "tarih.inkilap.inkilaplar",
+      "subjectId": "tarih",
+      "topicId": "tarih.inkilap",
+      "difficulty": "KOLAY",
+      "stem": "Tevhid-i Tedrisat Kanunu ile ülkedeki bütün eğitim kurumları tek bir bakanlığa bağlanmıştır.\n\nBu düzenleme, doğrudan aşağıdaki alanlardan hangisine yöneliktir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Eğitim",
+          "isCorrect": true,
+          "explanation": "Kanun, eğitim kurumlarının birleştirilmesini düzenlediği için doğrudan eğitim alanında yapılmış bir inkılaptır.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "B",
+          "text": "Hukuk",
+          "isCorrect": false,
+          "explanation": "Hukuk alanındaki inkılaplar Medeni Kanun, Ceza Kanunu gibi düzenlemelerdir. Tevhid-i Tedrisat bir kanunla yapılmış olsa da konusu eğitimdir.",
+          "misconceptionTag": "kanunla_yapilani_hukuk_inkilabi_sanma"
+        },
+        {
+          "label": "C",
+          "text": "Ekonomi",
+          "isCorrect": false,
+          "explanation": "Ekonomi alanındaki inkılaplar Aşar Vergisi'nin kaldırılması, Teşvik-i Sanayi Kanunu gibi düzenlemelerdir.",
+          "misconceptionTag": "yanlis_alan_eslestirmesi"
+        },
+        {
+          "label": "D",
+          "text": "Toplumsal yaşam",
+          "isCorrect": false,
+          "explanation": "Toplumsal alandaki inkılaplar Şapka Kanunu, takvim-saat-ölçü değişikliği gibi düzenlemelerdir.",
+          "misconceptionTag": "yanlis_alan_eslestirmesi"
+        },
+        {
+          "label": "E",
+          "text": "Siyaset",
+          "isCorrect": false,
+          "explanation": "Siyasi alandaki inkılaplar saltanatın kaldırılması, cumhuriyetin ilanı, halifeliğin kaldırılması gibi düzenlemelerdir.",
+          "misconceptionTag": "yanlis_alan_eslestirmesi"
+        }
+      ],
+      "correctIndex": 0,
+      "solution": "1. **Tevhid-i Tedrisat** \"öğretimin birleştirilmesi\" anlamına gelir.\n2. Kanunla medreseler kapatılmış, tüm eğitim kurumları Maarif Vekâleti'ne (Millî Eğitim Bakanlığı) bağlanmıştır.\n3. Düzenlemenin konusu doğrudan **eğitim** olduğu için eğitim alanındaki inkılaplar arasında yer alır.\n4. Bir düzenlemenin kanunla yapılmış olması onu hukuk inkılabı yapmaz; belirleyici olan **konusudur**.",
+      "hint": "İnkılabın hangi araçla (kanun, genelge) yapıldığına değil, neyi düzenlediğine bak.",
+      "learningNote": "İnkılapları alanlarına göre sınıflandırırken düzenlemenin **konusuna** bak, yapılış biçimine değil. Neredeyse tüm inkılaplar kanunla yapılmıştır; bu onları hukuk inkılabı yapmaz. Tevhid-i Tedrisat aynı zamanda laiklik ilkesiyle de doğrudan ilişkilidir.",
+      "testedKazanimlar": [
+        "Siyasi, hukuki, eğitim, ekonomik ve toplumsal alandaki inkılapları sınıflandırır."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-013",
+      "subTopicId": "cografya.fiziki.iklim_bitki",
+      "subjectId": "cografya",
+      "topicId": "cografya.fiziki",
+      "difficulty": "ORTA",
+      "stem": "Türkiye'de bir yörenin yıllık yağış dağılımı incelendiğinde, yağışın büyük bölümünün kış aylarında düştüğü, yaz aylarının ise belirgin biçimde kurak geçtiği görülmüştür.\n\nBu yöre için aşağıdakilerden hangisi söylenebilir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Karadeniz ikliminin etkisindedir.",
+          "isCorrect": false,
+          "explanation": "Karadeniz ikliminde yağış **her mevsime dağılmıştır**; belirgin bir yaz kuraklığı görülmez. Bu, yağış rejimi bakımından tam tersi bir özelliktir.",
+          "misconceptionTag": "akdeniz_karadeniz_yagis_rejimi_karistirma"
+        },
+        {
+          "label": "B",
+          "text": "Doğal bitki örtüsü makidir.",
+          "isCorrect": true,
+          "explanation": "Kışları yağışlı, yazları kurak geçen bu yağış rejimi Akdeniz ikliminin ayırt edici özelliğidir. Akdeniz ikliminin doğal bitki örtüsü ise makidir.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "C",
+          "text": "Yıllık sıcaklık farkı Türkiye ortalamasının çok üzerindedir.",
+          "isCorrect": false,
+          "explanation": "Yüksek yıllık sıcaklık farkı karasal iklimin özelliğidir. Karasal iklimde yağış çoğunlukla **ilkbaharda** yoğunlaşır, kışın değil.",
+          "misconceptionTag": "karasal_iklim_ile_karistirma"
+        },
+        {
+          "label": "D",
+          "text": "Doğal bitki örtüsü bozkırdır.",
+          "isCorrect": false,
+          "explanation": "Bozkır, İç Anadolu'da görülen karasal iklimin bitki örtüsüdür ve yaz kuraklığından çok yıl boyu yetersiz yağışla ilişkilidir.",
+          "misconceptionTag": "maki_bozkir_yanlis_eslestirme"
+        },
+        {
+          "label": "E",
+          "text": "Yağışların tamamı yükselim kaynaklıdır.",
+          "isCorrect": false,
+          "explanation": "Akdeniz ikliminde kış yağışları ağırlıklı olarak **cephesel** kökenlidir. Ayrıca \"tamamı\" ifadesi hiçbir iklim tipi için doğru olmaz.",
+          "misconceptionTag": "kesinlik_bildiren_ifadeyi_secme"
+        }
+      ],
+      "correctIndex": 1,
+      "solution": "1. **Verilen özellik:** Kışları yağışlı, yazları belirgin kurak.\n\n2. Türkiye'deki iklim tiplerinin yağış rejimlerini karşılaştıralım:\n   • **Akdeniz iklimi:** Yağış kışın yoğun, yaz kurak ✓\n   • **Karadeniz iklimi:** Yağış her mevsim, kuraklık yok\n   • **Karasal iklim:** Yağış ilkbaharda yoğun, kış soğuk-kurak\n\n3. Tarif edilen rejim **Akdeniz iklimine** aittir.\n\n4. Akdeniz ikliminin doğal bitki örtüsü, yaz kuraklığına dayanıklı, kısa boylu ve sert yapraklı çalılardan oluşan **makidir**.\n\n5. Doğru yanıt B'dir.",
+      "hint": "Önce yağışın hangi mevsimde toplandığına bakarak iklim tipini belirle; bitki örtüsü ondan sonra gelir.",
+      "learningNote": "İklim tiplerini ayırmanın en güvenilir ölçütü **yağış rejimidir** (yağışın hangi mevsimde yoğunlaştığı), toplam yağış miktarı değil. Akdeniz = kış yağışlı + maki; Karadeniz = her mevsim yağışlı + orman; Karasal = ilkbahar yağışlı + bozkır.",
+      "testedKazanimlar": [
+        "Türkiye'de görülen iklim tiplerini ve dağılışını açıklar.",
+        "İklim tipleriyle doğal bitki örtüsünü eşleştirir."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-014",
+      "subTopicId": "vatandaslik.hukuk.temel_haklar",
+      "subjectId": "vatandaslik",
+      "topicId": "vatandaslik.hukuk",
+      "difficulty": "ORTA",
+      "stem": "Aşağıdaki haklardan hangisi, niteliği bakımından diğerlerinden farklı bir gruba girer?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Kişi dokunulmazlığı",
+          "isCorrect": false,
+          "explanation": "Kişi dokunulmazlığı, kişinin maddi ve manevi varlığını koruyan klasik bir **kişi hakkıdır**. Bu şıkkı seçen öğrenci, devletin koruma yükümlülüğünü olumlu edim sanarak hakkı sosyal haklar grubuna koyuyordur.",
+          "misconceptionTag": "korumayi_olumlu_edim_sanma"
+        },
+        {
+          "label": "B",
+          "text": "Konut dokunulmazlığı",
+          "isCorrect": false,
+          "explanation": "Konut dokunulmazlığı da devletin müdahale etmemesini gerektiren bir **kişi hakkıdır**. Bu şıkkı seçen öğrenci, konutla ilgili olmasından yola çıkarak hakkı sosyal-ekonomik haklarla ilişkilendiriyordur.",
+          "misconceptionTag": "konut_hakkiyla_karistirma"
+        },
+        {
+          "label": "C",
+          "text": "Düşünce ve kanaat özgürlüğü",
+          "isCorrect": false,
+          "explanation": "Düşünce ve kanaat özgürlüğü, klasik haklar arasında yer alan bir **kişi hakkıdır**. Bu şıkkı seçen öğrenci, düşünce açıklamasını yönetime katılmayla ilişkilendirip hakkı siyasi haklar grubuna koyuyordur.",
+          "misconceptionTag": "kisi_hakkini_siyasi_hak_sanma"
+        },
+        {
+          "label": "D",
+          "text": "Haberleşme hürriyeti",
+          "isCorrect": false,
+          "explanation": "Haberleşme hürriyeti, özel hayatın korunmasıyla ilgili bir **kişi hakkıdır**. Bu şıkkı seçen öğrenci, haberleşme altyapısının devletçe sağlandığını düşünerek hakkı sosyal haklar grubuna koyuyordur.",
+          "misconceptionTag": "altyapiyi_hakkin_niteligi_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Sağlık hakkı",
+          "isCorrect": true,
+          "explanation": "Sağlık hakkı, devletin **olumlu edimde bulunmasını** gerektiren bir sosyal ve ekonomik haktır. Diğer dördü ise devletin karışmamasını gerektiren kişi haklarıdır.",
+          "misconceptionTag": null
+        }
+      ],
+      "correctIndex": 4,
+      "solution": "1. Temel hak ve hürriyetler üç gruba ayrılır:\n   • **Kişi hakları (klasik haklar):** Devletin **karışmamasını** gerektirir.\n   • **Sosyal ve ekonomik haklar:** Devletin **olumlu edimde bulunmasını** (hizmet sunmasını) gerektirir.\n   • **Siyasi haklar:** Yönetime katılmayı sağlar.\n\n2. Şıkları bu ölçüte göre inceleyelim:\n   • Kişi dokunulmazlığı → kişi hakkı\n   • Konut dokunulmazlığı → kişi hakkı\n   • Düşünce ve kanaat özgürlüğü → kişi hakkı\n   • Haberleşme hürriyeti → kişi hakkı\n   • **Sağlık hakkı → sosyal ve ekonomik hak** ✓\n\n3. Sağlık hakkının kullanılabilmesi için devletin hastane kurması, personel istihdam etmesi gerekir; yani **aktif bir edim** şarttır. Diğerlerinde ise devletin yalnızca müdahale etmemesi yeterlidir.\n\n4. Farklı gruba giren hak E şıkkıdır.",
+      "hint": "Her hak için sor: Devletin bu hakkı sağlaması için bir şey **yapması** mı, yoksa **yapmaması** mı gerekiyor?",
+      "learningNote": "Kişi haklarını sosyal haklardan ayırmanın pratik ölçütü devletin rolüdür: kişi haklarında devlet **karışmaz** (negatif statü), sosyal haklarda devlet **hizmet sunar** (pozitif statü), siyasi haklarda ise vatandaş **yönetime katılır** (aktif statü). Eğitim, sağlık, konut ve çalışma hakları sosyal haklardır.",
+      "testedKazanimlar": [
+        "Kişi hakları, sosyal-ekonomik haklar ve siyasi hakları sınıflandırır."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    },
+    {
+      "id": "seed-015",
+      "subTopicId": "vatandaslik.devlet_yapisi.yargi",
+      "subjectId": "vatandaslik",
+      "topicId": "vatandaslik.devlet_yapisi",
+      "difficulty": "KOLAY",
+      "stem": "İdari işlem ve eylemlerden doğan uyuşmazlıkların çözüldüğü, idari yargının en yüksek mahkemesi aşağıdakilerden hangisidir?",
+      "options": [
+        {
+          "label": "A",
+          "text": "Yargıtay",
+          "isCorrect": false,
+          "explanation": "Yargıtay, **adli yargının** (hukuk ve ceza davaları) en yüksek mahkemesidir; idari uyuşmazlıklara bakmaz.",
+          "misconceptionTag": "yargitay_danistay_karistirma"
+        },
+        {
+          "label": "B",
+          "text": "Anayasa Mahkemesi",
+          "isCorrect": false,
+          "explanation": "Anayasa Mahkemesi kanunların anayasaya uygunluğunu denetler ve bireysel başvuruları karara bağlar; idari yargının temyiz mercii değildir.",
+          "misconceptionTag": "anayasa_mahkemesini_temyiz_mercii_sanma"
+        },
+        {
+          "label": "C",
+          "text": "Danıştay",
+          "isCorrect": true,
+          "explanation": "Danıştay, idari mahkemelerce verilen kararların son inceleme mercii olan, idari yargının en yüksek mahkemesidir.",
+          "misconceptionTag": null
+        },
+        {
+          "label": "D",
+          "text": "Sayıştay",
+          "isCorrect": false,
+          "explanation": "Sayıştay, kamu kurumlarının gelir ve giderlerini TBMM adına denetler; bir yargı mercii olarak idari uyuşmazlıkları çözmez.",
+          "misconceptionTag": "sayistayi_yargi_mercii_sanma"
+        },
+        {
+          "label": "E",
+          "text": "Uyuşmazlık Mahkemesi",
+          "isCorrect": false,
+          "explanation": "Uyuşmazlık Mahkemesi, adli ve idari yargı mercileri arasındaki görev ve hüküm uyuşmazlıklarını çözer; idari yargının üst mahkemesi değildir.",
+          "misconceptionTag": "uyusmazlik_mahkemesini_ust_mahkeme_sanma"
+        }
+      ],
+      "correctIndex": 2,
+      "solution": "1. Türkiye'de yargı, temel olarak **adli** ve **idari** yargı olarak ayrılır.\n\n2. Yüksek mahkemeleri eşleştirelim:\n   • **Yargıtay** → adli yargının (hukuk ve ceza) üst mahkemesi\n   • **Danıştay** → **idari yargının** üst mahkemesi ✓\n   • **Anayasa Mahkemesi** → anayasaya uygunluk denetimi ve bireysel başvuru\n   • **Sayıştay** → kamu mali denetimi (TBMM adına)\n   • **Uyuşmazlık Mahkemesi** → yargı kolları arası uyuşmazlıklar\n\n3. İdari işlem ve eylemlerden doğan uyuşmazlıkların son mercii **Danıştay**'dır.",
+      "hint": "\"İdari\" sözcüğüne odaklan: devletin bir idari işlemine karşı açılan dava hangi yargı kolunda görülür?",
+      "learningNote": "Yargıtay ile Danıştay'ı karıştırmamak için şunu hatırla: **Danıştay = Devlet/İdare** (ikisi de \"D\" ile başlar), Yargıtay ise vatandaşlar arası hukuk ve ceza davalarının üst mahkemesidir. Anayasa Mahkemesi ise bir temyiz mercii değil, denetim mahkemesidir.",
+      "testedKazanimlar": [
+        "Yargı kollarını ve yüksek mahkemeleri bilir."
+      ],
+      "source": "seedPack",
+      "reviewStatus": "verifiedGood"
+    }
+  ]
+}
