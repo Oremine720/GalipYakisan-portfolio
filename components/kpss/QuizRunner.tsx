@@ -114,7 +114,7 @@ export default function QuizRunner({
         <div className="mt-5 flex justify-end">
           <button
             onClick={next}
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-400"
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
           >
             {isLast ? "Bitir" : "Sonraki"} <ChevronRight size={16} />
           </button>

@@ -98,7 +98,7 @@ export default function ResultView({
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <button
           onClick={onRestart}
-          className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-400"
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
         >
           <RotateCcw size={16} /> Yeniden
         </button>

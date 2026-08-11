@@ -132,7 +132,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <a
               href="mailto:galipyakisan@gmail.com"
-              className="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-400"
+              className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-500"
             >
               İletişim
             </a>
@@ -203,7 +203,7 @@ export default function Navbar() {
             <div className="mt-2 border-t border-white/[0.06] pt-2">
               <a
                 href="mailto:galipyakisan@gmail.com"
-                className="block w-full rounded-xl bg-indigo-500 px-4 py-3 text-center text-sm font-medium text-white"
+                className="block w-full rounded-xl bg-indigo-600 px-4 py-3 text-center text-sm font-medium text-white"
               >
                 İletişime geç
               </a>

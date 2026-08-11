@@ -102,7 +102,7 @@ export default function RootLayout({
         {/* Klavye/ekran okuyucu kullanıcıları navigasyonu atlayabilsin */}
         <a
           href="#main"
-          className="skip-link rounded-lg bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white"
+          className="skip-link rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white"
         >
           İçeriğe atla
         </a>

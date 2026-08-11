@@ -177,7 +177,7 @@ export default function ExamRunner({
         {i === questions.length - 1 ? (
           <button
             onClick={() => setConfirming(true)}
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-400"
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
           >
             <Flag size={16} /> Bitir
           </button>
@@ -225,7 +225,7 @@ export default function ExamRunner({
               </button>
               <button
                 onClick={finish}
-                className="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-400"
+                className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500"
               >
                 Bitir ve değerlendir
               </button>

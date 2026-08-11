@@ -254,7 +254,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === "sending" || status === "sent"}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-500 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-400 disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {status === "sending" ? (
                   <>

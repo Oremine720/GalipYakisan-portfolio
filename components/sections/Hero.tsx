@@ -88,7 +88,7 @@ export default function Hero() {
         >
           <a
             href="mailto:galipyakisan@gmail.com"
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo-500 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-400"
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-indigo-500"
           >
             <Mail size={15} />
             İletişime geç
