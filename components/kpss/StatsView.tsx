@@ -7,11 +7,16 @@ import {
   getStats,
   getHistory,
   getWrongIds,
+  getProgress,
+  getWeakSubTopics,
   resetProgress,
+  MASTERY_STREAK,
   type Stats,
+  type Progress,
+  type SubTopicStat,
   type ExamRecord,
 } from "@/lib/kpss/storage";
-import { subjectName } from "@/lib/kpss/data";
+import { subjectName, subTopicName } from "@/lib/kpss/data";
 import { formatNet } from "@/lib/kpss/net";
 import { getRelativeTime } from "@/lib/utils";
 import { EASE, Overline, TopBar } from "./ui";
@@ -24,22 +29,29 @@ export default function StatsView({
   onStudyWrong: (ids: string[]) => void;
 }) {
   const [stats, setStats] = useState<Stats | null>(null);
+  const [progress, setProgress] = useState<Progress | null>(null);
+  const [weak, setWeak] = useState<SubTopicStat[]>([]);
   const [history, setHistory] = useState<ExamRecord[]>([]);
   const [wrong, setWrong] = useState<string[]>([]);
   const [confirmReset, setConfirmReset] = useState(false);
 
   function load() {
     setStats(getStats());
+    setProgress(getProgress());
+    setWeak(getWeakSubTopics());
     setHistory(getHistory());
     setWrong(getWrongIds());
   }
   useEffect(load, []);
 
-  const acc = stats && stats.answered ? Math.round((stats.correct / stats.answered) * 100) : 0;
+  const acc = progress ? Math.round(progress.accuracy * 100) : 0;
   const subjectRows = stats
-    ? Object.entries(stats.bySubject).sort((a, b) => b[1].answered - a[1].answered)
+    ? Object.entries(stats.bySubject)
+        .filter(([id]) => id)
+        .sort((a, b) => b[1].answered - a[1].answered)
     : [];
-  const nothing = !stats || (stats.answered === 0 && history.length === 0);
+  const nothing =
+    !progress || (progress.distinct === 0 && history.length === 0);
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -67,12 +79,44 @@ export default function StatsView({
         </div>
       ) : (
         <>
-          {/* Genel */}
+          {/* Genel — "çözülen soru" eskiden denemeyi sayıyordu, artık
+              farklı soru / toplam deneme ayrı gösteriliyor. */}
           <div className="mt-6 grid grid-cols-3 gap-3">
-            <Tile value={stats!.answered} label="Çözülen soru" />
-            <Tile value={stats!.correct} label="Doğru" cls="text-emerald-300" />
+            <Tile
+              value={progress!.distinct}
+              label="Farklı soru"
+              hint={`${progress!.attempts} deneme`}
+            />
+            <Tile
+              value={progress!.mastered}
+              label="Pekişen"
+              cls="text-emerald-300"
+              hint={`${MASTERY_STREAK} kez üst üste doğru`}
+            />
             <Tile value={`%${acc}`} label="İsabet" cls="text-indigo-300" />
           </div>
+
+          {/* Zayıf konular — asıl "neye çalışayım" cevabı burada */}
+          {weak.length > 0 && (
+            <div className="mt-4 rounded-2xl border border-white/[0.07] bg-white/[0.015] p-5">
+              <Overline>En Zayıf Konuların</Overline>
+              <div className="mt-4 space-y-3">
+                {weak.map((w) => (
+                  <div
+                    key={w.subTopicId}
+                    className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1"
+                  >
+                    <span className="min-w-0 flex-1 truncate text-sm text-zinc-200">
+                      {subTopicName(w.subTopicId)}
+                    </span>
+                    <span className="shrink-0 font-mono text-xs text-mute-2">
+                      %{Math.round(w.rate * 100)} · {w.correct}/{w.answered}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Ders bazlı doğru oranı */}
           {subjectRows.length > 0 && (
@@ -202,15 +246,18 @@ function Tile({
   value,
   label,
   cls,
+  hint,
 }: {
   value: number | string;
   label: string;
   cls?: string;
+  hint?: string;
 }) {
   return (
     <div className="rounded-xl border border-white/[0.07] bg-white/[0.015] p-4 text-center">
       <div className={`text-2xl font-semibold text-white ${cls ?? ""}`}>{value}</div>
       <div className="mt-0.5 text-xs text-mute-2">{label}</div>
+      {hint && <div className="mt-0.5 text-[10px] text-mute-3">{hint}</div>}
     </div>
   );
 }

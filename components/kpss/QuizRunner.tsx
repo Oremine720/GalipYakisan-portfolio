@@ -56,7 +56,7 @@ export default function QuizRunner({
   function select(idx: number) {
     if (answers[q.id] !== undefined) return; // çalışma modunda cevap kilitlenir
     setAnswers((a) => ({ ...a, [q.id]: idx }));
-    recordAnswer(q.id, q.subjectId, idx === q.correctIndex);
+    recordAnswer(q, idx === q.correctIndex);
   }
 
   function next() {

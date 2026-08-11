@@ -6,6 +6,7 @@ import { Timer, ChevronLeft, ChevronRight, Flag, AlertTriangle } from "lucide-re
 import { cn } from "@/lib/utils";
 import { pickQuestions, subjectName } from "@/lib/kpss/data";
 import { formatClock } from "@/lib/kpss/time";
+import { recordAnswers } from "@/lib/kpss/storage";
 import type { FinishedSession } from "@/lib/kpss/session";
 import { EASE, TopBar } from "./ui";
 import QuestionCard from "./QuestionCard";
@@ -39,6 +40,18 @@ export default function ExamRunner({
     if (finishedRef.current) return;
     finishedRef.current = true;
     const elapsed = Math.round((Date.now() - startRef.current) / 1000);
+
+    /* Denemede verilen cevapları ilerlemeye yaz. Önceden burası hiç
+       çağrılmıyordu: deneme çözmek istatistiği de yanlışlar defterini de
+       hiç etkilemiyordu. Boş bırakılanlar kaydedilmiyor — boş, yanlış
+       değildir. */
+    const given = answersRef.current;
+    recordAnswers(
+      questions
+        .filter((q) => given[q.id] !== undefined)
+        .map((q) => ({ question: q, isCorrect: given[q.id] === q.correctIndex })),
+    );
+
     onFinish({
       mode: "exam",
       subjectId,

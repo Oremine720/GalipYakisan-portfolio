@@ -1,6 +1,8 @@
 import seedPack from "./data/seed_pack_v1.json";
 import taxonomyJson from "./data/taxonomy.json";
 import type { Question, Subject, Topic, SubTopic } from "./types";
+import { planQuota, weightedSubTopics } from "./blueprint";
+import { getStats, type Stats } from "./storage";
 
 /** Uygulamayla gelen, elle gözden geçirilmiş soru havuzu. */
 export const questions: Question[] =
@@ -66,18 +68,101 @@ export interface PickOptions {
   shuffle?: boolean;
   /** yalnızca bu id'lerden seç (favoriler / yanlışlar defteri) */
   onlyIds?: string[];
+  /**
+   * Alt konu kotalarını taxonomy.json'daki blueprintWeight'e göre dağıt.
+   * Varsayılan açık; yalnızca `count` verildiğinde anlamlı.
+   * onlyIds ile birlikte otomatik devre dışı (tekrar seti zaten sabit).
+   */
+  useBlueprint?: boolean;
+}
+
+/**
+ * Bir alt konu içinde soruları çalışma değerine göre sıralar:
+ * hiç görülmemiş → henüz pekişmemiş → en uzun süredir görülmemiş.
+ * Böylece havuz küçükken bile aynı soruları arka arkaya görmüyorsun.
+ */
+function byStudyValue(
+  pool: Question[],
+  byQuestion: Stats["byQuestion"],
+): Question[] {
+  return shuffle(pool)
+    .map((q) => {
+      const r = byQuestion[q.id];
+      const tier = !r ? 0 : r.streak === 0 ? 1 : 2;
+      return { q, tier, lastAt: r?.lastAtISO ?? "" };
+    })
+    .sort((a, b) => a.tier - b.tier || a.lastAt.localeCompare(b.lastAt))
+    .map((x) => x.q);
 }
 
 /** Filtreli + (varsayılan) karışık soru seçer — sınav/çalışma oturumu için. */
 export function pickQuestions(opts: PickOptions = {}): Question[] {
-  const { subjectId, count, shuffle: doShuffle = true, onlyIds } = opts;
+  const {
+    subjectId,
+    count,
+    shuffle: doShuffle = true,
+    onlyIds,
+    useBlueprint = true,
+  } = opts;
+
   let pool = subjectId ? questionsBySubject(subjectId) : questions.slice();
   if (onlyIds) {
     const set = new Set(onlyIds);
     pool = pool.filter((q) => set.has(q.id));
+    // Tekrar seti: sıra kullanıcının defterinden gelir, blueprint uygulanmaz.
+    return doShuffle ? shuffle(pool) : pool.slice();
   }
-  pool = doShuffle ? shuffle(pool) : pool.slice();
-  return typeof count === "number" ? pool.slice(0, count) : pool;
+
+  // Sayı verilmediyse havuzun tamamı isteniyordur; dağıtacak kota yok.
+  // Yine de sıra körlemesine rastgele olmasın: hiç görmediğin sorular
+  // öne, pekişenler sona gelsin (tur içinde soru sayısı değişmiyor).
+  if (typeof count !== "number") {
+    if (!doShuffle) return pool.slice();
+    return byStudyValue(pool, getStats().byQuestion);
+  }
+
+  if (!useBlueprint) {
+    const flat = doShuffle ? shuffle(pool) : pool.slice();
+    return flat.slice(0, count);
+  }
+
+  // --- Blueprint'e göre dağıt ---
+  const available = new Map<string, number>();
+  const bySubTopic = new Map<string, Question[]>();
+  for (const q of pool) {
+    const list = bySubTopic.get(q.subTopicId);
+    if (list) list.push(q);
+    else bySubTopic.set(q.subTopicId, [q]);
+  }
+  for (const [id, list] of bySubTopic) available.set(id, list.length);
+
+  const quota = planQuota(weightedSubTopics(subjectId), count, available);
+
+  // İlerleme kaydını bir kez oku — alt konu başına ayrı ayrı okumak
+  // 56 localStorage erişimi + JSON.parse demek olurdu.
+  const { byQuestion } = getStats();
+
+  const picked: Question[] = [];
+  const used = new Set<string>();
+  for (const [subTopicId, n] of quota) {
+    const list = bySubTopic.get(subTopicId) ?? [];
+    for (const q of byStudyValue(list, byQuestion).slice(0, n)) {
+      picked.push(q);
+      used.add(q.id);
+    }
+  }
+
+  // Ağırlığı olmayan / taksonomide bulunmayan alt konular kotaya
+  // giremediği için eksik kalabilir; kalanı çalışma değerine göre tamamla.
+  if (picked.length < count) {
+    const rest = byStudyValue(
+      pool.filter((q) => !used.has(q.id)),
+      byQuestion,
+    );
+    picked.push(...rest.slice(0, count - picked.length));
+  }
+
+  return doShuffle ? shuffle(picked) : picked;
 }
 
 /** Sınav modu için havuza göre uyarlanan boyut seçenekleri (ör. 10, tüm havuz). */
