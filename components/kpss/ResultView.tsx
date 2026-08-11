@@ -43,14 +43,15 @@ export default function ResultView({
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: EASE }}
-        className="rounded-2xl border border-white/[0.07] bg-white/[0.015] p-8 text-center"
+        className="rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6 text-center sm:p-8"
       >
         <Overline>{modeLabel} Sonucu</Overline>
-        <div className="mt-4 text-6xl font-semibold tracking-tight text-white">
+        {/* text-6xl + p-8: "12.75 net" 320px ekranda kart dışına taşıyordu. */}
+        <div className="mt-4 text-5xl font-semibold tracking-tight text-white sm:text-6xl">
           {formatNet(sum.net)}
-          <span className="ml-2 text-xl font-normal text-zinc-500">net</span>
+          <span className="ml-2 text-xl font-normal text-mute-2">net</span>
         </div>
-        <p className="mt-2 text-sm text-zinc-500">
+        <p className="mt-2 text-sm text-mute-2">
           {sum.total} soru · %{acc} isabet
         </p>
 
@@ -120,7 +121,7 @@ export default function ResultView({
         <div className="mt-8 space-y-4">
           {session.questions.map((q, idx) => (
             <div key={q.id}>
-              <div className="mb-2 font-mono text-xs text-zinc-600">
+              <div className="mb-2 font-mono text-xs text-mute-3">
                 {idx + 1} / {session.questions.length}
               </div>
               <QuestionCard
@@ -154,7 +155,7 @@ function StatTile({
         {icon}
         {value}
       </div>
-      <div className="mt-0.5 text-xs text-zinc-500">{label}</div>
+      <div className="mt-0.5 text-xs text-mute-2">{label}</div>
     </div>
   );
 }
@@ -165,7 +166,7 @@ function SubjectRow({ b }: { b: SubjectBreakdown }) {
     <div>
       <div className="mb-1.5 flex items-center justify-between text-sm">
         <span className="text-zinc-200">{subjectName(b.subjectId)}</span>
-        <span className="font-mono text-xs text-zinc-500">
+        <span className="font-mono text-xs text-mute-2">
           {formatNet(b.net)} net · {b.correct}/{b.total}
         </span>
       </div>

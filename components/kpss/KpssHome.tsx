@@ -49,16 +49,16 @@ export default function KpssHome({
           <Overline>KPSS ÖN LİSANS</Overline>
           <button
             onClick={handleLock}
-            className="flex items-center gap-1.5 rounded-lg border border-white/[0.08] px-2.5 py-1 text-[11px] text-zinc-500 transition-colors hover:border-white/[0.16] hover:text-zinc-300"
+            className="flex items-center gap-1.5 rounded-lg border border-white/[0.08] px-2.5 py-2 text-[11px] text-mute-2 transition-colors hover:border-white/[0.16] hover:text-zinc-300"
           >
             <Lock size={12} /> Kilitle
           </button>
         </div>
         <h1 className="mt-3 flex items-center gap-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
-          <GraduationCap className="text-indigo-400" size={32} />
+          <GraduationCap className="shrink-0 text-indigo-400" size={32} aria-hidden="true" />
           Çalışma &amp; Deneme
         </h1>
-        <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
+        <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-mute-2">
           Konuya göre soru çöz, süreli deneme yap, ÖSYM netini gör. Otobüste bile
           telefondan girip çalışabilirsin.
         </p>
@@ -111,7 +111,7 @@ export default function KpssHome({
       >
         <div className="flex items-center justify-between">
           <span className="overline">Soru Havuzu</span>
-          <span className="font-mono text-xs text-zinc-500">
+          <span className="font-mono text-xs text-mute-2">
             {totalQuestionCount} soru
           </span>
         </div>
@@ -125,7 +125,7 @@ export default function KpssHome({
             </span>
           ))}
         </div>
-        <p className="mt-3 text-xs leading-relaxed text-zinc-600">
+        <p className="mt-3 text-xs leading-relaxed text-mute-3">
           Havuz şimdilik küçük; JSON&apos;a soru eklendikçe büyür ve daha büyük
           denemeler otomatik açılır.
         </p>
@@ -163,8 +163,8 @@ function ModeCard({
       <h3 className="mt-4 text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-indigo-300">
         {title}
       </h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">{desc}</p>
-      <span className="mt-4 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+      <p className="mt-1.5 text-sm leading-relaxed text-mute-2">{desc}</p>
+      <span className="mt-4 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-mute-2">
         {tag}
         <ChevronRight
           size={13}
@@ -203,7 +203,7 @@ function QuickCard({
         <span className="block text-sm font-medium text-zinc-200 group-hover:text-white">
           {title}
         </span>
-        <span className="block truncate text-xs text-zinc-500">{desc}</span>
+        <span className="block truncate text-xs text-mute-2">{desc}</span>
       </span>
       <ChevronRight
         size={16}

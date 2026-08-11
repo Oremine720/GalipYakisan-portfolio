@@ -36,9 +36,9 @@ export default function ExamSetup({
         transition={{ duration: 0.5, ease: EASE }}
       >
         <Overline>Deneme Boyutu</Overline>
-        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-white">
           Kaç soruluk deneme?
-        </h2>
+        </h1>
       </motion.div>
 
       <div className="mt-5 flex items-start gap-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-sm leading-relaxed text-zinc-400">
@@ -67,7 +67,7 @@ export default function ExamSetup({
               <span className="block font-semibold text-white">
                 {size} soru
               </span>
-              <span className="flex items-center gap-1.5 text-sm text-zinc-500">
+              <span className="flex items-center gap-1.5 text-sm text-mute-2">
                 <Timer size={13} /> {formatDuration(size * 60)}
                 {size === pool && (
                   <span className="rounded border border-white/[0.08] px-1.5 py-px font-mono text-[10px] text-zinc-400">

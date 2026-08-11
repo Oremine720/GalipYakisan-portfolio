@@ -127,7 +127,7 @@ export default function GitHubStats() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
               GitHub aktivitesi
             </h2>
-            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
+            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-mute-2">
               Katkılarım ve son güncellenen depolarım.
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function GitHubStats() {
               transition={{ duration: 0.5, delay: i * 0.06, ease: EASE }}
               className="rounded-2xl border border-white/[0.07] bg-white/[0.015] p-5"
             >
-              <stat.icon size={16} className="mb-4 text-zinc-500" />
+              <stat.icon size={16} className="mb-4 text-mute-2" />
               <div className="text-metal text-2xl font-semibold tracking-tight">
                 {loading ? (
                   <div className="h-7 w-14 animate-pulse rounded bg-white/[0.06]" />
@@ -161,7 +161,7 @@ export default function GitHubStats() {
                   stat.value
                 )}
               </div>
-              <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-zinc-600">
+              <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-mute-3">
                 {stat.label}
               </div>
             </motion.div>
@@ -182,7 +182,7 @@ export default function GitHubStats() {
               </div>
             ))
           ) : error ? (
-            <div className="col-span-full py-12 text-center text-zinc-600">
+            <div className="col-span-full py-12 text-center text-mute-3">
               <Github size={28} className="mx-auto mb-3 opacity-30" />
               <p className="text-sm">GitHub verileri yüklenemedi.</p>
               <a
@@ -217,12 +217,14 @@ export default function GitHubStats() {
                 </div>
 
                 {repo.description && (
-                  <p className="line-clamp-2 text-xs leading-relaxed text-zinc-500">
+                  <p className="line-clamp-2 text-xs leading-relaxed text-mute-2">
                     {repo.description}
                   </p>
                 )}
 
-                <div className="mt-auto flex items-center justify-between pt-2 font-mono text-[11px] text-zinc-600">
+                {/* flex-wrap: yıldız+fork / dil+tarih grupları dar telefonda
+                    tek satıra sığmayıp karttan taşıyordu. */}
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 pt-2 font-mono text-[11px] text-mute-3">
                   <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1">
                       <Star size={11} />

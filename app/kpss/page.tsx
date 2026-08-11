@@ -18,7 +18,11 @@ export default async function KpssPage() {
   const authed = await isAuthed();
 
   return (
-    <main className="relative z-10 min-h-screen px-6 pb-24 pt-4">
+    <main
+      id="main"
+      tabIndex={-1}
+      className="relative z-10 min-h-[100svh] px-4 pb-24 pt-4 focus:outline-none sm:px-6"
+    >
       {authed ? <KpssApp /> : <KpssGate />}
     </main>
   );

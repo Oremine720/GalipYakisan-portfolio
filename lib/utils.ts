@@ -12,6 +12,31 @@ export function formatNumber(num: number): string {
   return num.toString();
 }
 
+/** Kullanıcı işletim sisteminde "hareketi azalt" seçtiyse true. */
+export function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+/**
+ * Yumuşak kaydırma yardımcıları.
+ * scrollTo/scrollIntoView'a verilen `behavior: "smooth"` CSS'teki
+ * `scroll-behavior: auto` kuralını EZER — o yüzden reduced-motion
+ * kontrolünü burada, JS tarafında yapmak zorundayız.
+ */
+export function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: prefersReducedMotion() ? "auto" : "smooth",
+  });
+}
+
+export function scrollToId(id: string) {
+  document.getElementById(id)?.scrollIntoView({
+    behavior: prefersReducedMotion() ? "auto" : "smooth",
+  });
+}
+
 export function getRelativeTime(date: string): string {
   const now = new Date();
   const past = new Date(date);

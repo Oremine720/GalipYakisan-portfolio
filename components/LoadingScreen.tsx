@@ -15,6 +15,9 @@ export default function LoadingScreen() {
     <AnimatePresence>
       {loading && (
         <motion.div
+          /* Tamamen dekoratif ve içerik zaten arkada hazır — ekran okuyucu
+             kullanıcısını 900 ms bekletmeyelim. */
+          aria-hidden="true"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}

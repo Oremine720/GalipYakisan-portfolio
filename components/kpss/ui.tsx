@@ -77,7 +77,10 @@ export function TopBar({
   title?: string;
 }) {
   return (
-    <div className="sticky top-0 z-40 -mx-6 mb-8 border-b border-white/[0.06] bg-[#08080a]/85 px-6 py-3 backdrop-blur-xl">
+    /* Negatif margin sayfanın yatay dolgusuyla birebir eşleşmeli
+       (app/kpss/page.tsx: px-4 sm:px-6) — yoksa çubuk ekrandan taşıp
+       yatay kaydırma açar. */
+    <div className="sticky top-0 z-40 -mx-4 mb-8 border-b border-white/[0.06] bg-[#08080a]/85 px-4 py-3 backdrop-blur-xl sm:-mx-6 sm:px-6">
       <div className="mx-auto flex max-w-3xl items-center justify-between">
         <div className="flex min-w-0 items-center gap-2.5">
           {onBack ? (
@@ -93,12 +96,12 @@ export function TopBar({
             </span>
           )}
           {title && (
-            <span className="truncate text-sm text-zinc-500">· {title}</span>
+            <span className="truncate text-sm text-mute-2">· {title}</span>
           )}
         </div>
         <Link
           href="/"
-          className="shrink-0 text-xs text-zinc-500 transition-colors hover:text-zinc-200"
+          className="shrink-0 py-1.5 text-xs text-mute-2 transition-colors hover:text-zinc-200"
         >
           ← Siteye dön
         </Link>

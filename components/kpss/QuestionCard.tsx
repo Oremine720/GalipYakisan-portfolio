@@ -23,11 +23,12 @@ export function FavoriteButton({ questionId }: { questionId: string }) {
     <button
       onClick={() => setFav(toggleFavorite(questionId))}
       aria-label={fav ? "Favoriden çıkar" : "Favorile"}
+      aria-pressed={fav}
       className={cn(
         "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border transition-colors",
         fav
           ? "border-amber-400/30 bg-amber-400/10 text-amber-300"
-          : "border-white/[0.08] text-zinc-500 hover:text-zinc-200",
+          : "border-white/[0.08] text-mute-2 hover:text-zinc-200",
       )}
     >
       <Star size={16} className={fav ? "fill-amber-300" : ""} />
@@ -76,7 +77,7 @@ export default function QuestionCard({
           <div className="truncate text-sm font-medium text-zinc-200">
             {subjectName(question.subjectId)}
           </div>
-          <div className="truncate text-xs text-zinc-500">
+          <div className="truncate text-xs text-mute-2">
             {subTopicName(question.subTopicId)}
           </div>
         </div>
@@ -114,7 +115,7 @@ export default function QuestionCard({
           ) : (
             <button
               onClick={() => setHintOpen(true)}
-              className="inline-flex items-center gap-1.5 text-xs text-zinc-500 transition-colors hover:text-amber-300"
+              className="inline-flex items-center gap-1.5 text-xs text-mute-2 transition-colors hover:text-amber-300"
             >
               <Lightbulb size={13} /> İpucu göster
             </button>
@@ -161,10 +162,20 @@ export default function QuestionCard({
                     "border-white/15 text-zinc-300",
                 )}
               >
+                {/* Doğru/yanlış yalnızca renk + ikonla anlatılıyordu;
+                    ekran okuyucu için metin karşılığı şart (WCAG 1.4.1). */}
                 {state === "correct" ? (
-                  <Check size={14} />
+                  <>
+                    <Check size={14} aria-hidden="true" />
+                    <span className="sr-only">{opt.label}, doğru cevap.</span>
+                  </>
                 ) : state === "wrong" ? (
-                  <X size={14} />
+                  <>
+                    <X size={14} aria-hidden="true" />
+                    <span className="sr-only">
+                      {opt.label}, senin işaretlediğin yanlış cevap.
+                    </span>
+                  </>
                 ) : (
                   opt.label
                 )}

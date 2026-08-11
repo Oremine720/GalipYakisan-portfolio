@@ -7,8 +7,10 @@
   --bg: #08080a;
   --bg-elevated: #0d0d10;
   --fg: #ededed;
-  --fg-muted: #a1a1aa;
-  --fg-faint: #71717a;
+  --fg-muted: #a1a1aa; /* 7.8:1 */
+  /* Eskiden #71717a idi → #08080a üzerinde 4.14:1, WCAG AA altı.
+     .overline 11.5px küçük metin olduğu için 4.5:1 şart. Şimdi 6.2:1. */
+  --fg-faint: #8e8e99;
 
   --line: 255 255 255; /* used as rgb(var(--line) / <alpha>) */
   --accent: #6366f1;
@@ -26,14 +28,16 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* `clip` yerine `hidden` kullanılırsa tarayıcı bu ekseni scroll container
+     yapar ve içerideki `position: sticky` (KPSS üst çubuğu) çalışmaz.
+     `clip` yatay taşmayı aynı şekilde keser, sticky'yi bozmaz. */
+  overflow-x: clip;
 }
 
 body {
   font-family: var(--font-inter);
   background-color: var(--bg);
   color: var(--fg);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "cv11", "ss01";
@@ -134,10 +138,42 @@ body {
 }
 
 /* ── Focus ───────────────────────────────────────────────────*/
+/* --accent-bright #818cf8 → zeminde 6.7:1 (WCAG 1.4.11 için 3:1 yeterli).
+   NOT: burada border-radius TANIMLANMAZ; tanımlanırsa odaklanan yuvarlak
+   düğmeler bir anda köşeli görünür (outline zaten elemanın kendi
+   yarıçapını takip eder). */
 *:focus-visible {
-  outline: 1.5px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+/* Klavye kullanıcısı için "içeriğe atla" — sadece odaklanınca görünür. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100000;
+  transform: translateY(-200%);
+  transition: transform 0.18s ease;
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* ── Hareket azaltma tercihi ─────────────────────────────────
+   framer-motion tarafı <MotionConfig reducedMotion="user"> ile ele alınıyor;
+   burası CSS animasyonları + smooth scroll içindir. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Keyframes kept for framer/tailwind refs */

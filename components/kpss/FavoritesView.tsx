@@ -34,7 +34,7 @@ export default function FavoritesView({
       >
         <Overline>Favoriler</Overline>
         <h1 className="mt-2 flex items-center gap-2.5 text-2xl font-semibold tracking-tight text-white">
-          <Star size={22} className="fill-amber-300 text-amber-300" />
+          <Star size={22} className="shrink-0 fill-amber-300 text-amber-300" aria-hidden="true" />
           Yıldızladığın sorular
         </h1>
       </motion.header>
@@ -43,15 +43,15 @@ export default function FavoritesView({
         <div className="mt-8 rounded-2xl border border-dashed border-white/[0.12] bg-white/[0.01] p-10 text-center">
           <Star size={28} className="mx-auto text-zinc-700" />
           <p className="mt-3 text-sm text-zinc-400">Henüz favori soru yok.</p>
-          <p className="mt-1 text-xs text-zinc-600">
+          <p className="mt-1 text-xs text-mute-3">
             Çalışırken bir sorunun sağ üstündeki ⭐ düğmesine basınca burada
             birikir.
           </p>
         </div>
       ) : (
         <>
-          <div className="mt-6 flex items-center justify-between gap-4">
-            <span className="text-sm text-zinc-500">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+            <span className="text-sm text-mute-2">
               <span className="font-mono text-zinc-300">{questions.length}</span>{" "}
               favori soru
             </span>
@@ -66,7 +66,7 @@ export default function FavoritesView({
           <div className="mt-6 space-y-4">
             {questions.map((q, idx) => (
               <div key={q.id}>
-                <div className="mb-2 font-mono text-xs text-zinc-600">
+                <div className="mb-2 font-mono text-xs text-mute-3">
                   {idx + 1} / {questions.length}
                 </div>
                 <QuestionCard

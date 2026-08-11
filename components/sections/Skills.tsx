@@ -31,7 +31,7 @@ export default function Skills() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
             Teknolojiler
           </h2>
-          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
+          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-mute-2">
             Projelerimde günlük olarak kullandığım araçlar ve diller.
           </p>
         </motion.div>
@@ -47,7 +47,8 @@ export default function Skills() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors duration-200 ${
+              aria-pressed={activeCategory === cat}
+              className={`rounded-full px-3.5 py-2 text-xs font-medium transition-colors duration-200 ${
                 activeCategory === cat
                   ? "bg-white text-zinc-900"
                   : "border border-white/10 text-zinc-400 hover:border-white/20 hover:text-white"
@@ -72,14 +73,17 @@ export default function Skills() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.28, delay: i * 0.02, ease: EASE }}
-                className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.015] px-4 py-3.5 transition-colors duration-200 hover:border-white/[0.16] hover:bg-white/[0.03]"
+                /* Mobilde 2 sütunda hücre ~100px içerik genişliği bırakıyor;
+                   "ASP.NET Core" + "Backend" yan yana sığmıyordu.
+                   Dar ekranda alt alta, sm'den itibaren yan yana. */
+                className="group relative flex flex-col items-start gap-0.5 overflow-hidden rounded-xl border border-white/[0.07] bg-white/[0.015] px-4 py-3.5 transition-colors duration-200 hover:border-white/[0.16] hover:bg-white/[0.03] sm:flex-row sm:items-center sm:justify-between sm:gap-2"
               >
                 {/* Left accent that reveals on hover */}
                 <span className="absolute left-0 top-1/2 h-6 w-[2px] -translate-y-1/2 rounded-full bg-indigo-400 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
-                <span className="text-sm font-medium text-zinc-200">
+                <span className="min-w-0 text-sm font-medium text-zinc-200">
                   {skill.name}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-600">
+                <span className="shrink-0 font-mono text-[10px] uppercase tracking-wider text-mute-3">
                   {skill.category}
                 </span>
               </motion.div>

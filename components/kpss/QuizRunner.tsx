@@ -84,7 +84,7 @@ export default function QuizRunner({
 
       {/* İlerleme */}
       <div className="mb-5">
-        <div className="mb-2 flex items-center justify-between text-xs text-zinc-500">
+        <div className="mb-2 flex items-center justify-between text-xs text-mute-2">
           <span className="font-mono">
             {i + 1} / {questions.length}
           </span>

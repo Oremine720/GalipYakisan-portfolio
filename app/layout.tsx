@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import MotionProvider from "@/components/MotionProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -97,10 +98,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="dark scroll-smooth">
-      <head>
-      </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} noise-overlay antialiased bg-[#080808] text-white overflow-x-hidden`}>
-        {children}
+      <body className={`${inter.variable} ${jetbrainsMono.variable} noise-overlay antialiased bg-[#080808] text-white`}>
+        {/* Klavye/ekran okuyucu kullanıcıları navigasyonu atlayabilsin */}
+        <a
+          href="#main"
+          className="skip-link rounded-lg bg-indigo-500 px-4 py-2.5 text-sm font-medium text-white"
+        >
+          İçeriğe atla
+        </a>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

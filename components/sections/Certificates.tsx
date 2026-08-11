@@ -46,16 +46,16 @@ export default function Certificates() {
               <h3 className="text-sm font-semibold leading-snug text-white">
                 {cert.title}
               </h3>
-              <p className="mt-1 text-xs text-zinc-500">{cert.issuer}</p>
+              <p className="mt-1 text-xs text-mute-2">{cert.issuer}</p>
 
               <div className="mt-4 flex items-center justify-between border-t border-white/[0.06] pt-3">
-                <span className="font-mono text-xs text-zinc-500">{cert.date}</span>
+                <span className="font-mono text-xs text-mute-2">{cert.date}</span>
                 {cert.credentialUrl && cert.credentialUrl !== "#" && (
                   <a
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-[11px] text-zinc-500 transition-colors hover:text-white"
+                    className="flex items-center gap-1 text-[11px] text-mute-2 transition-colors hover:text-white"
                   >
                     Görüntüle <ExternalLink size={10} />
                   </a>

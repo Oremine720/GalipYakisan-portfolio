@@ -82,8 +82,13 @@ export default function Contact() {
     },
   ];
 
+  /* text-base (16px): iOS Safari, 16px'ten küçük yazı tipli bir alana
+     odaklanınca sayfayı otomatik yakınlaştırıp düzeni bozuyor. sm'den
+     itibaren tekrar 14px.
+     focus:outline-none kaldırıldı: globals.css'teki focus-visible halkasını
+     eziyordu ve geriye yalnızca soluk bir kenarlık kalıyordu (WCAG 2.4.7). */
   const inputClass =
-    "w-full rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3 text-sm text-white placeholder-zinc-600 transition-colors duration-200 focus:border-indigo-500/60 focus:bg-white/[0.03] focus:outline-none";
+    "w-full rounded-lg border border-white/[0.08] bg-white/[0.02] px-4 py-3 text-base text-white placeholder-mute-3 transition-colors duration-200 focus:border-indigo-500/60 focus:bg-white/[0.03] sm:text-sm";
 
   return (
     <section id="contact" className="section-padding relative">
@@ -100,7 +105,7 @@ export default function Contact() {
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
             Birlikte çalışalım
           </h2>
-          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
+          <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-mute-2">
             Staj, iş teklifi veya freelance proje için bana ulaşabilirsin.
           </p>
         </motion.div>
@@ -123,7 +128,7 @@ export default function Contact() {
                   Şu an müsaitim
                 </span>
               </div>
-              <p className="text-sm leading-relaxed text-zinc-500">
+              <p className="text-sm leading-relaxed text-mute-2">
                 Staj, tam zamanlı pozisyon ve freelance projeler için aktif
                 olarak görüşüyorum. En geç 24 saat içinde geri dönerim.
               </p>
@@ -151,7 +156,7 @@ export default function Contact() {
                       <item.icon size={15} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="text-[11px] text-zinc-600">
+                      <div className="text-[11px] text-mute-3">
                         {item.label}
                       </div>
                       <div className="truncate text-sm text-zinc-300 transition-colors group-hover:text-white">
@@ -169,7 +174,7 @@ export default function Contact() {
                       <item.icon size={15} />
                     </div>
                     <div>
-                      <div className="text-[11px] text-zinc-600">
+                      <div className="text-[11px] text-mute-3">
                         {item.label}
                       </div>
                       <div className="text-sm text-zinc-300">{item.value}</div>
@@ -191,8 +196,13 @@ export default function Contact() {
               className="space-y-4 rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6"
             >
               <div>
-                <label className="overline mb-2 block">Adın</label>
+                <label htmlFor="contact-name" className="overline mb-2 block">
+                  Adın
+                </label>
                 <input
+                  id="contact-name"
+                  name="name"
+                  autoComplete="name"
                   type="text"
                   required
                   value={form.name}
@@ -205,8 +215,13 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="overline mb-2 block">E-posta</label>
+                <label htmlFor="contact-email" className="overline mb-2 block">
+                  E-posta
+                </label>
                 <input
+                  id="contact-email"
+                  name="email"
+                  autoComplete="email"
                   type="email"
                   required
                   value={form.email}
@@ -219,8 +234,12 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="overline mb-2 block">Mesajın</label>
+                <label htmlFor="contact-message" className="overline mb-2 block">
+                  Mesajın
+                </label>
                 <textarea
+                  id="contact-message"
+                  name="message"
                   required
                   value={form.message}
                   onChange={(e) =>
@@ -260,7 +279,19 @@ export default function Contact() {
                 )}
               </button>
 
-              <p className="text-center text-xs text-zinc-600">
+              {/* Gönderim durumu görsel olarak düğmenin içinde değişiyor;
+                  ekran okuyucunun bunu duyurması için canlı bölge gerekiyor. */}
+              <p role="status" aria-live="polite" className="sr-only">
+                {status === "sending"
+                  ? "Mesaj gönderiliyor."
+                  : status === "sent"
+                    ? "Mesaj gönderildi."
+                    : status === "error"
+                      ? "Mesaj gönderilemedi, lütfen tekrar dene."
+                      : ""}
+              </p>
+
+              <p className="text-center text-xs text-mute-3">
                 Ya da direkt:{" "}
                 <a
                   href="mailto:galipyakisan@gmail.com"

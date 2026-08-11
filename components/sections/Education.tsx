@@ -39,7 +39,7 @@ export default function Education() {
               {/* Timeline line */}
               <div className="absolute bottom-0 left-[22px] top-12 w-px bg-gradient-to-b from-white/15 to-transparent" />
 
-              <div className="flex gap-5">
+              <div className="flex gap-3 sm:gap-5">
                 {/* Node */}
                 <div className="relative shrink-0">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-indigo-400">
@@ -51,7 +51,9 @@ export default function Education() {
                 </div>
 
                 {/* Card */}
-                <div className="flex-1 rounded-2xl border border-white/[0.07] bg-white/[0.015] p-6">
+                {/* p-6 + 44px düğüm + boşluk, 320px ekranda karta ~160px
+                    içerik bırakıyordu; mobilde dolguyu kısıyoruz. */}
+                <div className="min-w-0 flex-1 rounded-2xl border border-white/[0.07] bg-white/[0.015] p-4 sm:p-6">
                   <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <h3 className="text-lg font-semibold tracking-tight text-white">
@@ -67,7 +69,7 @@ export default function Education() {
                           Devam ediyor
                         </span>
                       )}
-                      <div className="flex items-center gap-1.5 font-mono text-xs text-zinc-500">
+                      <div className="flex items-center gap-1.5 font-mono text-xs text-mute-2">
                         <Calendar size={11} />
                         {edu.startDate} — {edu.endDate}
                       </div>
@@ -76,17 +78,17 @@ export default function Education() {
 
                   <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
                     <span className="flex items-center gap-1.5">
-                      <MapPin size={13} className="text-zinc-600" />
+                      <MapPin size={13} className="text-mute-3" />
                       {edu.location}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <span className="text-zinc-500">GPA</span>
+                      <span className="text-mute-2">GPA</span>
                       <span className="text-metal font-semibold">{edu.gpa}</span>
-                      <span className="text-xs text-zinc-600">/ 4.00</span>
+                      <span className="text-xs text-mute-3">/ 4.00</span>
                     </span>
                   </div>
 
-                  <p className="mb-5 text-sm leading-relaxed text-zinc-500">
+                  <p className="mb-5 text-sm leading-relaxed text-mute-2">
                     {edu.description}
                   </p>
 
@@ -98,7 +100,7 @@ export default function Education() {
                           key={course}
                           className="flex items-center gap-1.5 rounded-md border border-white/[0.07] px-2.5 py-1 text-xs text-zinc-400"
                         >
-                          <BookOpen size={10} className="text-zinc-600" />
+                          <BookOpen size={10} className="text-mute-3" />
                           {course}
                         </span>
                       ))}
@@ -114,10 +116,10 @@ export default function Education() {
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-            className="mt-4 flex gap-5"
+            className="mt-4 flex gap-3 sm:gap-5"
           >
             <div className="relative shrink-0">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-dashed border-white/10 bg-transparent text-zinc-600">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-dashed border-white/10 bg-transparent text-mute-3">
                 <GraduationCap size={18} />
               </div>
             </div>
@@ -128,7 +130,7 @@ export default function Education() {
                 </span>
                 <span className="overline">gelecek</span>
               </div>
-              <p className="text-sm leading-relaxed text-zinc-500">
+              <p className="text-sm leading-relaxed text-mute-2">
                 DGS sınavıyla Yazılım Mühendisliği lisans programına geçiş
                 yaparak akademik ve profesyonel hedeflerime ulaşmak.
               </p>

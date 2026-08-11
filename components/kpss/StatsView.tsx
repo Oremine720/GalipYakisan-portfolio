@@ -52,7 +52,7 @@ export default function StatsView({
       >
         <Overline>İstatistik</Overline>
         <h1 className="mt-2 flex items-center gap-2.5 text-2xl font-semibold tracking-tight text-white">
-          <BarChart3 size={22} className="text-indigo-400" />
+          <BarChart3 size={22} className="shrink-0 text-indigo-400" aria-hidden="true" />
           İlerlemen
         </h1>
       </motion.header>
@@ -61,7 +61,7 @@ export default function StatsView({
         <div className="mt-8 rounded-2xl border border-dashed border-white/[0.12] bg-white/[0.01] p-10 text-center">
           <BarChart3 size={28} className="mx-auto text-zinc-700" />
           <p className="mt-3 text-sm text-zinc-400">Henüz veri yok.</p>
-          <p className="mt-1 text-xs text-zinc-600">
+          <p className="mt-1 text-xs text-mute-3">
             Biraz çalış veya deneme yap; ilerlemen burada birikecek.
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function StatsView({
                     <div key={sid}>
                       <div className="mb-1.5 flex items-center justify-between text-sm">
                         <span className="text-zinc-200">{subjectName(sid)}</span>
-                        <span className="font-mono text-xs text-zinc-500">
+                        <span className="font-mono text-xs text-mute-2">
                           %{rate} · {v.correct}/{v.answered}
                         </span>
                       </div>
@@ -104,12 +104,14 @@ export default function StatsView({
 
           {/* Yanlışlar defteri */}
           {wrong.length > 0 && (
-            <div className="mt-4 flex items-center justify-between gap-4 rounded-2xl border border-rose-400/15 bg-rose-500/[0.05] p-5">
+            /* Dar telefonda metin + "Yanlışları çöz" düğmesi tek satıra
+               sığmıyor, metin eziliyordu. */
+            <div className="mt-4 flex flex-col items-start gap-3 rounded-2xl border border-rose-400/15 bg-rose-500/[0.05] p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <div>
                 <div className="text-sm font-medium text-zinc-100">
                   Yanlışlar defteri
                 </div>
-                <div className="text-xs text-zinc-500">
+                <div className="text-xs text-mute-2">
                   {wrong.length} soruyu yanlış çözdün — tekrar dene.
                 </div>
               </div>
@@ -137,7 +139,7 @@ export default function StatsView({
                         {r.mode === "exam" ? "Deneme" : "Çalışma"} ·{" "}
                         {r.subjectId ? subjectName(r.subjectId) : "Karışık"}
                       </div>
-                      <div className="text-xs text-zinc-600">
+                      <div className="text-xs text-mute-3">
                         {getRelativeTime(r.dateISO)}
                       </div>
                     </div>
@@ -145,7 +147,7 @@ export default function StatsView({
                       <div className="font-mono text-sm text-white">
                         {formatNet(r.net)} net
                       </div>
-                      <div className="text-xs text-zinc-600">
+                      <div className="text-xs text-mute-3">
                         {r.correct}/{r.total}
                       </div>
                     </div>
@@ -158,7 +160,8 @@ export default function StatsView({
           {/* Sıfırla */}
           <div className="mt-6 flex justify-center">
             {confirmReset ? (
-              <div className="flex items-center gap-3 rounded-lg border border-rose-400/20 bg-rose-500/[0.06] px-4 py-2.5">
+              /* Metin + iki düğme 320px'te taşıyordu → sarmalasın. */
+              <div className="flex flex-wrap items-center justify-center gap-3 rounded-lg border border-rose-400/20 bg-rose-500/[0.06] px-4 py-2.5">
                 <AlertTriangle size={15} className="text-amber-400" />
                 <span className="text-sm text-zinc-300">Tüm ilerleme silinsin mi?</span>
                 <button
@@ -167,7 +170,9 @@ export default function StatsView({
                     load();
                     setConfirmReset(false);
                   }}
-                  className="rounded-md bg-rose-500 px-3 py-1 text-xs font-medium text-white hover:bg-rose-400"
+                  /* rose-500 üzerine beyaz 12px yazı = 3.67:1 (AA altı);
+                     rose-600 ile 4.70:1. */
+                  className="rounded-md bg-rose-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-rose-500"
                 >
                   Evet, sil
                 </button>
@@ -181,7 +186,7 @@ export default function StatsView({
             ) : (
               <button
                 onClick={() => setConfirmReset(true)}
-                className="inline-flex items-center gap-2 text-xs text-zinc-600 transition-colors hover:text-rose-300"
+                className="inline-flex items-center gap-2 text-xs text-mute-3 transition-colors hover:text-rose-300"
               >
                 <Trash2 size={13} /> İlerlemeyi sıfırla
               </button>
@@ -205,7 +210,7 @@ function Tile({
   return (
     <div className="rounded-xl border border-white/[0.07] bg-white/[0.015] p-4 text-center">
       <div className={`text-2xl font-semibold text-white ${cls ?? ""}`}>{value}</div>
-      <div className="mt-0.5 text-xs text-zinc-500">{label}</div>
+      <div className="mt-0.5 text-xs text-mute-2">{label}</div>
     </div>
   );
 }

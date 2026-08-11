@@ -14,6 +14,18 @@ const config: Config = {
         mono: ["var(--font-jetbrains)", "Fira Code", "monospace"],
       },
       colors: {
+        /**
+         * Erişilebilir soluk gri skalası.
+         * Tailwind'in zinc-500/600/700'ü sitenin #08080a zemininde
+         * sırasıyla 4.14 / 2.59 / 1.92:1 kontrast veriyor — WCAG AA (4.5:1)
+         * altında kalıyor. Aşağıdaki tonlar aynı "sessiz" hiyerarşiyi korur
+         * ama üçü de AA'yı geçer. Oranlar #08080a zeminine göre ölçüldü.
+         */
+        mute: {
+          1: "#a1a1aa", // 7.8:1 — ikincil metin (= zinc-400)
+          2: "#8e8e99", // 6.2:1 — üçüncül metin / açıklamalar
+          3: "#7c7c88", // 4.9:1 — en soluk metin, meta, placeholder
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         border: "hsl(var(--border))",

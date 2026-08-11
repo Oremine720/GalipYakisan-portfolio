@@ -70,11 +70,11 @@ export default function About() {
               ağırlıklı olmak üzere, yazılım mimarisi gerektiren her alanda
               çalışmaya yüksek motivasyon duyuyorum.
             </p>
-            <p className="text-[15px] leading-relaxed text-zinc-500">
+            <p className="text-[15px] leading-relaxed text-mute-2">
               Karşılaştığım teknik problemlerde kapsamlı kaynak araştırması
               yaparak analitik ve kalıcı çözümler üretmeyi prensip ediniyorum.
             </p>
-            <p className="text-[15px] leading-relaxed text-zinc-500">
+            <p className="text-[15px] leading-relaxed text-mute-2">
               Kariyer hedefim; <span className="text-indigo-400">DGS</span> ile
               eğitimimi <span className="text-indigo-400">Yazılım Mühendisliği</span>{" "}
               alanında tamamlayarak sektörde değer üreten yetkin bir Full-Stack
@@ -91,7 +91,7 @@ export default function About() {
                   key={text}
                   className="flex items-center gap-2 rounded-lg border border-white/[0.07] px-3 py-1.5 text-sm text-zinc-400"
                 >
-                  <Icon size={13} className="text-zinc-500" />
+                  <Icon size={13} className="text-mute-2" />
                   {text}
                 </div>
               ))}
@@ -107,7 +107,7 @@ export default function About() {
                     className="flex items-center justify-between py-2.5"
                   >
                     <span className="text-sm text-zinc-300">{l.lang}</span>
-                    <span className="font-mono text-xs text-zinc-500">
+                    <span className="font-mono text-xs text-mute-2">
                       {l.level}
                     </span>
                   </div>
@@ -130,7 +130,7 @@ export default function About() {
                   <item.icon size={17} />
                 </div>
                 <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
+                <p className="mt-1.5 text-xs leading-relaxed text-mute-2">
                   {item.desc}
                 </p>
               </motion.div>

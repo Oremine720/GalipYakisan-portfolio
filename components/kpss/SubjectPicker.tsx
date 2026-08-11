@@ -29,9 +29,11 @@ export default function SubjectPicker({
         transition={{ duration: 0.5, ease: EASE }}
       >
         <Overline>Ders Seç</Overline>
-        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">
+        {/* Bu görünümde sayfanın tek başlığı bu — h2 ile başlarsa
+            başlık hiyerarşisinde h1 boşluğu kalıyor. */}
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-white">
           Hangi derse çalışacaksın?
-        </h2>
+        </h1>
       </motion.div>
 
       {/* Tüm dersler */}
@@ -53,7 +55,7 @@ export default function SubjectPicker({
             Havuzdaki her dersten karışık sorular
           </span>
         </span>
-        <span className="shrink-0 font-mono text-xs text-zinc-500">
+        <span className="shrink-0 font-mono text-xs text-mute-2">
           {totalQuestionCount} soru
         </span>
         <ChevronRight
@@ -86,17 +88,17 @@ export default function SubjectPicker({
                 <span className="block font-medium text-zinc-100">
                   {subject.name}
                 </span>
-                <span className="block text-xs text-zinc-500">
+                <span className="block text-xs text-mute-2">
                   {subject.topics?.length ?? 0} konu
                 </span>
               </span>
               {disabled ? (
-                <span className="shrink-0 rounded-md border border-white/[0.07] px-2 py-0.5 font-mono text-[10px] text-zinc-500">
+                <span className="shrink-0 rounded-md border border-white/[0.07] px-2 py-0.5 font-mono text-[10px] text-mute-2">
                   yakında
                 </span>
               ) : (
                 <>
-                  <span className="shrink-0 font-mono text-xs text-zinc-500">
+                  <span className="shrink-0 font-mono text-xs text-mute-2">
                     {count} soru
                   </span>
                   <ChevronRight

@@ -34,7 +34,7 @@ export default function Home() {
       <ScrollProgress />
       <Navbar />
 
-      <main className="relative z-10">
+      <main id="main" tabIndex={-1} className="relative z-10 focus:outline-none">
         <Hero />
         <About />
         <Skills />

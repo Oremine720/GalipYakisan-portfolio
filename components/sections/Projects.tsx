@@ -31,7 +31,7 @@ export default function Projects() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">
               Seçili projeler
             </h2>
-            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-zinc-500">
+            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-mute-2">
               Geliştirdiğim uygulamalar ve yazılım projeleri.
             </p>
           </div>
@@ -45,7 +45,8 @@ export default function Projects() {
               <button
                 key={f.value}
                 onClick={() => setFilter(f.value as typeof filter)}
-                className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors duration-200 ${
+                aria-pressed={filter === f.value}
+                className={`rounded-full px-3.5 py-2 text-xs font-medium transition-colors duration-200 ${
                   filter === f.value
                     ? "bg-white text-zinc-900"
                     : "text-zinc-400 hover:text-white"
@@ -77,7 +78,7 @@ export default function Projects() {
                 >
                   {/* Top meta */}
                   <div className="mb-5 flex items-center justify-between">
-                    <span className="font-mono text-xs text-zinc-600">
+                    <span className="font-mono text-xs text-mute-3">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div className="flex items-center gap-3">
@@ -86,7 +87,7 @@ export default function Projects() {
                           Öne çıkan
                         </span>
                       )}
-                      <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                      <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-mute-2">
                         <span
                           className={`h-1.5 w-1.5 rounded-full ${
                             done ? "bg-emerald-400/80" : "bg-amber-400/80"
@@ -101,10 +102,10 @@ export default function Projects() {
                   <h3 className="text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-indigo-300">
                     {project.title}
                   </h3>
-                  <p className="mt-0.5 text-sm text-zinc-500">{project.subtitle}</p>
+                  <p className="mt-0.5 text-sm text-mute-2">{project.subtitle}</p>
 
                   {/* Description */}
-                  <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-zinc-500">
+                  <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-mute-2">
                     {project.description}
                   </p>
 
@@ -122,7 +123,7 @@ export default function Projects() {
 
                   {/* Footer */}
                   <div className="mt-6 flex items-center gap-4 border-t border-white/[0.06] pt-4">
-                    <span className="flex items-center gap-1.5 text-xs text-zinc-500 transition-colors group-hover:text-white">
+                    <span className="flex items-center gap-1.5 text-xs text-mute-2 transition-colors group-hover:text-white">
                       <Github size={13} />
                       Kaynak kodu
                     </span>

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Download, ArrowDown, Mail } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/data";
+import { scrollToId } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -13,21 +14,24 @@ const fadeUp = (delay: number) => ({
 });
 
 export default function Hero() {
-  const scrollToAbout = () => {
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToAbout = () => scrollToId("about");
 
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      /* min-h-screen (100vh) mobilde tarayıcı adres çubuğunu da sayar;
+         bölüm ekrandan taşar ve alttaki içerik kırpılır. svh gerçek
+         görünür yüksekliği verir. */
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden"
     >
       {/* Ambient — one soft glow + faint grid, no particles */}
       <div className="grid-bg absolute inset-0 opacity-60" />
       <div className="pointer-events-none absolute left-1/2 top-[-12%] h-[560px] w-[880px] -translate-x-1/2 rounded-full bg-indigo-500/[0.07] blur-[150px]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#08080a] to-transparent" />
 
-      <div className="relative z-10 mx-auto max-w-3xl px-6 pt-24 text-center">
+      {/* pb-24: içerik küçük telefonlarda ekranı doldurduğunda alttaki
+          "aşağı kaydır" oku istatistiklerin üstüne biniyordu. */}
+      <div className="relative z-10 mx-auto max-w-3xl px-6 pb-24 pt-24 text-center">
         {/* Availability */}
         <motion.div
           {...fadeUp(0)}
@@ -50,7 +54,9 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="text-metal text-5xl font-semibold leading-[1.05] tracking-[-0.03em] md:text-7xl"
+          /* text-5xl 320px'lik ekranlarda "Galip Yakışan"ı ikinci satıra
+             kırıyordu; 4xl'de tek satıra sığıyor. */
+          className="text-metal text-4xl font-semibold leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-7xl"
         >
           Galip Yakışan
         </motion.h1>
@@ -58,10 +64,10 @@ export default function Hero() {
         {/* Role */}
         <motion.p
           {...fadeUp(0.16)}
-          className="mt-5 font-mono text-sm tracking-tight text-zinc-500 md:text-base"
+          className="mt-5 font-mono text-sm tracking-tight text-mute-2 md:text-base"
         >
           Full&nbsp;Stack Developer
-          <span className="mx-2 text-zinc-700">/</span>
+          <span className="mx-2 text-mute-3">/</span>
           <span className="text-indigo-400">AI Enthusiast</span>
         </motion.p>
 
@@ -125,11 +131,13 @@ export default function Hero() {
             { value: "3.76", label: "GPA" },
             { value: "2+", label: "Yıl deneyim" },
           ].map((stat) => (
-            <div key={stat.label} className="flex-1 px-6">
+            /* px-6 dar telefonlarda 3 sütunun yarısını dolguya harcıyordu
+               ("Yıl deneyim" sarkıyordu). */
+            <div key={stat.label} className="flex-1 px-3 sm:px-6">
               <div className="text-metal text-2xl font-semibold tracking-tight md:text-3xl">
                 {stat.value}
               </div>
-              <div className="mt-1 text-xs text-zinc-600">{stat.label}</div>
+              <div className="mt-1 text-xs text-mute-3">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -142,7 +150,9 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.8 }}
         aria-label="Aşağı kaydır"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-zinc-700 transition-colors hover:text-zinc-400"
+        /* İçeriği yalnızca ikondan ibaret bir kontrol → WCAG 1.4.11 gereği
+           en az 3:1 kontrast lazım; zinc-700 1.9:1 idi, mute-3 4.9:1. */
+        className="absolute bottom-8 left-1/2 flex h-11 w-11 -translate-x-1/2 items-center justify-center text-mute-3 transition-colors hover:text-zinc-300"
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}

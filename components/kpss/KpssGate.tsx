@@ -58,7 +58,7 @@ export default function KpssGate() {
               <GraduationCap size={22} className="text-indigo-400" />
               KPSS Çalışma
             </h1>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-2 text-sm leading-relaxed text-mute-2">
               Bu alan yalnızca sana özel. Devam etmek için şifreni gir.
             </p>
           </div>
@@ -78,11 +78,17 @@ export default function KpssGate() {
                 if (error) setError(null);
               }}
               placeholder="Şifre"
-              className="w-full rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-sm text-zinc-100 outline-none transition-colors placeholder:text-zinc-600 focus:border-indigo-400/50"
+              aria-invalid={error ? true : undefined}
+              aria-describedby={error ? "kpss-pw-error" : undefined}
+              /* outline-none kaldırıldı (focus halkasını eziyordu);
+                 text-base → iOS'ta odaklanınca sayfa yakınlaşmasın. */
+              className="w-full rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-base text-zinc-100 transition-colors placeholder:text-mute-3 focus:border-indigo-400/50 sm:text-sm"
             />
 
             {error && (
               <motion.p
+                id="kpss-pw-error"
+                role="alert"
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-2 text-xs text-rose-400"
@@ -112,7 +118,7 @@ export default function KpssGate() {
         <div className="mt-4 text-center">
           <Link
             href="/"
-            className="text-xs text-zinc-500 transition-colors hover:text-zinc-200"
+            className="text-xs text-mute-2 transition-colors hover:text-zinc-200"
           >
             ← Siteye dön
           </Link>

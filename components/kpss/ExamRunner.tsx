@@ -61,6 +61,20 @@ export default function ExamRunner({
     if (remaining === 0) finish();
   }, [remaining, finish]);
 
+  /* "Bitir" onay penceresi: Escape ile kapansın ve açılır açılmaz odak
+     içine gelsin — aksi halde klavye kullanıcısının odağı arkadaki
+     sayfada kalıyordu. */
+  const confirmRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!confirming) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setConfirming(false);
+    };
+    document.addEventListener("keydown", onKey);
+    confirmRef.current?.focus();
+    return () => document.removeEventListener("keydown", onKey);
+  }, [confirming]);
+
   if (questions.length === 0) {
     return (
       <div className="mx-auto max-w-3xl">
@@ -110,7 +124,7 @@ export default function ExamRunner({
         >
           <Timer size={15} /> {formatClock(remaining)}
         </span>
-        <span className="text-xs text-zinc-500">
+        <span className="text-xs text-mute-2">
           <span className="font-mono text-zinc-300">{answeredCount}</span>/
           {questions.length} cevaplandı
         </span>
@@ -125,13 +139,15 @@ export default function ExamRunner({
             <button
               key={qq.id}
               onClick={() => goto(idx)}
+              aria-label={`Soru ${idx + 1}${isAnswered ? ", cevaplandı" : ", boş"}`}
+              aria-current={current ? "true" : undefined}
               className={cn(
-                "flex h-8 w-8 shrink-0 items-center justify-center rounded-md border font-mono text-xs transition-colors",
+                "flex h-9 w-9 shrink-0 items-center justify-center rounded-md border font-mono text-xs transition-colors",
                 current
                   ? "border-indigo-400 bg-indigo-500/20 text-white"
                   : isAnswered
                     ? "border-indigo-400/30 bg-indigo-500/10 text-indigo-200"
-                    : "border-white/10 text-zinc-500 hover:text-zinc-300",
+                    : "border-white/10 text-mute-2 hover:text-zinc-300",
               )}
             >
               {idx + 1}
@@ -179,16 +195,23 @@ export default function ExamRunner({
       {confirming && (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-4 backdrop-blur-sm sm:items-center">
           <motion.div
+            ref={confirmRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="exam-finish-title"
+            tabIndex={-1}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: EASE }}
-            className="w-full max-w-sm rounded-2xl border border-white/[0.1] bg-[#0d0d10] p-6"
+            className="w-full max-w-sm rounded-2xl border border-white/[0.1] bg-[#0d0d10] p-6 focus:outline-none"
           >
             <div className="flex items-center gap-2.5 text-zinc-100">
-              <AlertTriangle size={18} className="text-amber-400" />
-              <span className="font-medium">Denemeyi bitir?</span>
+              <AlertTriangle size={18} className="text-amber-400" aria-hidden="true" />
+              <span id="exam-finish-title" className="font-medium">
+                Denemeyi bitir?
+              </span>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+            <p className="mt-2 text-sm leading-relaxed text-mute-2">
               {blankCount > 0
                 ? `${blankCount} soru boş kalacak. Bitirince cevaplar değerlendirilir.`
                 : "Tüm sorular cevaplandı. Cevaplar değerlendirilecek."}
